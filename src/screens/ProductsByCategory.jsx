@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native'
 import Header from '../components/Header/Header'
 
+
 const ProductsByCategory = () => {
   return (
     <>
