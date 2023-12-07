@@ -19,12 +19,12 @@ const styles = StyleSheet.create({
     height: 100,
     width: '100%',
     justifyContent: 'flex-end',
-    alignItems: 'center',
-    paddingBottom: 8,
     backgroundColor: colors.darkBlue,
+    marginTop: 10,
+    marginLeft: 10
   },
-
   headerText: {
+    fontFamily: 'Outfit-ExtraBold',
     fontSize: 40,
     color: colors.paleGoldenRod,
   }

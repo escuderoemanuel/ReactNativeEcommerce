@@ -16,6 +16,7 @@ const ProductsByCategory = () => {
 export default ProductsByCategory
 
 const styles = StyleSheet.create({
-  productsByCategory: {}
+  productsByCategory: {
+  }
 
 })

@@ -27,5 +27,6 @@ export default Categories
 
 const styles = StyleSheet.create({
   categories: {
+    
   }
 })

@@ -18,5 +18,6 @@ export default ProductDetail
 
 const styles = StyleSheet.create({
   productDetail: {
+    
   }
 })
