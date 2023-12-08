@@ -16,12 +16,10 @@ export default Header
 
 const styles = StyleSheet.create({
   header: {
-    height: 100,
     width: '100%',
     justifyContent: 'flex-end',
     backgroundColor: colors.darkBlue,
-    marginTop: 10,
-    marginLeft: 10
+    marginLeft: 10,
   },
   headerText: {
     fontFamily: 'Outfit-ExtraBold',
