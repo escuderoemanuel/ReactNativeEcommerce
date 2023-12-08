@@ -5,17 +5,16 @@ import CategoryItem from '../components/CategoryItem/CategoryItem'
 
 const CategoriesScreen = () => {
 
-  const renderCategoryItem = ({ item }) => (
-    <CategoryItem category={item} />
-  )
-
   return (
     <>
       <Header title='Categories' />
       <View style={styles.categoriesScreen}>
         <FlatList
           data={categoriesData}
-          renderItem={renderCategoryItem}
+          // Toma cada item y lo renderiza dentro de un componente CategoryItem
+          renderItem={({ item }) => (
+            <CategoryItem category={item} />
+          )}
           keyExtractor={item => item}
         />
       </View>
