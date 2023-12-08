@@ -3,20 +3,25 @@ import CategoriesScreen from './src/screens/CategoriesScreen';
 import { colors } from './src/global/colors';
 import { useFonts } from 'expo-font';
 import { myFonts } from './src/global/myFonts';
-import ProductsByCategoryScreen from './src/screens/ProductsByCategoryScreen';
+import { useState } from 'react';
 
 export default function App() {
   const [fontsLoaded] = useFonts(myFonts)
+  const [categorySelected, setCategorySelected] = useState('')
+  console.log('Categoria seleccionada', categorySelected)
 
   if (!fontsLoaded) {
     return <ActivityIndicator style={{ flex: 1, backgroundColor: colors.darkBlue }} animating={true} hidesWhenStopped={true} size='large' color={colors.paleGoldenRod} />
   }
 
+  const onSelectCategory = (category) => {
+    setCategorySelected(category)
+  }
+
   return (
     <View style={styles.container}>
       <StatusBar style='light' />
-      {/* <CategoriesScreen /> */}
-      <ProductsByCategoryScreen />
+      <CategoriesScreen onSelectCategoryEvent={onSelectCategory} />
     </View>
   );
 }
@@ -26,5 +31,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.darkBlue,
     justifyContent: 'space-between',
+    padding: 10
   },
 });

@@ -23,7 +23,8 @@ const styles = StyleSheet.create({
   },
   headerText: {
     fontFamily: 'Outfit-ExtraBold',
-    fontSize: 40,
+    fontSize: 36,
     color: colors.paleGoldenRod,
+    marginBottom: 20
   }
 })

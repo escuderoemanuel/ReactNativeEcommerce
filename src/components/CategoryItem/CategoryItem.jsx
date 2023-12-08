@@ -2,10 +2,10 @@ import { StyleSheet, Text, TouchableOpacity } from 'react-native'
 import Card from '../Card/Card'
 import { colors } from '../../global/colors'
 
-const CategoryItem = ({ category }) => {
+const CategoryItem = ({ category, onSelectCategoryEvent }) => {
   return (
 
-    <TouchableOpacity onPress={null}>
+    <TouchableOpacity onPress={() => onSelectCategoryEvent(category)}>
       <Card style={styles.categoryItem}>
         <Text>{category}</Text>
       </Card>

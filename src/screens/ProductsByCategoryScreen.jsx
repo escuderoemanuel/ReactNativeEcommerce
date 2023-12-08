@@ -13,7 +13,7 @@ const ProductsByCategoryScreen = () => {
 
   return (
     <>
-      <Header style='Products By Category ' />
+      <Header title='Products' />
       <FlatList
         data={products_data}
         renderItem={renderProductItem}
