@@ -3,7 +3,7 @@ import Header from '../components/Header/Header'
 import categoriesData from '../data/categories_data.json'
 import CategoryItem from '../components/CategoryItem/CategoryItem'
 
-const Categories = () => {
+const CategoriesScreen = () => {
 
   const renderCategoryItem = ({ item }) => (
     <CategoryItem category={item} />
@@ -12,7 +12,7 @@ const Categories = () => {
   return (
     <>
       <Header title='Categories' />
-      <View style={styles.categories}>
+      <View style={styles.categoriesScreen}>
         <FlatList
           data={categoriesData}
           renderItem={renderCategoryItem}
@@ -23,10 +23,10 @@ const Categories = () => {
   )
 }
 
-export default Categories
+export default CategoriesScreen
 
 const styles = StyleSheet.create({
-  categories: {
-    
+  categoriesScreen: {
+
   }
 })

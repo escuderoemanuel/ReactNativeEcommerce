@@ -2,21 +2,21 @@ import { StyleSheet, Text, View } from 'react-native'
 import Header from '../components/Header/Header'
 
 
-const ProductsByCategory = () => {
+const ProductsByCategoryScreen = () => {
   return (
     <>
       <Header style='Products By Category ' />
-      <View style={styles.productsByCategory}>
+      <View style={styles.productsByCategoryScreen}>
         <Text>Products By Category Screen</Text>
       </View>
     </>
   )
 }
 
-export default ProductsByCategory
+export default ProductsByCategoryScreen
 
 const styles = StyleSheet.create({
-  productsByCategory: {
+  productsByCategoryScreen: {
   }
 
 })

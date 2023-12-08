@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View, ActivityIndicator } from 'react-native';
-import Categories from './src/screens/Categories';
+import CategoriesScreen from './src/screens/CategoriesScreen';
 import { colors } from './src/global/colors';
 import { useFonts } from 'expo-font';
 
@@ -20,7 +20,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar style='light' />
-      <Categories />
+      <CategoriesScreen />
 
 
     </View>
