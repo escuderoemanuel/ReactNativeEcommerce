@@ -25,7 +25,4 @@ const CategoriesScreen = ({ onSelectCategoryEvent }) => {
 export default CategoriesScreen
 
 const styles = StyleSheet.create({
-  categoriesScreen: {
-
-  }
 })

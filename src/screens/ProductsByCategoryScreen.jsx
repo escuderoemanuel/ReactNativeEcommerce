@@ -1,13 +1,12 @@
-import { Text, StyleSheet, View, FlatList } from 'react-native'
+import { FlatList } from 'react-native'
 import { useEffect, useState } from 'react'
 import Header from '../components/Header/Header'
 import products_data from '../data/products_data.json'
-import { colors } from '../global/colors'
 import ProductItem from '../components/ProductItem/ProductItem'
 import Search from '../components/Search/Search'
 
 
-const ProductsByCategoryScreen = ({ category }) => {
+const ProductsByCategoryScreen = ({ category, returnHomeHandlerEvent }) => {
   const [productsByCategory, setProductsByCategory] = useState([])
   const [search, setSearch] = useState('')
 
@@ -28,7 +27,7 @@ const ProductsByCategoryScreen = ({ category }) => {
 
   return (
     <>
-      <Header title='Products' />
+      <Header title='Products' returnHomeHandlerEvent={returnHomeHandlerEvent} />
       <Search onSearchHandlerEvent={onSearch} />
       <FlatList
         data={productsByCategory}
@@ -40,12 +39,3 @@ const ProductsByCategoryScreen = ({ category }) => {
 }
 
 export default ProductsByCategoryScreen
-
-const styles = StyleSheet.create({
-  productsByCategoryScreen: {
-  },
-  itemTitle: {
-    color: colors.greyLabel,
-  }
-
-})

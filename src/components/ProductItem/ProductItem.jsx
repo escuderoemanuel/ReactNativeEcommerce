@@ -14,8 +14,11 @@ export default ProductItem
 
 const styles = StyleSheet.create({
   containerProduct: {
+    width: '100%',
+    height: 100,
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
     marginBottom: 20,
     borderColor: colors.paleGoldenRod,
     borderWidth: 2,
@@ -24,13 +27,16 @@ const styles = StyleSheet.create({
   },
   productTitle: {
     color: colors.greyLabel,
-    marginTop: 10,
-    marginRight: 15,
     fontWeight: 'bold',
-    fontSize: 18,
+    fontSize: 20,
+    textAlign: 'right',
+    width: '70%',
+    height: '100%',
+    flexWrap: 'wrap',
+    padding: 10,
   },
   productThumbnail: {
-    width: 100,
-    height: 100,
+    width: '30%',
+    height: '100%',
   }
 })

@@ -14,7 +14,6 @@ export default Card
 const styles = StyleSheet.create({
   card: {
     borderRadius: 8,
-    padding: 10,
     marginVertical: 7,
   },
   textCard: {

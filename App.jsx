@@ -19,13 +19,17 @@ export default function App() {
     setCategorySelected(category)
   }
 
+  const onReturnHome = () => {
+    setCategorySelected('')
+  }
+
   return (
     <View style={styles.container}>
       <StatusBar style='light' />
       <>
         {
           categorySelected ?
-            <ProductsByCategoryScreen category={categorySelected} />
+            <ProductsByCategoryScreen category={categorySelected} returnHomeHandlerEvent={onReturnHome} />
             :
             <CategoriesScreen onSelectCategoryEvent={onSelectCategory} />
         }

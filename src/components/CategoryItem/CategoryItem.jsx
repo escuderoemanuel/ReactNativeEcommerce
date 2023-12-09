@@ -6,7 +6,7 @@ const CategoryItem = ({ category, onSelectCategoryEvent }) => {
   return (
 
     <TouchableOpacity onPress={() => onSelectCategoryEvent(category)}>
-      <Card style={styles.categoryItem}>
+      < Card style={styles.categoryItem} >
         <Text>{category}</Text>
       </Card>
     </TouchableOpacity>

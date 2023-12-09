@@ -1,36 +1,63 @@
-import { StyleSheet, View, TextInput, TouchableOpacity } from 'react-native'
+import { StyleSheet, View, TextInput, Pressable, Text } from 'react-native'
 import { useState } from 'react'
 import { colors } from '../../global/colors'
 import { AntDesign, EvilIcons } from '@expo/vector-icons';
 
 const Search = ({ onSearchHandlerEvent }) => {
   const [searchInput, setSearchInput] = useState('')
+  const [error, setError] = useState('')
 
+  const onSearchHandler = (search) => {
+    const regEx = /[^\w\s]/
+    if (regEx.test(searchInput)) {
+      setError('Only letters and numbers are allowed!')
+      setSearchInput('')
+    } else {
+      setError('')
+      onSearchHandlerEvent(search)
+    }
+  }
+
+  const onResetSearchHandler = () => {
+    setSearchInput('')
+    setError('')
+    onSearchHandlerEvent(searchInput)
+  }
 
   return (
-    <View style={styles.searchContainer}>
+    <>
+      <View style={styles.searchContainer}>
 
-      <TextInput
-        style={styles.searchInput}
-        placeholder="Search..."
-        onChangeText={setSearchInput}
-        value={searchInput}
-      />
+        <TextInput
+          style={styles.searchInput}
+          placeholder="Search..."
+          onChangeText={setSearchInput}
+          value={searchInput}
+        />
 
-      <View style={styles.searchIcons}>
+        <View style={styles.searchIcons}>
 
-        <TouchableOpacity onPress={() => { setSearchInput('') }}>
-          <EvilIcons name="trash" size={30} color="black" />
-        </TouchableOpacity>
+          <Pressable onPress={onResetSearchHandler}>
+            <EvilIcons name="trash" size={30} color="black" />
+          </Pressable>
+          <Pressable onPress={() => { onSearchHandler(searchInput) }}>
+            <AntDesign name="search1" size={24} color="black" />
+          </Pressable>
 
-        <TouchableOpacity onPress={() => onSearchHandlerEvent(searchInput)}>
-          <AntDesign name="search1" size={24} color="black" />
-        </TouchableOpacity>
-
-      </View>
-    </View >
+        </View>
+      </View >
+      {
+        error ?
+          <View style={styles.errorMessageContainer}>
+            <Text style={styles.errorText}>{error}</Text>
+          </View>
+          :
+          null
+      }
+    </>
   )
 }
+
 
 export default Search
 
@@ -53,5 +80,17 @@ const styles = StyleSheet.create({
   searchIcons: {
     flexDirection: 'row',
     gap: 10,
+  },
+  errorMessageContainer: {
+    padding: 10,
+    marginBottom: 20,
+    backgroundColor: colors.redLabel,
+    borderRadius: 7,
+  },
+  errorText: {
+    fontSize: 18,
+    textAlign: 'center',
+    color: colors.greyLabel,
   }
-})
+}
+)
