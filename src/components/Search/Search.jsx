@@ -25,7 +25,7 @@ const Search = ({ onSearchHandlerEvent }) => {
   }
 
   return (
-    <>
+    <View style={styles.searchContainerGlobal}>
       <View style={styles.searchContainer}>
 
         <TextInput
@@ -54,7 +54,7 @@ const Search = ({ onSearchHandlerEvent }) => {
           :
           null
       }
-    </>
+    </View>
   )
 }
 
@@ -62,17 +62,20 @@ const Search = ({ onSearchHandlerEvent }) => {
 export default Search
 
 const styles = StyleSheet.create({
-  searchContainer: {
+  searchContainerGlobal: {
     width: '100%',
+    padding: 10,
+  },
+  searchContainer: {
+    padding: 10,
     backgroundColor: colors.paleGoldenRod,
     borderColor: colors.paleGoldenRod,
     borderWidth: 1,
-    marginBottom: 20,
+    marginBottom: 10,
     borderRadius: 10,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    padding: 10,
   },
   searchInput: {
     width: '80%',
@@ -83,7 +86,6 @@ const styles = StyleSheet.create({
   },
   errorMessageContainer: {
     padding: 10,
-    marginBottom: 20,
     backgroundColor: colors.redLabel,
     borderRadius: 7,
   },
