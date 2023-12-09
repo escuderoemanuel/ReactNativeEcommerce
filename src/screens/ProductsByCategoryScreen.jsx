@@ -4,6 +4,7 @@ import Header from '../components/Header/Header'
 import products_data from '../data/products_data.json'
 import { colors } from '../global/colors'
 import ProductItem from '../components/ProductItem/ProductItem'
+import Search from '../components/Search/Search'
 
 
 const ProductsByCategoryScreen = ({ category }) => {
@@ -22,6 +23,7 @@ const ProductsByCategoryScreen = ({ category }) => {
   return (
     <>
       <Header title='Products' />
+      <Search />
       <FlatList
         data={productsByCategory}
         renderItem={renderProductItem}
