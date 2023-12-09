@@ -47,12 +47,11 @@ const Search = ({ onSearchHandlerEvent }) => {
         </View>
       </View >
       {
-        error ?
-          <View style={styles.errorMessageContainer}>
-            <Text style={styles.errorText}>{error}</Text>
-          </View>
-          :
-          null
+        error &&
+        <View style={styles.errorMessageContainer}>
+          <Text style={styles.errorText}>{error}</Text>
+        </View>
+
       }
     </View>
   )
