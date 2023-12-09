@@ -9,21 +9,27 @@ import Search from '../components/Search/Search'
 
 const ProductsByCategoryScreen = ({ category }) => {
   const [productsByCategory, setProductsByCategory] = useState([])
+  const [search, setSearch] = useState('')
 
   useEffect(() => {
     const productsFilteredByCategory = products_data.filter(product => product.category.toLowerCase() === category.toLowerCase())
-    setProductsByCategory(productsFilteredByCategory)
-  }, [category])
+    const productsFilteredByName = productsFilteredByCategory.filter(product => product.title.toLowerCase().includes(search.toLowerCase()))
+    setProductsByCategory(productsFilteredByName)
+  }, [category, search])
 
 
   const renderProductItem = ({ item }) => (
     <ProductItem product={item} />
   )
 
+  const onSearch = (search) => {
+    setSearch(search)
+  }
+
   return (
     <>
       <Header title='Products' />
-      <Search />
+      <Search onSearchHandlerEvent={onSearch} />
       <FlatList
         data={productsByCategory}
         renderItem={renderProductItem}
