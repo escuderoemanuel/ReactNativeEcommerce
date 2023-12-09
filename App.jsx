@@ -1,5 +1,6 @@
 import { StyleSheet, View, ActivityIndicator, StatusBar } from 'react-native';
 import CategoriesScreen from './src/screens/CategoriesScreen';
+import ProductsByCategoryScreen from './src/screens/ProductsByCategoryScreen';
 import { colors } from './src/global/colors';
 import { useFonts } from 'expo-font';
 import { myFonts } from './src/global/myFonts';
@@ -21,7 +22,14 @@ export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar style='light' />
-      <CategoriesScreen onSelectCategoryEvent={onSelectCategory} />
+      <>
+        {
+          categorySelected ?
+            <ProductsByCategoryScreen category={categorySelected} />
+            :
+            <CategoriesScreen onSelectCategoryEvent={onSelectCategory} />
+        }
+      </>
     </View>
   );
 }
