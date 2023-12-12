@@ -9,7 +9,7 @@ const Search = ({ onSearchHandlerEvent }) => {
 
   const onSearchHandler = () => {
     const regEx = /[^\w\s]/
-    if (regEx.test(searchInput)) {
+    if ((regEx.test(searchInput) || searchInput === '')) {
       setError('Only letters and numbers are allowed!')
       setSearchInput('')
     } else {
