@@ -5,14 +5,16 @@ import { AntDesign } from '@expo/vector-icons';
 
 const Header = ({ title, returnHomeHandlerEvent }) => {
 
-
   return (
     <View style={styles.header}>
       <Text style={styles.headerText}>{title}</Text>
-      <Pressable onPress={returnHomeHandlerEvent}>
-        <AntDesign name="home" size={24} color={colors.paleGoldenRod} />
-      </Pressable>
-    </View>
+      <View style={styles.headerIcons}>
+        <Pressable
+          onPress={returnHomeHandlerEvent}>
+          <AntDesign name="home" size={24} color={colors.paleGoldenRod} />
+        </Pressable>
+      </View>
+    </View >
   )
 }
 
@@ -25,11 +27,16 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     backgroundColor: colors.darkBlue,
-    padding: 10,
+    paddingHorizontal: 10,
+    marginBottom: 10,
   },
   headerText: {
     fontFamily: 'Outfit-ExtraBold',
-    fontSize: 36,
+    fontSize: 24,
     color: colors.paleGoldenRod,
+  },
+  headerIcons: {
+    flexDirection: 'row',
+    gap: 20,
   }
 })

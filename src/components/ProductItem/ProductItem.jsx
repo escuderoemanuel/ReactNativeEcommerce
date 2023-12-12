@@ -1,12 +1,15 @@
-import { TouchableOpacity, StyleSheet, Text, Image, View } from 'react-native'
+import { TouchableOpacity, StyleSheet, Text, Image, View, useWindowDimensions } from 'react-native'
 import { colors } from '../../global/colors'
 
 const ProductItem = ({ product, onSelectProductIdEvent, returnHomeHandlerEvent }) => {
+  const { height, width } = useWindowDimensions()
+
   return (
     <View style={styles.containerProductGlobal}>
-      <TouchableOpacity style={styles.containerProduct} onPress={() => onSelectProductIdEvent(product.id)}>
+      <TouchableOpacity style={styles.containerProduct} onPress={() => onSelectProductIdEvent(product.id)} returnHomeHandlerEvent={returnHomeHandlerEvent}  >
         <Image source={{ uri: product.thumbnail }} style={styles.productThumbnail} />
-        <Text style={styles.productTitle}>{product.title}</Text>
+        <Text style={
+          width < 400 ? styles.productTitle : styles.productTitleOther}>{product.title}</Text>
       </TouchableOpacity>
     </View>
   )
@@ -32,6 +35,16 @@ const styles = StyleSheet.create({
   },
   productTitle: {
     color: colors.greyLabel,
+    fontWeight: 'bold',
+    fontSize: 20,
+    textAlign: 'right',
+    width: '70%',
+    height: '100%',
+    flexWrap: 'wrap',
+    padding: 10,
+  },
+  productTitleOther: {
+    color: colors.paleGoldenRod,
     fontWeight: 'bold',
     fontSize: 20,
     textAlign: 'right',

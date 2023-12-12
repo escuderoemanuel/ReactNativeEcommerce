@@ -10,7 +10,7 @@ const CategoriesScreen = ({ onSelectCategoryEvent }) => {
 
   return (
     <>
-      <Header title='Categories' />
+      <Header title='Categories Screen' />
       <View style={styles.categoriesScreen}>
         <FlatList
           data={categoriesData}

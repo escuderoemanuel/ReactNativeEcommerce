@@ -27,7 +27,7 @@ const ProductsByCategoryScreen = ({ category, returnHomeHandlerEvent, onSelectPr
 
   return (
     <>
-      <Header title='Products' returnHomeHandlerEvent={returnHomeHandlerEvent} />
+      <Header title='Products By Categories' returnHomeHandlerEvent={returnHomeHandlerEvent} />
       <Search onSearchHandlerEvent={onSearch} />
       <FlatList
         data={productsByCategory}

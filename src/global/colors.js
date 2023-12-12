@@ -2,7 +2,7 @@
 
 export const colors = {
   textLight: 'whitesmoke',
-  darkBlue: '#053245',
+  darkBlue: '#002B5B',
   paleGoldenRod: '#E4F87F',
   paleGoldenRodLight: '#F3FFB7',
   royalBlue: '#5650F2',
