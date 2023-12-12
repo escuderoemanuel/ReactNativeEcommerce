@@ -28,20 +28,10 @@ const ProductDetailScreen = ({ productId, returnHomeHandlerEvent }) => {
       <Header title={'Product Detail'} returnHomeHandlerEvent={returnHomeHandlerEvent} />
 
       {isLoading ?
-        <ActivityIndicator style={styles.activityIndicator} />
+        <ActivityIndicator style={{ flex: 1, backgroundColor: colors.darkBlue }} animating={true} hidesWhenStopped={true} size='large' color={colors.paleGoldenRod} />
         :
-        <ProductDetail productSelected={productId} />
-        /* <View style={styles.productDetailScreen}>
-          <Image source={{ uri: productSelected.images[0] }} resizeMode='cover' style={isPortrait ? styles.productImagesPortrait : styles.productImagesLandscape} />
-          <View style={styles.detailContainer}>
-            <Text style={styles.productTitle}>{productSelected.title}</Text>
-            <Text style={styles.productDescription}>{productSelected.description}</Text>
-            <Text style={styles.productPrice}>U$D {productSelected.price}</Text>
-            <Pressable style={styles.buyButton} onPress={() => null}>
-              <Text style={styles.buyButtonText}>Buy<Text style={styles.buyButtonSpan}>!</Text></Text>
-            </Pressable>
-          </View>
-        </View> */
+        <ProductDetail productSelected={productSelected} isPortrait={isPortrait} />
+
       }
     </>
   )
@@ -50,13 +40,6 @@ const ProductDetailScreen = ({ productId, returnHomeHandlerEvent }) => {
 export default ProductDetailScreen
 
 const styles = StyleSheet.create({
-  activityIndicator: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '100%',
-    backgroundColor: colors.darkBlue,
-  },
   productDetailScreen: {
     marginTop: 20,
     flex: 1,
@@ -118,3 +101,16 @@ const styles = StyleSheet.create({
   }
 
 })
+
+
+/* <View style={styles.productDetailScreen}>
+          <Image source={{ uri: productSelected.images[0] }} resizeMode='cover' style={isPortrait ? styles.productImagesPortrait : styles.productImagesLandscape} />
+          <View style={styles.detailContainer}>
+            <Text style={styles.productTitle}>{productSelected.title}</Text>
+            <Text style={styles.productDescription}>{productSelected.description}</Text>
+            <Text style={styles.productPrice}>U$D {productSelected.price}</Text>
+            <Pressable style={styles.buyButton} onPress={() => null}>
+              <Text style={styles.buyButtonText}>Buy<Text style={styles.buyButtonSpan}>!</Text></Text>
+            </Pressable>
+          </View>
+        </View> */

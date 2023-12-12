@@ -1,9 +1,8 @@
 import { colors } from '../../global/colors'
 import { StyleSheet, Text, View, Pressable, Image } from 'react-native'
-import React, { useState } from 'react'
 
-export default function ProductDetail() {
-  const [productSelected, setProductSelected] = useState({})
+export default function ProductDetail({ productSelected, isPortrait }) {
+
 
   return (
     <View style={styles.productDetailScreen}>
