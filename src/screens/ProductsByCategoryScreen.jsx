@@ -6,7 +6,7 @@ import ProductItem from '../components/ProductItem/ProductItem'
 import Search from '../components/Search/Search'
 
 
-const ProductsByCategoryScreen = ({ category, returnHomeHandlerEvent }) => {
+const ProductsByCategoryScreen = ({ category, returnHomeHandlerEvent, onSelectProductIdEvent }) => {
   const [productsByCategory, setProductsByCategory] = useState([])
   const [search, setSearch] = useState('')
 
@@ -18,7 +18,7 @@ const ProductsByCategoryScreen = ({ category, returnHomeHandlerEvent }) => {
 
 
   const renderProductItem = ({ item }) => (
-    <ProductItem product={item} />
+    <ProductItem product={item} onSelectProductIdEvent={onSelectProductIdEvent} />
   )
 
   const onSearch = (search) => {

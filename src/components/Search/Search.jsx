@@ -7,14 +7,15 @@ const Search = ({ onSearchHandlerEvent }) => {
   const [searchInput, setSearchInput] = useState('')
   const [error, setError] = useState('')
 
-  const onSearchHandler = (search) => {
+  const onSearchHandler = () => {
     const regEx = /[^\w\s]/
     if (regEx.test(searchInput)) {
       setError('Only letters and numbers are allowed!')
       setSearchInput('')
     } else {
       setError('')
-      onSearchHandlerEvent(search)
+      onSearchHandlerEvent(searchInput)
+      setSearchInput('')
     }
   }
 

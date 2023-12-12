@@ -5,11 +5,14 @@ import { colors } from './src/global/colors';
 import { useFonts } from 'expo-font';
 import { myFonts } from './src/global/myFonts';
 import { useState } from 'react';
+import ProductDetailScreen from './src/screens/ProductDetailScreen';
 
 export default function App() {
   const [fontsLoaded] = useFonts(myFonts)
   const [categorySelected, setCategorySelected] = useState('')
-  console.log('Categoria seleccionada', categorySelected)
+  const [productIdSelected, setProductIdSelected] = useState(null)
+  // console.log('Categoria seleccionada', categorySelected)
+
 
   if (!fontsLoaded) {
     return <ActivityIndicator style={{ flex: 1, backgroundColor: colors.darkBlue }} animating={true} hidesWhenStopped={true} size='large' color={colors.paleGoldenRod} />
@@ -23,15 +26,22 @@ export default function App() {
     setCategorySelected('')
   }
 
+  const onSelectProductId = (productId) => {
+    setProductIdSelected(productId)
+  }
+
   return (
     <View style={styles.container}>
       <StatusBar style='light' />
       <>
         {
-          categorySelected ?
-            <ProductsByCategoryScreen category={categorySelected} returnHomeHandlerEvent={onReturnHome} />
+          productIdSelected ?
+            <ProductDetailScreen productId={productIdSelected} />
             :
-            <CategoriesScreen onSelectCategoryEvent={onSelectCategory} />
+            categorySelected ?
+              <ProductsByCategoryScreen category={categorySelected} returnHomeHandlerEvent={onReturnHome} onSelectProductIdEvent={onSelectProductId} />
+              :
+              <CategoriesScreen onSelectCategoryEvent={onSelectCategory} />
         }
       </>
     </View>
