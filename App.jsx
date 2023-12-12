@@ -24,6 +24,7 @@ export default function App() {
 
   const onReturnHome = () => {
     setCategorySelected('')
+    setProductIdSelected(null)
   }
 
   const onSelectProductId = (productId) => {
