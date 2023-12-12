@@ -1,4 +1,4 @@
-import { ActivityIndicator, Pressable, StyleSheet, Text, View, Image, useWindowDimensions } from 'react-native'
+import { ActivityIndicator, StyleSheet, useWindowDimensions } from 'react-native'
 import Header from '../components/Header/Header'
 import products_data from '../data/products_data.json'
 import { useEffect, useState } from 'react'
@@ -99,18 +99,4 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: colors.darkBlue,
   }
-
 })
-
-
-/* <View style={styles.productDetailScreen}>
-          <Image source={{ uri: productSelected.images[0] }} resizeMode='cover' style={isPortrait ? styles.productImagesPortrait : styles.productImagesLandscape} />
-          <View style={styles.detailContainer}>
-            <Text style={styles.productTitle}>{productSelected.title}</Text>
-            <Text style={styles.productDescription}>{productSelected.description}</Text>
-            <Text style={styles.productPrice}>U$D {productSelected.price}</Text>
-            <Pressable style={styles.buyButton} onPress={() => null}>
-              <Text style={styles.buyButtonText}>Buy<Text style={styles.buyButtonSpan}>!</Text></Text>
-            </Pressable>
-          </View>
-        </View> */
