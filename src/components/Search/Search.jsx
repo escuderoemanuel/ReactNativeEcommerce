@@ -70,7 +70,6 @@ const styles = StyleSheet.create({
     padding: 10,
     backgroundColor: colors.paleGoldenRod,
     borderColor: colors.paleGoldenRod,
-    borderWidth: 1,
     marginBottom: 10,
     borderRadius: 10,
     flexDirection: 'row',

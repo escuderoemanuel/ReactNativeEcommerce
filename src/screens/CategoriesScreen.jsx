@@ -1,4 +1,4 @@
-import { FlatList, StyleSheet, View } from 'react-native'
+import { FlatList, StyleSheet, View, ScrollView } from 'react-native'
 import Header from '../components/Header/Header'
 import categoriesData from '../data/categories_data.json'
 import CategoryItem from '../components/CategoryItem/CategoryItem'
@@ -25,4 +25,7 @@ const CategoriesScreen = ({ onSelectCategoryEvent }) => {
 export default CategoriesScreen
 
 const styles = StyleSheet.create({
+  categoriesScreen: {
+    marginBottom: 80
+  }
 })

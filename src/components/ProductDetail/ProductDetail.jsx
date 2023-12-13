@@ -5,7 +5,7 @@ export default function ProductDetail({ productSelected, isPortrait, returnHomeH
 
 
   return (
-    <View style={styles.productDetailScreen}>
+    <View style={isPortrait ? styles.productDetailScreenPortrait : styles.productDetailScreenLandscape}>
       <Image source={{ uri: productSelected.images[0] }} resizeMode='cover' style={isPortrait ? styles.productImagesPortrait : styles.productImagesLandscape} />
       <View style={styles.detailContainer}>
         <Text style={styles.productTitle}>{productSelected.title}</Text>
@@ -17,15 +17,22 @@ export default function ProductDetail({ productSelected, isPortrait, returnHomeH
           </Text>
         </Pressable>
       </View>
-    </View>
+    </View >
   )
 }
 
 const styles = StyleSheet.create({
-  productDetailScreen: {
+  productDetailScreenPortrait: {
     marginTop: 20,
     flex: 1,
     padding: 10,
+  },
+  productDetailScreenLandscape: {
+    flexDirection: 'row',
+    width: '50%',
+    marginTop: 20,
+    flex: 1,
+    padding: 0,
   },
   productImagesPortrait: {
     width: '100%',
@@ -34,10 +41,10 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   productImagesLandscape: {
-    width: '50%',
+    width: '100%',
     height: '100%',
     borderRadius: 15,
-    marginBottom: 10,
+    marginRight: 20,
   },
   detailContainer: {
     padding: 10,
