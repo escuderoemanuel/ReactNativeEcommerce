@@ -24,6 +24,7 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
     width: '100%',
+    height: 60,
     justifyContent: 'space-between',
     alignItems: 'center',
     backgroundColor: colors.darkBlue,
