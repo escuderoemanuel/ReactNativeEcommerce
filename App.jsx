@@ -2,7 +2,7 @@ import { colors } from './src/global/colors';
 import { useFonts } from 'expo-font';
 import { myFonts } from './src/global/myFonts';
 import { useState } from 'react';
-import { StyleSheet, ActivityIndicator, StatusBar } from 'react-native';
+import { StyleSheet, ActivityIndicator } from 'react-native';
 import Navigator from './src/navigation/Navigator';
 
 export default function App() {
@@ -31,7 +31,6 @@ export default function App() {
 
   return (
     <>
-      <StatusBar />
       <Navigator />
     </>
   );

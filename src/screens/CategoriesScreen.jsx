@@ -1,7 +1,7 @@
-import { FlatList, StyleSheet, View, ScrollView } from 'react-native'
-import Header from '../components/Header/Header'
+import { FlatList, StyleSheet, View } from 'react-native'
 import categoriesData from '../data/categories_data.json'
 import CategoryItem from '../components/CategoryItem/CategoryItem'
+import { colors } from '../global/colors'
 
 const CategoriesScreen = ({ navigation }) => {
   const renderCategoryItem = ({ item }) => (
@@ -10,7 +10,6 @@ const CategoriesScreen = ({ navigation }) => {
 
   return (
     <>
-      {/* <Header title='CategoriesScreen' /> */}
       <View style={styles.categoriesScreen}>
         <FlatList
           data={categoriesData}
@@ -26,6 +25,6 @@ export default CategoriesScreen
 
 const styles = StyleSheet.create({
   categoriesScreen: {
-    marginBottom: 80
+    backgroundColor: colors.darkBlue
   }
 })

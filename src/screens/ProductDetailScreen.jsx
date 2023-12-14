@@ -44,6 +44,7 @@ export default ProductDetailScreen
 
 const style = StyleSheet.create({
   containerProductDetail: {
-    paddinBottom: 50
+    backgroundColor: colors.darkBlue,
+
   }
 })

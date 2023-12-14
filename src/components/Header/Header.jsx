@@ -29,7 +29,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     backgroundColor: colors.darkBlue,
     paddingHorizontal: 10,
-    marginBottom: 10,
   },
   headerText: {
     fontFamily: 'Outfit-ExtraBold',

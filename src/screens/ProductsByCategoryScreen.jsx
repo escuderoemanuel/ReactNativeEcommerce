@@ -5,6 +5,7 @@ import products_data from '../data/products_data.json'
 import ProductItem from '../components/ProductItem/ProductItem'
 import Search from '../components/Search/Search'
 import NoSearchResult from '../components/NoSearchResult/NoSearchResult'
+import { colors } from '../global/colors'
 
 const ProductsByCategoryScreen = ({ navigation, route }) => {
   const [productsByCategory, setProductsByCategory] = useState([])
@@ -60,8 +61,7 @@ export default ProductsByCategoryScreen
 const style = StyleSheet.create({
   container: {
     flex: 1,
-    marginBottom: 80
-
+    backgroundColor: colors.darkBlue,
   },
   containerProductsByCategory: {
     marginBottom: 80
