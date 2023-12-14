@@ -1,16 +1,19 @@
-import { Pressable, StyleSheet, Text, View, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, Pressable } from 'react-native'
 import { colors } from '../../global/colors'
-import { AntDesign } from '@expo/vector-icons';
+import { Ionicons, AntDesign } from '@expo/vector-icons';
 
 
 const Header = ({ title, navigation }) => {
 
   return (
     <View style={styles.header}>
-      <TouchableOpacity onPress={navigation.goBack}>
-        <AntDesign name="home" size={24} color={colors.paleGoldenRod} />
-      </TouchableOpacity>
+      <Pressable onPress={navigation.goBack} style={styles.headerIcon}>
+        <Ionicons name="arrow-back-circle-outline" size={30} color={colors.paleGoldenRod} />
+      </Pressable>
       <Text style={styles.headerText}>{title}</Text>
+      <Pressable onPress={navigation.popToTop} style={styles.headerIcon}>
+        <AntDesign name="home" size={24} color={colors.paleGoldenRod} />
+      </Pressable>
     </View >
   )
 }
@@ -22,8 +25,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     width: '100%',
     height: 60,
-    justifyContent: 'space-between',
     alignItems: 'center',
+    justifyContent: 'space-between',
     backgroundColor: colors.darkBlue,
     paddingHorizontal: 10,
     marginBottom: 10,
@@ -32,9 +35,10 @@ const styles = StyleSheet.create({
     fontFamily: 'Outfit-ExtraBold',
     fontSize: 24,
     color: colors.paleGoldenRod,
+    justifyContent: 'center',
+    textAlign: 'center',
   },
-  headerIcons: {
-    flexDirection: 'row',
-    gap: 20,
+  headerIcon: {
+    justifyContent: 'flex-start',
   }
 })
