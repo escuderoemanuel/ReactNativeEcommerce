@@ -24,11 +24,13 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
     width: '100%',
-    height: 60,
     alignItems: 'center',
     justifyContent: 'space-between',
     backgroundColor: colors.darkBlue,
-    paddingHorizontal: 10,
+    paddingHorizontal: 20,
+    paddingBottom: 10,
+    paddingTop: 0
+
   },
   headerText: {
     fontFamily: 'Outfit-ExtraBold',

@@ -6,9 +6,12 @@ import ProductDetailScreen from '../screens/ProductDetailScreen';
 import ProductsByCategoryScreen from '../screens/ProductsByCategoryScreen';
 import Header from '../components/Header/Header'
 
+
+
 const Stack = createNativeStackNavigator();
 
 const Navigation = () => {
+
   return (
     <NavigationContainer>
       <Stack.Navigator
@@ -22,19 +25,26 @@ const Navigation = () => {
         <Stack.Screen
           name='Categories'
           component={CategoriesScreen}
-        />
-        <Stack.Screen
-          name='ProductDetails'
-          component={ProductDetailScreen}
+          options={{ title: 'Title ' }}
         />
         <Stack.Screen
           name='ProductsByCategory'
           component={ProductsByCategoryScreen}
+          options={({ route }) => ({ title: route.params?.category || 'Title ' })}
         />
+        <Stack.Screen
+          name='ProductDetails'
+          component={ProductDetailScreen}
+          options={{ title: 'Title ' }}
+        />
+
       </Stack.Navigator>
     </NavigationContainer>
   );
-
 }
 
 export default Navigation;
+
+// ToDo:
+//! Que en la  initialRouteName no se muestren los iconos de navegación
+//! Que en el title del Header, se muestre el nombre de la categoría o producto

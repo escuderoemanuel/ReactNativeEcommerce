@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     width: '50%',
     marginTop: 20,
     flex: 1,
-    padding: 0,
+    padding: 20,
   },
   productImagesPortrait: {
     width: '100%',

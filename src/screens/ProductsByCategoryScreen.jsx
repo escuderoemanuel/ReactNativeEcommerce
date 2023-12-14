@@ -24,11 +24,6 @@ const ProductsByCategoryScreen = ({ navigation, route }) => {
     <ProductItem product={item} navigation={navigation} />
   )
 
-
-  useEffect(() => {
-    console.log(productsByCategory.length);
-  }, [productsByCategory]);
-
   const onSearch = (search) => {
     setSearch(search);
   };

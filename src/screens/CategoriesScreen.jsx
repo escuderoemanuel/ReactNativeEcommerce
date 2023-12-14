@@ -8,6 +8,10 @@ const CategoriesScreen = ({ navigation }) => {
     <CategoryItem category={item} navigation={navigation} />
   )
 
+  const navigateToProductsByCategory = (category) => {
+    navigation.navigate('ProductsByCategory', { category: category });
+  };
+
   return (
     <>
       <View style={styles.categoriesScreen}>
