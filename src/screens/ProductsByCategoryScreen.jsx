@@ -1,6 +1,5 @@
 import { FlatList, View, StyleSheet } from 'react-native'
 import { useEffect, useState } from 'react'
-import Header from '../components/Header/Header'
 import products_data from '../data/products_data.json'
 import ProductItem from '../components/ProductItem/ProductItem'
 import Search from '../components/Search/Search'
@@ -11,8 +10,6 @@ const ProductsByCategoryScreen = ({ navigation, route }) => {
   const [productsByCategory, setProductsByCategory] = useState([])
   const [search, setSearch] = useState('')
 
-  console.log("Route params: ", route.params)
-  console.log("Route params category: ", route.params.category)
   const { category } = route.params
 
 
@@ -27,17 +24,21 @@ const ProductsByCategoryScreen = ({ navigation, route }) => {
     <ProductItem product={item} navigation={navigation} />
   )
 
+
+  useEffect(() => {
+    console.log(productsByCategory.length);
+  }, [productsByCategory]);
+
   const onSearch = (search) => {
-    setSearch(search)
-  }
+    setSearch(search);
+  };
 
   return (
     <View style={style.container}>
-      {/*  <Header title='Products By Categories' /> */}
 
       <Search onSearchHandlerEvent={onSearch} />
 
-      <View >
+      <>
 
         {productsByCategory.length === 0 && (
           <NoSearchResult />
@@ -50,9 +51,10 @@ const ProductsByCategoryScreen = ({ navigation, route }) => {
           keyExtractor={item => item.id}
         />
 
-      </View>
 
-    </View>
+      </>
+
+    </View >
   )
 }
 
