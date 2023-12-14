@@ -1,19 +1,16 @@
-import { Pressable, StyleSheet, Text, View } from 'react-native'
+import { Pressable, StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import { colors } from '../../global/colors'
 import { AntDesign } from '@expo/vector-icons';
 
 
-const Header = ({ title, returnHomeHandlerEvent }) => {
+const Header = ({ title, navigation }) => {
 
   return (
     <View style={styles.header}>
+      <TouchableOpacity onPress={navigation.goBack}>
+        <AntDesign name="home" size={24} color={colors.paleGoldenRod} />
+      </TouchableOpacity>
       <Text style={styles.headerText}>{title}</Text>
-      <View style={styles.headerIcons}>
-        <Pressable
-          onPress={returnHomeHandlerEvent}>
-          <AntDesign name="home" size={24} color={colors.paleGoldenRod} />
-        </Pressable>
-      </View>
     </View >
   )
 }

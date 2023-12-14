@@ -6,26 +6,28 @@ import { colors } from '../global/colors'
 import ProductDetail from '../components/ProductDetail/ProductDetail'
 
 
-const ProductDetailScreen = ({ productId, returnHomeHandlerEvent }) => {
+const ProductDetailScreen = ({ route }) => {
   const [productSelected, setProductSelected] = useState({})
   const [isLoading, setIsLoading] = useState(true)
   const [isPortrait, setIsPortrait] = useState(true)
   const { height, width } = useWindowDimensions()
+
+  const productId = route.params
 
   useEffect(() => {
     height < width ? setIsPortrait(false) : setIsPortrait(true)
   }, [height])
 
   useEffect(() => {
-    const productFinded = products_data.find(product => product.id === productId)
-    setProductSelected(productFinded)
+    const productFound = products_data.find(product => product.id === productId)
+    setProductSelected(productFound)
     setIsLoading(false)
   }, [productId])
 
 
   return (
     <>
-      <Header title={'Product Detail'} returnHomeHandlerEvent={returnHomeHandlerEvent} />
+      {/* <Header title={'Product Detail'} /> */}
       <ScrollView style={style.containerProductDetail}>
         {isLoading ?
           <ActivityIndicator style={{ flex: 1, backgroundColor: colors.darkBlue }} animating={true} hidesWhenStopped={true} size='large' color={colors.paleGoldenRod} />

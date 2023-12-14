@@ -1,12 +1,12 @@
 import { TouchableOpacity, StyleSheet, Text, Image, View, useWindowDimensions } from 'react-native'
 import { colors } from '../../global/colors'
 
-const ProductItem = ({ product, onSelectProductIdEvent, returnHomeHandlerEvent }) => {
+const ProductItem = ({ product, navigation }) => {
   const { height, width } = useWindowDimensions()
 
   return (
     <View style={styles.containerProductGlobal}>
-      <TouchableOpacity style={styles.containerProduct} onPress={() => onSelectProductIdEvent(product.id)} returnHomeHandlerEvent={returnHomeHandlerEvent}  >
+      <TouchableOpacity style={styles.containerProduct} onPress={() => navigation.navigate('ProductDetails', product.id)} >
         <Image source={{ uri: product.thumbnail }} style={styles.productThumbnail} />
         <Text style={
           width < 400 ? styles.productTitle : styles.productTitleOther}>{product.title}</Text>

@@ -1,7 +1,7 @@
 import { colors } from '../../global/colors'
 import { StyleSheet, Text, View, Pressable, Image } from 'react-native'
 
-export default function ProductDetail({ productSelected, isPortrait, returnHomeHandlerEvent }) {
+export default function ProductDetail({ productSelected, isPortrait }) {
 
 
   return (
@@ -11,7 +11,7 @@ export default function ProductDetail({ productSelected, isPortrait, returnHomeH
         <Text style={styles.productTitle}>{productSelected.title}</Text>
         <Text style={styles.productDescription}>{productSelected.description}</Text>
         <Text style={styles.productPrice}>U$D {productSelected.price}</Text>
-        <Pressable style={styles.buyButton} onPress={() => null} returnHomeHandlerEvent={returnHomeHandlerEvent}>
+        <Pressable style={styles.buyButton} onPress={() => null} >
           <Text style={styles.buyButtonText}>Buy
             <Text style={styles.buyButtonSpan}>!</Text>
           </Text>
