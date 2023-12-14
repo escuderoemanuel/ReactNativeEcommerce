@@ -6,6 +6,7 @@ import { StyleSheet, ActivityIndicator, StatusBar, SafeAreaView } from 'react-na
 import CategoriesScreen from './src/screens/CategoriesScreen';
 import ProductsByCategoryScreen from './src/screens/ProductsByCategoryScreen';
 import ProductDetailScreen from './src/screens/ProductDetailScreen';
+import Navigator from './src/navigation/Navigator';
 
 export default function App() {
   const [fontsLoaded] = useFonts(myFonts)
@@ -32,7 +33,9 @@ export default function App() {
   }
 
   return (
-    < SafeAreaView style={styles.container} >
+    <>
+      <Navigator></Navigator>
+      {/* < SafeAreaView style={styles.container} >
       <StatusBar backgroundColor={colors.darkBlue} />
 
       {
@@ -51,7 +54,8 @@ export default function App() {
             :
             <CategoriesScreen onSelectCategoryEvent={onSelectCategory} />
       }
-    </SafeAreaView >
+    </SafeAreaView > */}
+    </>
   );
 }
 
