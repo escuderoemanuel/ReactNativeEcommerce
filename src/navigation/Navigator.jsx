@@ -7,6 +7,9 @@ import ProductsByCategoryScreen from '../screens/ProductsByCategoryScreen';
 import Header from '../components/Header/Header'
 
 
+// ToDo:
+//! Que en la  initialRouteName no se muestren los iconos de navegación
+//! Que en el title del Header, se muestre el nombre de la categoría o producto
 
 const Stack = createNativeStackNavigator();
 
@@ -44,7 +47,3 @@ const Navigation = () => {
 }
 
 export default Navigation;
-
-// ToDo:
-//! Que en la  initialRouteName no se muestren los iconos de navegación
-//! Que en el title del Header, se muestre el nombre de la categoría o producto

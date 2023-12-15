@@ -465,7 +465,7 @@
         "rating": 4.08,
         "stock": 131,
         "brand": "Boho Decor",
-        "category": "home-decoration",
+        "category": "home decoration",
         "thumbnail": "https://i.dummyjson.com/data/products/26/thumbnail.jpg",
         "images": [
             "https://i.dummyjson.com/data/products/26/1.jpg",
@@ -485,7 +485,7 @@
         "rating": 4.41,
         "stock": 17,
         "brand": "Flying Wooden",
-        "category": "home-decoration",
+        "category": "home decoration",
         "thumbnail": "https://i.dummyjson.com/data/products/27/thumbnail.webp",
         "images": [
             "https://i.dummyjson.com/data/products/27/1.jpg",
@@ -504,7 +504,7 @@
         "rating": 4.82,
         "stock": 54,
         "brand": "LED Lights",
-        "category": "home-decoration",
+        "category": "home decoration",
         "thumbnail": "https://i.dummyjson.com/data/products/28/thumbnail.jpg",
         "images": [
             "https://i.dummyjson.com/data/products/28/1.jpg",
@@ -523,7 +523,7 @@
         "rating": 4.44,
         "stock": 7,
         "brand": "luxury palace",
-        "category": "home-decoration",
+        "category": "home decoration",
         "thumbnail": "https://i.dummyjson.com/data/products/29/thumbnail.webp",
         "images": [
             "https://i.dummyjson.com/data/products/29/1.jpg",
@@ -542,7 +542,7 @@
         "rating": 4.92,
         "stock": 54,
         "brand": "Golden",
-        "category": "home-decoration",
+        "category": "home decoration",
         "thumbnail": "https://i.dummyjson.com/data/products/30/thumbnail.jpg",
         "images": [
             "https://i.dummyjson.com/data/products/30/1.jpg",
@@ -745,7 +745,7 @@
         "rating": 4.65,
         "stock": 21,
         "brand": "RED MICKY MOUSE..",
-        "category": "womens-dresses",
+        "category": "womens dresses",
         "thumbnail": "https://i.dummyjson.com/data/products/41/thumbnail.webp",
         "images": [
             "https://i.dummyjson.com/data/products/41/1.jpg",
@@ -764,7 +764,7 @@
         "rating": 4.05,
         "stock": 148,
         "brand": "Digital Printed",
-        "category": "womens-dresses",
+        "category": "womens dresses",
         "thumbnail": "https://i.dummyjson.com/data/products/42/thumbnail.jpg",
         "images": [
             "https://i.dummyjson.com/data/products/42/1.png",
@@ -783,7 +783,7 @@
         "rating": 4.31,
         "stock": 150,
         "brand": "Ghazi Fabric",
-        "category": "womens-dresses",
+        "category": "womens dresses",
         "thumbnail": "https://i.dummyjson.com/data/products/43/thumbnail.jpg",
         "images": [
             "https://i.dummyjson.com/data/products/43/1.jpg",
@@ -796,13 +796,13 @@
     {
         "id": 44,
         "title": "Ladies Multicolored Dress",
-        "description": "This classy shirt for women gives you a gorgeous look on everyday wear and specially for semi-casual wears.",
+        "description": "This classy shirt for women gives you a gorgeous look on everyday wear and specially for semi casual wears.",
         "price": 79,
         "discountPercentage": 16.88,
         "rating": 4.03,
         "stock": 2,
         "brand": "Ghazi Fabric",
-        "category": "womens-dresses",
+        "category": "womens dresses",
         "thumbnail": "https://i.dummyjson.com/data/products/44/thumbnail.jpg",
         "images": [
             "https://i.dummyjson.com/data/products/44/1.jpg",
@@ -821,7 +821,7 @@
         "rating": 4.67,
         "stock": 96,
         "brand": "IELGY",
-        "category": "womens-dresses",
+        "category": "womens dresses",
         "thumbnail": "https://i.dummyjson.com/data/products/45/thumbnail.jpg",
         "images": [
             "https://i.dummyjson.com/data/products/45/1.jpg",
@@ -840,7 +840,7 @@
         "rating": 4.14,
         "stock": 72,
         "brand": "IELGY fashion",
-        "category": "womens-shoes",
+        "category": "womens shoes",
         "thumbnail": "https://i.dummyjson.com/data/products/46/thumbnail.jpg",
         "images": [
             "https://i.dummyjson.com/data/products/46/1.webp",
@@ -859,7 +859,7 @@
         "rating": 4.19,
         "stock": 50,
         "brand": "Synthetic Leather",
-        "category": "womens-shoes",
+        "category": "womens shoes",
         "thumbnail": "https://i.dummyjson.com/data/products/47/thumbnail.jpeg",
         "images": [
             "https://i.dummyjson.com/data/products/47/1.jpg",
@@ -871,13 +871,13 @@
     {
         "id": 48,
         "title": "Women Strip Heel",
-        "description": "Features: Flip-flops, Mid Heel, Comfortable, Striped Heel, Antiskid, Striped",
+        "description": "Features: Flip flops, Mid Heel, Comfortable, Striped Heel, Antiskid, Striped",
         "price": 40,
         "discountPercentage": 10.83,
         "rating": 4.02,
         "stock": 25,
         "brand": "Sandals Flip Flops",
-        "category": "womens-shoes",
+        "category": "womens shoes",
         "thumbnail": "https://i.dummyjson.com/data/products/48/thumbnail.jpg",
         "images": [
             "https://i.dummyjson.com/data/products/48/1.jpg",
@@ -896,7 +896,7 @@
         "rating": 4.72,
         "stock": 107,
         "brand": "Maasai Sandals",
-        "category": "womens-shoes",
+        "category": "womens shoes",
         "thumbnail": "https://i.dummyjson.com/data/products/49/thumbnail.jpg",
         "images": [
             "https://i.dummyjson.com/data/products/49/1.jpg",
@@ -914,7 +914,7 @@
         "rating": 4.33,
         "stock": 46,
         "brand": "Arrivals Genuine",
-        "category": "womens-shoes",
+        "category": "womens shoes",
         "thumbnail": "https://i.dummyjson.com/data/products/50/thumbnail.jpg",
         "images": [
             "https://i.dummyjson.com/data/products/50/1.jpeg",
@@ -931,7 +931,7 @@
         "rating": 4.26,
         "stock": 132,
         "brand": "Vintage Apparel",
-        "category": "mens-shirts",
+        "category": "mens shirts",
         "thumbnail": "https://i.dummyjson.com/data/products/51/thumbnail.jpg",
         "images": [
             "https://i.dummyjson.com/data/products/51/1.png",
@@ -949,7 +949,7 @@
         "rating": 4.52,
         "stock": 128,
         "brand": "FREE FIRE",
-        "category": "mens-shirts",
+        "category": "mens shirts",
         "thumbnail": "https://i.dummyjson.com/data/products/52/thumbnail.jpg",
         "images": [
             "https://i.dummyjson.com/data/products/52/1.png",
@@ -968,7 +968,7 @@
         "rating": 4.89,
         "stock": 6,
         "brand": "Vintage Apparel",
-        "category": "mens-shirts",
+        "category": "mens shirts",
         "thumbnail": "https://i.dummyjson.com/data/products/53/thumbnail.jpg",
         "images": [
             "https://i.dummyjson.com/data/products/53/1.webp",
@@ -987,7 +987,7 @@
         "rating": 4.62,
         "stock": 136,
         "brand": "The Warehouse",
-        "category": "mens-shirts",
+        "category": "mens shirts",
         "thumbnail": "https://i.dummyjson.com/data/products/54/thumbnail.jpg",
         "images": [
             "https://i.dummyjson.com/data/products/54/1.jpg",
@@ -1006,7 +1006,7 @@
         "rating": 4.9,
         "stock": 122,
         "brand": "The Warehouse",
-        "category": "mens-shirts",
+        "category": "mens shirts",
         "thumbnail": "https://i.dummyjson.com/data/products/55/thumbnail.jpg",
         "images": [
             "https://i.dummyjson.com/data/products/55/1.jpg",
@@ -1025,7 +1025,7 @@
         "rating": 4.38,
         "stock": 6,
         "brand": "Sneakers",
-        "category": "mens-shoes",
+        "category": "mens shoes",
         "thumbnail": "https://i.dummyjson.com/data/products/56/thumbnail.jpg",
         "images": [
             "https://i.dummyjson.com/data/products/56/1.jpg",
@@ -1045,7 +1045,7 @@
         "rating": 4.91,
         "stock": 20,
         "brand": "Rubber",
-        "category": "mens-shoes",
+        "category": "mens shoes",
         "thumbnail": "https://i.dummyjson.com/data/products/57/thumbnail.jpg",
         "images": [
             "https://i.dummyjson.com/data/products/57/1.jpg",
@@ -1064,7 +1064,7 @@
         "rating": 4.41,
         "stock": 68,
         "brand": "The Warehouse",
-        "category": "mens-shoes",
+        "category": "mens shoes",
         "thumbnail": "https://i.dummyjson.com/data/products/58/thumbnail.jpg",
         "images": [
             "https://i.dummyjson.com/data/products/58/1.jpg",
@@ -1083,7 +1083,7 @@
         "rating": 4.33,
         "stock": 137,
         "brand": "Sneakers",
-        "category": "mens-shoes",
+        "category": "mens shoes",
         "thumbnail": "https://i.dummyjson.com/data/products/59/thumbnail.jpg",
         "images": [
             "https://i.dummyjson.com/data/products/59/1.jpg",
@@ -1102,7 +1102,7 @@
         "rating": 4.55,
         "stock": 129,
         "brand": "Sneakers",
-        "category": "mens-shoes",
+        "category": "mens shoes",
         "thumbnail": "https://i.dummyjson.com/data/products/60/thumbnail.jpg",
         "images": [
             "https://i.dummyjson.com/data/products/60/1.jpg",
@@ -1120,7 +1120,7 @@
         "rating": 4.63,
         "stock": 91,
         "brand": "Naviforce",
-        "category": "mens-watches",
+        "category": "mens watches",
         "thumbnail": "https://i.dummyjson.com/data/products/61/thumbnail.jpg",
         "images": [
             "https://i.dummyjson.com/data/products/61/1.jpg",
@@ -1137,7 +1137,7 @@
         "rating": 4.05,
         "stock": 95,
         "brand": "SKMEI 9117",
-        "category": "mens-watches",
+        "category": "mens watches",
         "thumbnail": "https://i.dummyjson.com/data/products/62/thumbnail.jpg",
         "images": [
             "https://i.dummyjson.com/data/products/62/1.jpg",
@@ -1153,7 +1153,7 @@
         "rating": 4.89,
         "stock": 142,
         "brand": "SKMEI 9117",
-        "category": "mens-watches",
+        "category": "mens watches",
         "thumbnail": "https://i.dummyjson.com/data/products/63/thumbnail.webp",
         "images": [
             "https://i.dummyjson.com/data/products/63/1.jpg",
@@ -1171,7 +1171,7 @@
         "rating": 4.98,
         "stock": 61,
         "brand": "Strap Skeleton",
-        "category": "mens-watches",
+        "category": "mens watches",
         "thumbnail": "https://i.dummyjson.com/data/products/64/thumbnail.jpg",
         "images": [
             "https://i.dummyjson.com/data/products/64/1.jpg",
@@ -1189,7 +1189,7 @@
         "rating": 4.79,
         "stock": 94,
         "brand": "Stainless",
-        "category": "mens-watches",
+        "category": "mens watches",
         "thumbnail": "https://i.dummyjson.com/data/products/65/thumbnail.webp",
         "images": [
             "https://i.dummyjson.com/data/products/65/1.jpg",
@@ -1208,7 +1208,7 @@
         "rating": 4.79,
         "stock": 24,
         "brand": "Eastern Watches",
-        "category": "womens-watches",
+        "category": "womens watches",
         "thumbnail": "https://i.dummyjson.com/data/products/66/thumbnail.jpg",
         "images": [
             "https://i.dummyjson.com/data/products/66/1.jpg",
@@ -1227,7 +1227,7 @@
         "rating": 4.03,
         "stock": 46,
         "brand": "Eastern Watches",
-        "category": "womens-watches",
+        "category": "womens watches",
         "thumbnail": "https://i.dummyjson.com/data/products/67/thumbnail.jpg",
         "images": [
             "https://i.dummyjson.com/data/products/67/1.jpg",
@@ -1246,7 +1246,7 @@
         "rating": 4.55,
         "stock": 77,
         "brand": "Luxury Digital",
-        "category": "womens-watches",
+        "category": "womens watches",
         "thumbnail": "https://i.dummyjson.com/data/products/68/thumbnail.webp",
         "images": [
             "https://i.dummyjson.com/data/products/68/1.jpg",
@@ -1262,7 +1262,7 @@
         "rating": 4.77,
         "stock": 89,
         "brand": "Watch Pearls",
-        "category": "womens-watches",
+        "category": "womens watches",
         "thumbnail": "https://i.dummyjson.com/data/products/69/thumbnail.jpg",
         "images": [
             "https://i.dummyjson.com/data/products/69/1.jpg",
@@ -1281,7 +1281,7 @@
         "rating": 4.08,
         "stock": 111,
         "brand": "Bracelet",
-        "category": "womens-watches",
+        "category": "womens watches",
         "thumbnail": "https://i.dummyjson.com/data/products/70/thumbnail.jpg",
         "images": [
             "https://i.dummyjson.com/data/products/70/1.jpg",
@@ -1298,7 +1298,7 @@
         "rating": 4.71,
         "stock": 17,
         "brand": "LouisWill",
-        "category": "womens-bags",
+        "category": "womens bags",
         "thumbnail": "https://i.dummyjson.com/data/products/71/thumbnail.jpg",
         "images": [
             "https://i.dummyjson.com/data/products/71/1.jpg",
@@ -1316,7 +1316,7 @@
         "rating": 4.91,
         "stock": 27,
         "brand": "LouisWill",
-        "category": "womens-bags",
+        "category": "womens bags",
         "thumbnail": "https://i.dummyjson.com/data/products/72/thumbnail.webp",
         "images": [
             "https://i.dummyjson.com/data/products/72/1.jpg",
@@ -1335,7 +1335,7 @@
         "rating": 4.18,
         "stock": 101,
         "brand": "Bracelet",
-        "category": "womens-bags",
+        "category": "womens bags",
         "thumbnail": "https://i.dummyjson.com/data/products/73/thumbnail.jpg",
         "images": [
             "https://i.dummyjson.com/data/products/73/1.jpg",
@@ -1353,7 +1353,7 @@
         "rating": 4.01,
         "stock": 43,
         "brand": "Copenhagen Luxe",
-        "category": "womens-bags",
+        "category": "womens bags",
         "thumbnail": "https://i.dummyjson.com/data/products/74/thumbnail.jpg",
         "images": [
             "https://i.dummyjson.com/data/products/74/1.jpg",
@@ -1372,7 +1372,7 @@
         "rating": 4.93,
         "stock": 13,
         "brand": "Steal Frame",
-        "category": "womens-bags",
+        "category": "womens bags",
         "thumbnail": "https://i.dummyjson.com/data/products/75/thumbnail.jpg",
         "images": [
             "https://i.dummyjson.com/data/products/75/1.jpg",
@@ -1390,7 +1390,7 @@
         "rating": 4.61,
         "stock": 51,
         "brand": "Darojay",
-        "category": "womens-jewellery",
+        "category": "womens jewellery",
         "thumbnail": "https://i.dummyjson.com/data/products/76/thumbnail.jpg",
         "images": [
             "https://i.dummyjson.com/data/products/76/1.jpg",
@@ -1407,7 +1407,7 @@
         "rating": 4.21,
         "stock": 149,
         "brand": "Copenhagen Luxe",
-        "category": "womens-jewellery",
+        "category": "womens jewellery",
         "thumbnail": "https://i.dummyjson.com/data/products/77/thumbnail.jpg",
         "images": [
             "https://i.dummyjson.com/data/products/77/1.jpg",
@@ -1425,7 +1425,7 @@
         "rating": 4.69,
         "stock": 9,
         "brand": "Fashion Jewellery",
-        "category": "womens-jewellery",
+        "category": "womens jewellery",
         "thumbnail": "https://i.dummyjson.com/data/products/78/thumbnail.jpg",
         "images": [
             "https://i.dummyjson.com/data/products/78/thumbnail.jpg"
@@ -1440,7 +1440,7 @@
         "rating": 4.74,
         "stock": 16,
         "brand": "Fashion Jewellery",
-        "category": "womens-jewellery",
+        "category": "womens jewellery",
         "thumbnail": "https://i.dummyjson.com/data/products/79/thumbnail.jpg",
         "images": [
             "https://i.dummyjson.com/data/products/79/1.jpg"
@@ -1449,13 +1449,13 @@
     {
         "id": 80,
         "title": "Chain Pin Tassel Earrings",
-        "description": "Pair Of Ear Cuff Butterfly Long Chain Pin Tassel Earrings - Silver ( Long Life Quality Product)",
+        "description": "Pair Of Ear Cuff Butterfly Long Chain Pin Tassel Earrings   Silver ( Long Life Quality Product)",
         "price": 45,
         "discountPercentage": 17.75,
         "rating": 4.59,
         "stock": 9,
         "brand": "Cuff Butterfly",
-        "category": "womens-jewellery",
+        "category": "womens jewellery",
         "thumbnail": "https://i.dummyjson.com/data/products/80/thumbnail.jpg",
         "images": [
             "https://i.dummyjson.com/data/products/80/1.jpg",
@@ -1506,7 +1506,7 @@
     {
         "id": 83,
         "title": "Wiley X Night Vision Yellow Glasses",
-        "description": "Wiley X Night Vision Yellow Glasses for Riders - Night Vision Anti Fog Driving Glasses - Free Night Glass Cover - Shield Eyes From Dust and Virus- For Night Sport Matches",
+        "description": "Wiley X Night Vision Yellow Glasses for Riders   Night Vision Anti Fog Driving Glasses - Free Night Glass Cover - Shield Eyes From Dust and Virus- For Night Sport Matches",
         "price": 30,
         "discountPercentage": 6.33,
         "rating": 4.97,

@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Pressable } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import { colors } from '../../global/colors'
 import { Ionicons, AntDesign } from '@expo/vector-icons';
 
@@ -7,13 +7,13 @@ const Header = ({ title, navigation }) => {
 
   return (
     <View style={styles.header}>
-      <Pressable onPress={navigation.goBack} style={styles.headerIcon}>
+      <TouchableOpacity onPress={navigation.goBack} style={styles.headerIcon}>
         <Ionicons name="arrow-back-circle-outline" size={30} color={colors.paleGoldenRod} />
-      </Pressable>
+      </TouchableOpacity>
       <Text style={styles.headerText}>{title}</Text>
-      <Pressable onPress={navigation.popToTop} style={styles.headerIcon}>
+      <TouchableOpacity onPress={navigation.popToTop} style={styles.headerIcon}>
         <AntDesign name="home" size={24} color={colors.paleGoldenRod} />
-      </Pressable>
+      </TouchableOpacity>
     </View >
   )
 }
@@ -28,8 +28,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     backgroundColor: colors.darkBlue,
     paddingHorizontal: 20,
-    paddingBottom: 10,
-    paddingTop: 0
+    paddingVertical: 20
 
   },
   headerText: {
