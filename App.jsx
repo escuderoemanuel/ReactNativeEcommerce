@@ -13,7 +13,7 @@ export default function App() {
 
   return (
     <>
-      <StatusBar Style='dark-content' backgroundColor={colors.darkBlue} />
+      <StatusBar Style='auto' backgroundColor={colors.darkBlue} />
       <Navigator />
     </>
   );

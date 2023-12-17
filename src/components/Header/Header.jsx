@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import { colors } from '../../global/colors'
 import { Ionicons, AntDesign } from '@expo/vector-icons';
+import Constants from 'expo-constants'
 
 
 const Header = ({ title, navigation }) => {
@@ -28,8 +29,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     backgroundColor: colors.darkBlue,
     paddingHorizontal: 20,
-    paddingVertical: 20
-
+    paddingBottom: 20,
+    paddingTop: Constants.statusBarHeight,
   },
   headerText: {
     fontFamily: 'Outfit-ExtraBold',
