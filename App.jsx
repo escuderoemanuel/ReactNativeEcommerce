@@ -1,7 +1,8 @@
+import Constants from 'expo-constants';
 import { colors } from './src/global/colors';
 import { useFonts } from 'expo-font';
 import { myFonts } from './src/global/myFonts';
-import { ActivityIndicator, StatusBar } from 'react-native';
+import { ActivityIndicator, StatusBar, View } from 'react-native';
 import Navigator from './src/navigation/Navigator';
 
 export default function App() {
@@ -14,7 +15,18 @@ export default function App() {
   return (
     <>
       <StatusBar Style='auto' backgroundColor={colors.darkBlue} />
+      {/*  <View style={styles.container}> */}
       <Navigator />
+      {/* </View> */}
     </>
   );
 }
+
+/* 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: Constants.statusBarHeight,
+  }
+});
+ */

@@ -28,8 +28,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     backgroundColor: colors.darkBlue,
-    paddingHorizontal: 20,
     paddingBottom: 20,
+    paddingHorizontal: 20,
     paddingTop: Constants.statusBarHeight,
   },
   headerText: {
