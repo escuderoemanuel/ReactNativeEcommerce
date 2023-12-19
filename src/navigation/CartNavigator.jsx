@@ -1,7 +1,7 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import CategoriesScreen from '../screens/CategoriesScreen';
 import Header from '../components/Header/Header'
+import CartScreen from '../screens/CartScreen';
 
 
 const Stack = createNativeStackNavigator();
@@ -10,7 +10,7 @@ const CartNavigator = () => {
 
   return (
     <Stack.Navigator
-      initialRouteName='Categories'
+      initialRouteName='Cart'
       screenOptions={
         ({ navigation, route }) => ({
           header: () => <Header title={route.name} navigation={navigation} />,
@@ -18,8 +18,8 @@ const CartNavigator = () => {
       }
     >
       <Stack.Screen
-        name='Categories'
-        component={CategoriesScreen}
+        name='Cart'
+        component={CartScreen}
         options={{ title: 'Title ' }}
       />
 

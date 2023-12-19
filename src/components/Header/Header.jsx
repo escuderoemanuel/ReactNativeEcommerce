@@ -1,7 +1,9 @@
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import { colors } from '../../global/colors'
 import { Ionicons, AntDesign } from '@expo/vector-icons';
-import Constants from 'expo-constants'
+import Constants from 'expo-constants';
+
+
 
 
 const Header = ({ title, navigation }) => {
@@ -30,7 +32,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.darkBlue,
     paddingBottom: 20,
     paddingHorizontal: 20,
-    paddingTop: Constants.statusBarHeight,
+    //paddingTop: Constants.statusBarHeight,
   },
   headerText: {
     fontFamily: 'Outfit-ExtraBold',
@@ -40,6 +42,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   headerIcon: {
-    justifyContent: 'flex-start',
+    //justifyContent: 'flex-start',
   }
 })
