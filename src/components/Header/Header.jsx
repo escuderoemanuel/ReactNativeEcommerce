@@ -11,11 +11,18 @@ const Header = ({ title, navigation }) => {
   return (
     <View style={styles.header}>
       <TouchableOpacity onPress={navigation.goBack} style={styles.headerIcon}>
-        <Ionicons name="arrow-back-circle-outline" size={30} color={colors.paleGoldenRod} />
+        {
+          navigation.canGoBack() &&
+          <Ionicons name="arrow-back-circle-outline" size={30} color={colors.paleGoldenRod} />
+        }
       </TouchableOpacity>
+
       <Text style={styles.headerText}>{title}</Text>
       <TouchableOpacity onPress={navigation.popToTop} style={styles.headerIcon}>
-        <AntDesign name="home" size={24} color={colors.paleGoldenRod} />
+        {
+          navigation.canGoBack() &&
+          <AntDesign name="home" size={24} color={colors.paleGoldenRod} />
+        }
       </TouchableOpacity>
     </View >
   )
@@ -42,6 +49,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   headerIcon: {
-    //justifyContent: 'flex-start',
+    width: 24,
   }
 })
