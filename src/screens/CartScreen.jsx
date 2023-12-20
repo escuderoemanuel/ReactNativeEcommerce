@@ -37,5 +37,6 @@ const styles = StyleSheet.create({
   cartContainer: {
     flex: 1,
     backgroundColor: colors.greyLabel,
+    padding: 10,
   }
 })
