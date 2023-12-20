@@ -1,0 +1,93 @@
+[
+    {
+        "id": 1,
+        "userId": 2,
+        "createdAt": 1679869276580,
+        "items": [
+            {
+                "id": 2,
+                "title": "iPhone X",
+                "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+                "price": 899,
+                "discountPercentage": 17.94,
+                "rating": 4.44,
+                "stock": 34,
+                "brand": "Apple",
+                "category": "smartphones",
+                "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+                "images": [
+                    "https://i.dummyjson.com/data/products/2/1.jpg",
+                    "https://i.dummyjson.com/data/products/2/2.jpg",
+                    "https://i.dummyjson.com/data/products/2/3.jpg",
+                    "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
+                ],
+                "quantity": 2
+            },
+            {
+                "id": 6,
+                "title": "MacBook Pro",
+                "description": "MacBook Pro 2021 with mini-LED display may launch between September, November",
+                "price": 1749,
+                "discountPercentage": 11.02,
+                "rating": 4.57,
+                "stock": 83,
+                "brand": "Apple",
+                "category": "laptops",
+                "thumbnail": "https://i.dummyjson.com/data/products/6/thumbnail.png",
+                "images": [
+                    "https://i.dummyjson.com/data/products/6/1.png",
+                    "https://i.dummyjson.com/data/products/6/2.jpg",
+                    "https://i.dummyjson.com/data/products/6/3.png",
+                    "https://i.dummyjson.com/data/products/6/4.jpg"
+                ],
+                "quantity": 1
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "userId": 2,
+        "createdAt": 1679832276580,
+        "items": [
+            {
+                "id": 4,
+                "title": "OPPOF19",
+                "description": "OPPO F19 is officially announced on April 2021.",
+                "price": 280,
+                "discountPercentage": 17.91,
+                "rating": 4.3,
+                "stock": 123,
+                "brand": "OPPO",
+                "category": "smartphones",
+                "thumbnail": "https://i.dummyjson.com/data/products/4/thumbnail.jpg",
+                "images": [
+                    "https://i.dummyjson.com/data/products/4/1.jpg",
+                    "https://i.dummyjson.com/data/products/4/2.jpg",
+                    "https://i.dummyjson.com/data/products/4/3.jpg",
+                    "https://i.dummyjson.com/data/products/4/4.jpg",
+                    "https://i.dummyjson.com/data/products/4/thumbnail.jpg"
+                ],
+                "quantity": 1
+            },
+            {
+                "id": 7,
+                "title": "Samsung Galaxy Book",
+                "description": "Samsung Galaxy Book S (2020) Laptop With Intel Lakefield Chip, 8GB of RAM Launched",
+                "price": 1499,
+                "discountPercentage": 4.15,
+                "rating": 4.25,
+                "stock": 50,
+                "brand": "Samsung",
+                "category": "laptops",
+                "thumbnail": "https://i.dummyjson.com/data/products/7/thumbnail.jpg",
+                "images": [
+                    "https://i.dummyjson.com/data/products/7/1.jpg",
+                    "https://i.dummyjson.com/data/products/7/2.jpg",
+                    "https://i.dummyjson.com/data/products/7/3.jpg",
+                    "https://i.dummyjson.com/data/products/7/thumbnail.jpg"
+                ],
+                "quantity": 3
+            }
+        ]
+    }
+]
