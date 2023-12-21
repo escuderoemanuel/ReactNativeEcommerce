@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.darkBlue,
     paddingBottom: 20,
     paddingHorizontal: 20,
-    //paddingTop: Constants.statusBarHeight,
+    paddingTop: Constants.statusBarHeight,
   },
   headerText: {
     fontFamily: 'Outfit-ExtraBold',
@@ -49,6 +49,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   headerIcon: {
-    width: 24,
+    width: 26,
   }
 })

@@ -61,6 +61,6 @@ const style = StyleSheet.create({
     backgroundColor: colors.darkBlue,
   },
   containerProductsByCategory: {
-    marginBottom: 80
+    marginBottom: 10
   }
 })
