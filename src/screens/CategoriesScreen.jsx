@@ -1,22 +1,22 @@
 import { FlatList, StyleSheet, View } from 'react-native'
-import categoriesData from '../data/categories_data.json'
+// import categoriesData from '../data/categories_data.json'
 import CategoryItem from '../components/CategoryItem/CategoryItem'
 import { colors } from '../global/colors'
+import { useSelector } from 'react-redux'
 
 const CategoriesScreen = ({ navigation }) => {
+  
+  const categories = useSelector(state => state.shopReducer.categories)
+
   const renderCategoryItem = ({ item }) => (
     <CategoryItem category={item} navigation={navigation} />
   )
-
-  const navigateToProductsByCategory = (category) => {
-    navigation.navigate('ProductsByCategory', { category: category });
-  };
 
   return (
     <>
       <View style={styles.categoriesScreen}>
         <FlatList
-          data={categoriesData}
+          data={categories}
           renderItem={renderCategoryItem}
           keyExtractor={item => item}
         />

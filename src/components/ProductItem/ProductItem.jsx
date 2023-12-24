@@ -1,17 +1,27 @@
 import { TouchableOpacity, StyleSheet, Text, Image, View, useWindowDimensions } from 'react-native'
 import { colors } from '../../global/colors'
+import { useDispatch } from 'react-redux'
+import { setProductIdSelected } from '../../features/shopSlice'
 
 const ProductItem = ({ product, navigation }) => {
+
+  const dispatch = useDispatch()
+
   const { height, width } = useWindowDimensions()
 
   return (
     <View style={styles.containerProductGlobal}>
-      <TouchableOpacity style={styles.containerProduct} onPress={() => navigation.navigate('ProductDetails', product.id)} >
+      <TouchableOpacity style={styles.containerProduct} 
+      onPress={() => {
+        dispatch(setProductIdSelected(product.id));
+        navigation.navigate('ProductDetails', product.id)
+      }
+      } >
         <Image source={{ uri: product.thumbnail }} style={styles.productThumbnail} />
         <Text style={
           width < 400 ? styles.productTitle : styles.productTitleOther}>{product.title}</Text>
       </TouchableOpacity>
-    </View>
+    </View >
   )
 }
 

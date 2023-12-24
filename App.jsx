@@ -3,6 +3,8 @@ import { useFonts } from 'expo-font';
 import { myFonts } from './src/global/myFonts';
 import { ActivityIndicator, StatusBar } from 'react-native';
 import TabNavigator from './src/navigation/TabNavigator';
+import { Provider } from 'react-redux';
+import store from './src/store';
 
 export default function App() {
   const [fontsLoaded] = useFonts(myFonts)
@@ -14,7 +16,9 @@ export default function App() {
   return (
     <>
       <StatusBar Style='light' backgroundColor={colors.darkBlue} />
-      <TabNavigator />
+      <Provider store={store} >
+        <TabNavigator />
+      </Provider>
     </>
   );
 }
