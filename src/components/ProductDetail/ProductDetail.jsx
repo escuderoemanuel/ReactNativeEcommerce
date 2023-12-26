@@ -1,12 +1,14 @@
 import { colors } from '../../global/colors'
-import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
+import Carousel from '../Carousel/Carousel'
+
 
 export default function ProductDetail({ productSelected, isPortrait }) {
 
 
   return (
     <View style={isPortrait ? styles.productDetailScreenPortrait : styles.productDetailScreenLandscape}>
-      <Image source={{ uri: productSelected.images[0] }} resizeMode='cover' style={isPortrait ? styles.productImagesPortrait : styles.productImagesLandscape} />
+      <Carousel />
       <View style={styles.detailContainer}>
         <Text style={styles.productTitle}>{productSelected.title}</Text>
         <Text style={styles.productDescription}>{productSelected.description}</Text>
@@ -22,6 +24,10 @@ export default function ProductDetail({ productSelected, isPortrait }) {
 }
 
 const styles = StyleSheet.create({
+  carousel: {
+    width: 300,
+    height: 300,
+  },
   productDetailScreenPortrait: {
     marginTop: 20,
     flex: 1,
@@ -29,28 +35,15 @@ const styles = StyleSheet.create({
   },
   productDetailScreenLandscape: {
     flexDirection: 'row',
-    width: '50%',
+    width: '100%',
     marginTop: 20,
     flex: 1,
     padding: 20,
-  },
-  productImagesPortrait: {
-    width: '100%',
-    height: 300,
-    borderRadius: 15,
-    marginBottom: 10,
-  },
-  productImagesLandscape: {
-    width: '100%',
-    height: '100%',
-    borderRadius: 15,
-    marginRight: 20,
   },
   detailContainer: {
     padding: 10,
     justifyContent: 'space-around',
     textAlign: 'center',
-
   },
   productTitle: {
     color: colors.greyLabel,

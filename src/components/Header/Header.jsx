@@ -3,9 +3,6 @@ import { colors } from '../../global/colors'
 import { Ionicons, AntDesign } from '@expo/vector-icons';
 import Constants from 'expo-constants';
 
-
-
-
 const Header = ({ title, navigation }) => {
 
   return (
