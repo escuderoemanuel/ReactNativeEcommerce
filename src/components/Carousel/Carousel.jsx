@@ -30,12 +30,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: colors.royalBlue,
-    borderRadius: 15,
+    borderRadius: 12,
     overflow: 'hidden',
   },
   image: {
     width: width,
     height: 300,
-    borderRadius: 15,
+    borderRadius: 12,
   }
 })
