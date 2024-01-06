@@ -1,29 +1,35 @@
 import { TouchableOpacity } from 'react-native'
 import { StyleSheet, Text, View, FlatList } from 'react-native'
-// import cart_data from '../data/cart_data.json'
 import CartItem from '../components/CartItem/CartItem'
 import { colors } from '../global/colors'
-import { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
+import { usePostOrderMutation } from '../services/shopService'
 
-const CartScreen = () => {
-  /*  const [total, setTotal] = useState()
- 
-   useEffect(() => {
-     const totalCart = cart_data.reduce
-       ((accumulator, currentItem) => (
-         accumulator += currentItem.price * currentItem.quantity), 0)
-     setTotal(totalCart)
-   }, []) */
+import { useDispatch } from 'react-redux'
+import { removeItem } from '../features/cartSlice'
+
+const CartScreen = ({ navigation }) => {
+
+  const dispatch = useDispatch()
+
+  const removeItem = (id) => {
+    dispatch(removeItem({ ...productSelected }))
+  }
 
   const cartItems = useSelector(state => state.cartReducer.items)
   const total = useSelector(state => state.cartReducer.total)
 
+  const [triggerPost, result] = usePostOrderMutation()
+
+  const confirmCart = () => {
+    triggerPost({ total, cartItems, user: 'LoggedUser' })
+    // console.log(result)
+    navigation.navigate
+  }
 
   const renderCartItem = ({ item }) => (
-    <CartItem item={item} />
+    <CartItem item={item} removeItem={removeItem} />
   )
-
 
   return (
     <View style={styles.cartContainer}>
@@ -35,7 +41,7 @@ const CartScreen = () => {
 
       <View style={styles.cartConfirm}>
         <Text style={styles.totalPrice}>Total: U$D {total}</Text>
-        <TouchableOpacity style={styles.confirmButton} onPress={null}>
+        <TouchableOpacity style={styles.confirmButton} onPress={confirmCart}>
           <Text style={styles.confirmText}>Confirm! </Text>
         </TouchableOpacity>
 
@@ -53,11 +59,12 @@ const styles = StyleSheet.create({
     backgroundColor: colors.greyLabel,
   },
   cartConfirm: {
-    marginBottom: 130,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 25,
+    paddingVertical: 10,
+    backgroundColor: colors.paleGoldenRod,
   },
   totalPrice: {
     fontSize: 18,

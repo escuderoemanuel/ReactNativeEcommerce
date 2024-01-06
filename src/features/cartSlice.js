@@ -15,7 +15,8 @@ export const cartSlice = createSlice({
       const isProductCart = state.items.find(item => item.id === action.payload.id)
       if (!isProductCart) {
         state.items.push(action.payload)
-        const total = state.items.reduce((accumulator, currentItem) => accumulator + currentItem.price * currentItem.quantity, 0)
+        const total = state.items.reduce((accumulator, currentItem) => accumulator += currentItem.price * currentItem.quantity, 0)
+        state.total = total;
         state = {
           ...state,
           total,
@@ -30,7 +31,8 @@ export const cartSlice = createSlice({
           }
           return item
         })
-        const total = itemsUpdated.reduce((accumulator, currentItem) => accumulator + currentItem.price * currentItem.quantity, 0)
+        const total = itemsUpdated.reduce((accumulator, currentItem) => accumulator += currentItem.price * currentItem.quantity, 0)
+        state.total = total;
         state = {
           ...state,
           items: itemsUpdated,
@@ -43,10 +45,25 @@ export const cartSlice = createSlice({
 
 
     removeItem: (state, action) => {
-      // Logica
-    },
+      const indexToRemove = state.items.findIndex(item => item.id === action.payload);
+
+      if (indexToRemove !== -1) {
+        state.items.splice(indexToRemove, 1);
+
+        const total = state.items.reduce((accumulator, currentItem) => accumulator += currentItem.price * currentItem.quantity, 0);
+
+        state.total = total;
+        state.updatedAt = Date.now().toLocaleString();
+      }
+    }
+  },
+
+  clearCart: (state, action) => {
+    //state.items = [],
+    //state.total = 0
   }
-})
+}
+)
 
 export const { addItem, removeItem } = cartSlice.actions;
 export default cartSlice.reducer;

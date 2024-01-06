@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, Image } from 'react-native'
 import Card from '../Card/Card'
 import { colors } from '../../global/colors'
 
-const CartItem = ({ item }) => {
+const CartItem = ({ item, removeItem }) => {
 
 
   return (
@@ -31,7 +31,8 @@ const CartItem = ({ item }) => {
 
         </View>
 
-        <TouchableOpacity style={styles.trashCash} onPress={null}>
+        <TouchableOpacity style={styles.trashCash}
+          onPress={() => removeItem(item.id)}>
           <Ionicons name='trash-outline' size={24} color={colors.paleGoldenRod} />
         </TouchableOpacity>
       </View>
