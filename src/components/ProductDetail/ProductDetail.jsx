@@ -1,11 +1,18 @@
 import { colors } from '../../global/colors'
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import Carousel from '../Carousel/Carousel'
+import { addItem } from '../../features/cartSlice'
+import { useDispatch } from 'react-redux'
 
 
-export default function ProductDetail({ productSelected, isPortrait }) {
+export default function ProductDetail({ productSelected, isPortrait, onAddToCart }) {
 
-
+  /*   const dispatch = useDispatch()
+  
+    const onAddToCart = () => {
+      dispatch(addItem({ ...productSelected, quantity: 1 }))
+    }
+   */
   return (
     <View style={isPortrait ? styles.productDetailScreenPortrait : styles.productDetailScreenLandscape}>
       <Carousel />
@@ -13,8 +20,8 @@ export default function ProductDetail({ productSelected, isPortrait }) {
         <Text style={styles.productTitle}>{productSelected.title}</Text>
         <Text style={styles.productDescription}>{productSelected.description}</Text>
         <Text style={styles.productPrice}>U$D {productSelected.price}</Text>
-        <TouchableOpacity style={styles.buyButton} onPress={() => null} >
-          <Text style={styles.buyButtonText}>Buy
+        <TouchableOpacity style={styles.buyButton} onPress={onAddToCart} >
+          <Text style={styles.buyButtonText}>Add to Cart
             <Text style={styles.buyButtonSpan}>!</Text>
           </Text>
         </TouchableOpacity>

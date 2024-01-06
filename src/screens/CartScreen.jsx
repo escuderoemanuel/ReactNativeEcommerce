@@ -1,19 +1,23 @@
 import { TouchableOpacity } from 'react-native'
 import { StyleSheet, Text, View, FlatList } from 'react-native'
-import cart_data from '../data/cart_data.json'
+// import cart_data from '../data/cart_data.json'
 import CartItem from '../components/CartItem/CartItem'
 import { colors } from '../global/colors'
 import { useState, useEffect } from 'react'
+import { useSelector } from 'react-redux'
 
 const CartScreen = () => {
-  const [total, setTotal] = useState()
+  /*  const [total, setTotal] = useState()
+ 
+   useEffect(() => {
+     const totalCart = cart_data.reduce
+       ((accumulator, currentItem) => (
+         accumulator += currentItem.price * currentItem.quantity), 0)
+     setTotal(totalCart)
+   }, []) */
 
-  useEffect(() => {
-    const totalCart = cart_data.reduce
-      ((accumulator, currentItem) => (
-        accumulator += currentItem.price * currentItem.quantity), 0)
-    setTotal(totalCart)
-  }, [])
+  const cartItems = useSelector(state => state.cartReducer.items)
+  const total = useSelector(state => state.cartReducer.total)
 
 
   const renderCartItem = ({ item }) => (
@@ -24,7 +28,7 @@ const CartScreen = () => {
   return (
     <View style={styles.cartContainer}>
       <FlatList
-        data={cart_data}
+        data={cartItems}
         renderItem={renderCartItem}
         keyExtractor={(item) => item.id}
       />

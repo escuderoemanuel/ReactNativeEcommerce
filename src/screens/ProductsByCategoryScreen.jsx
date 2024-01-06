@@ -29,7 +29,7 @@ const ProductsByCategoryScreen = ({ navigation }) => {
       setProductsByCategory(productsFilteredByName)
     }
 
-  }, [category, search])
+  }, [isLoading, category, search])
 
 
   const renderProductItem = ({ item }) => (

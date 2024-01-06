@@ -4,7 +4,20 @@ import { colors } from '../global/colors'
 import ProductDetail from '../components/ProductDetail/ProductDetail'
 import { useSelector } from 'react-redux'
 
+
+import { useDispatch } from 'react-redux'
+import { addItem } from '../features/cartSlice'
+
+
+
+
 const ProductDetailScreen = ({ route }) => {
+
+  const dispatch = useDispatch()
+
+  const onAddToCart = () => {
+    dispatch(addItem({ ...productSelected, quantity: 1 }))
+  }
 
   const [isLoading, setIsLoading] = useState(true)
   const [isPortrait, setIsPortrait] = useState(true)
@@ -30,7 +43,7 @@ const ProductDetailScreen = ({ route }) => {
         {isLoading ?
           <ActivityIndicator style={{ flex: 1, backgroundColor: colors.darkBlue }} animating={true} hidesWhenStopped={true} size='large' color={colors.paleGoldenRod} />
           :
-          <ProductDetail productSelected={productSelected} isPortrait={isPortrait} />
+          <ProductDetail productSelected={productSelected} isPortrait={isPortrait} onAddToCart={onAddToCart} />
 
         }
       </ScrollView>
