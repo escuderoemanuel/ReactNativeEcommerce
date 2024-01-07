@@ -11,10 +11,7 @@ import { removeItem } from '../features/cartSlice'
 const CartScreen = ({ navigation }) => {
 
   const dispatch = useDispatch()
-
-  const removeItem = (id) => {
-    dispatch(removeItem({ ...productSelected }))
-  }
+  const onRemoveItem = (id) => { dispatch(removeItem({ id })) }
 
   const cartItems = useSelector(state => state.cartReducer.items)
   const total = useSelector(state => state.cartReducer.total)
@@ -24,29 +21,34 @@ const CartScreen = ({ navigation }) => {
   const confirmCart = () => {
     triggerPost({ total, cartItems, user: 'LoggedUser' })
     // console.log(result)
-    navigation.navigate
+    navigation.navigate('Orders')
   }
 
   const renderCartItem = ({ item }) => (
-    <CartItem item={item} removeItem={removeItem} />
+    <CartItem item={item} onRemoveItem={onRemoveItem} />
   )
 
   return (
     <View style={styles.cartContainer}>
-      <FlatList
-        data={cartItems}
-        renderItem={renderCartItem}
-        keyExtractor={(item) => item.id}
-      />
+      {cartItems.length === 0 ? (
+        <Text style={styles.emptyCartText}>Empty Cart!</Text>
+      ) : (
+        <>
+          <FlatList
+            data={cartItems}
+            renderItem={renderCartItem}
+            keyExtractor={(item) => item.id}
+          />
+          <View style={styles.cartConfirm}>
+            <Text style={styles.totalPrice}>Total: U$D {total}</Text>
+            <TouchableOpacity style={styles.confirmButton} onPress={confirmCart}>
+              <Text style={styles.confirmText}>Confirm! </Text>
+            </TouchableOpacity>
 
-      <View style={styles.cartConfirm}>
-        <Text style={styles.totalPrice}>Total: U$D {total}</Text>
-        <TouchableOpacity style={styles.confirmButton} onPress={confirmCart}>
-          <Text style={styles.confirmText}>Confirm! </Text>
-        </TouchableOpacity>
 
+          </View></>
+      )}
 
-      </View>
     </View>
   )
 }
@@ -57,6 +59,14 @@ const styles = StyleSheet.create({
   cartContainer: {
     flex: 1,
     backgroundColor: colors.greyLabel,
+  },
+  emptyCartText: {
+    flex: 1,
+    fontSize: 20,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: colors.darkBlue,
+    marginVertical: 50,
   },
   cartConfirm: {
     flexDirection: 'row',

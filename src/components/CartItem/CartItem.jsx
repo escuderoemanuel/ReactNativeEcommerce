@@ -4,7 +4,11 @@ import { StyleSheet, Text, View, Image } from 'react-native'
 import Card from '../Card/Card'
 import { colors } from '../../global/colors'
 
-const CartItem = ({ item, removeItem }) => {
+const CartItem = ({ item, onRemoveItem }) => {
+
+  const handleRemoveItem = () => {
+    onRemoveItem(item.id)
+  }
 
 
   return (
@@ -32,7 +36,7 @@ const CartItem = ({ item, removeItem }) => {
         </View>
 
         <TouchableOpacity style={styles.trashCash}
-          onPress={() => removeItem(item.id)}>
+          onPress={handleRemoveItem}>
           <Ionicons name='trash-outline' size={24} color={colors.paleGoldenRod} />
         </TouchableOpacity>
       </View>
@@ -44,7 +48,6 @@ export default CartItem
 
 const styles = StyleSheet.create({
   cartItemContainer: {
-    backgroundColor: colors.darkBlue,
     backgroundColor: colors.redLabel,
   },
   itemContainer: {
