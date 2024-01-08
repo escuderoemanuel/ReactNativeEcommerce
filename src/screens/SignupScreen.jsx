@@ -1,9 +1,8 @@
-import { TouchableOpacity, StyleSheet, Text, Value } from "react-native";
-import { colors } from '../global/colors';
-import Input from "../components/Input/Input";
+import { StyleSheet, Text, View } from 'react-native'
+import React from 'react'
+import Input from '../components/Input/Input'
 
-
-const LoginScreen = ({ navigation }) => {
+const SignupScreen = () => {
   return (
     <View style={styles.container}>
       <Input
@@ -17,20 +16,27 @@ const LoginScreen = ({ navigation }) => {
         error=''
         isSecure={true}
       />
+      <Input
+        label='Repeat Password:'
+        onChange={null}
+        error=''
+        isSecure={true}
+      />
       <TouchableOpacity style={styles.button} onPress={null}>
-        <Text style={styles.buttonText}>Login</Text>
+        <Text style={styles.buttonText}>Signup</Text>
       </TouchableOpacity>
       <View style={styles.signupContainer}>
-        <Text style={styles.subtitle}>Don't have an account? </Text>
-        <TouchableOpacity onPress={() => navigation.navigate('Signup')}>
-          <Text style={styles.subtitleLink}>Create an account</Text>
+        <Text style={styles.subtitle}>Already have an account? </Text>
+        <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+          <Text style={styles.subtitleLink}>Login</Text>
         </TouchableOpacity>
       </View>
+
     </View>
   )
 }
 
-export default LoginScreen;
+export default SignupScreen
 
 const styles = StyleSheet.create({
   container: {
@@ -66,6 +72,4 @@ const styles = StyleSheet.create({
     fontSize: 12,
     textDecorationLine: 'underline',
   }
-
-
 })
