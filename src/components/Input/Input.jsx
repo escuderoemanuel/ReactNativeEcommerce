@@ -34,21 +34,20 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.paleGoldenRod,
     padding: 10,
-    borderRadius: 15,
+    borderRadius: 12,
     backgroundColor: colors.darkBlue,
-    width: '90%',
+    width: '100%',
     color: colors.textLight,
   },
   label: {
-    fontFamily: 'Poppins-Regular',
     color: colors.textLight,
-    paddingLeft: 5,
+    paddingRight: 10,
     marginBottom: 5,
+    textAlign: 'right',
   },
   error: {
-    fontSize: 12,
+    fontSize: 14,
     color: colors.redLabel,
-    fontFamily: 'Poppins-Regular',
     fontStyle: 'italic',
   }
 })

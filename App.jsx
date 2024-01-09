@@ -2,7 +2,7 @@ import { colors } from './src/global/colors';
 import { useFonts } from 'expo-font';
 import { myFonts } from './src/global/myFonts';
 import { ActivityIndicator, StatusBar } from 'react-native';
-import TabNavigator from './src/navigation/TabNavigator';
+import MainNavigator from './src/navigation/MainNavigator';
 import { Provider } from 'react-redux';
 import store from './src/store';
 
@@ -17,7 +17,7 @@ export default function App() {
     <>
       <StatusBar Style='light' backgroundColor={colors.darkBlue} />
       <Provider store={store} >
-        <TabNavigator />
+        <MainNavigator />
       </Provider>
     </>
   );

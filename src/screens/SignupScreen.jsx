@@ -1,8 +1,9 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import Input from '../components/Input/Input'
+import { colors } from '../global/colors'
 
-const SignupScreen = () => {
+
+const SignupScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Input
@@ -23,11 +24,11 @@ const SignupScreen = () => {
         isSecure={true}
       />
       <TouchableOpacity style={styles.button} onPress={null}>
-        <Text style={styles.buttonText}>Signup</Text>
+        <Text style={styles.buttonText}>SignUp</Text>
       </TouchableOpacity>
       <View style={styles.signupContainer}>
         <Text style={styles.subtitle}>Already have an account? </Text>
-        <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+        <TouchableOpacity onPress={() => { navigation.navigate('LoginScreen') }}>
           <Text style={styles.subtitleLink}>Login</Text>
         </TouchableOpacity>
       </View>
@@ -46,9 +47,15 @@ const styles = StyleSheet.create({
     flex: 1,
     gap: 10,
   },
+  title: {
+    fontSize: 30,
+    color: colors.textLight,
+    fontWeight: 'bold',
+    marginBottom: 30,
+  },
   button: {
     padding: 10,
-    backgroundColor: colors.lightBlue,
+    backgroundColor: colors.textLight,
     borderRadius: 10,
     margin: 5
   },
@@ -64,12 +71,13 @@ const styles = StyleSheet.create({
     marginTop: 50
   },
   subtitle: {
-    color: colors.lightBlue,
+    color: colors.textLight,
     fontSize: 16,
   },
   subtitleLink: {
-    color: colors.lightBlue,
-    fontSize: 12,
+    color: colors.textLight,
+    fontSize: 14,
     textDecorationLine: 'underline',
+    textTransform: 'uppercase'
   }
 })
