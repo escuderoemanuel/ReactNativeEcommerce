@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
   },
   input: {
     borderWidth: 1,
-    borderColor: colors.paleGoldenRod,
+    borderColor: colors.textLight,
     padding: 10,
     borderRadius: 12,
     backgroundColor: colors.darkBlue,
@@ -48,7 +48,9 @@ const styles = StyleSheet.create({
   },
   error: {
     fontSize: 14,
-    color: colors.redLabel,
+    color: colors.paleGoldenRod,
     fontStyle: 'italic',
+    textAlign: 'right',
+    paddingRight: 8,
   }
 })

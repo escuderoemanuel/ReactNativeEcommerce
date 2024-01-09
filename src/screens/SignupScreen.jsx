@@ -1,36 +1,40 @@
 import Input from '../components/Input/Input'
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity, KeyboardAvoidingView } from 'react-native'
 import { colors } from '../global/colors'
 import { useEffect, useState } from 'react'
 import { useSignUpMutation } from '../services/authService'
 import { useDispatch } from 'react-redux'
 import { setUser } from '../features/authSlice'
+import { signUpSchema } from '../validations/signUpSchema'
 
 const SignupScreen = ({ navigation }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
 
-  const [emailError, setEmailError] = useState('')
-  const [passwordError, setPasswordError] = useState('')
-  const [confirmPasswordError, setConfirmPasswordError] = useState('')
-
   const [triggerSignUp, result] = useSignUpMutation()
 
+  const [formErrors, setFormErrors] = useState({
+    email: '',
+    password: '',
+    confirmPassword: '',
+  });
+
   const onSubmit = () => {
-    triggerSignUp({ email, password });
-    //resetForm()
-    //navigation.navigate('Login')
+    try {
+      signUpSchema.validateSync({ email, password, confirmPassword }, { abortEarly: false });
+      triggerSignUp({ email, password });
+    } catch (error) {
+      if (error.inner) {
+        const errors = {};
+        error.inner.forEach((error) => {
+          errors[error.path] = error.message;
+        });
+        setFormErrors(errors);
+      }
+    }
   }
 
-  const resetForm = () => {
-    setEmail('')
-    setPassword('')
-    setConfirmPassword('')
-    setEmailError('')
-    setPasswordError('')
-    setConfirmPasswordError('')
-  }
 
   const dispatch = useDispatch()
 
@@ -41,22 +45,23 @@ const SignupScreen = ({ navigation }) => {
   }, [result])
 
   return (
-    <View style={styles.container}>
+    <KeyboardAvoidingView style={styles.container} behavior='height'>
+
       <Input
         label='Email:'
         onChange={setEmail}
-        error={emailError}
+        error={formErrors.email}
       />
       <Input
         label='Password:'
         onChange={setPassword}
-        error={passwordError}
+        error={formErrors.password}
         isSecureEntry={true}
       />
       <Input
         label='Confirm Password:'
         onChange={setConfirmPassword}
-        error={confirmPasswordError}
+        error={formErrors.confirmPassword}
         isSecureEntry={true}
       />
       <TouchableOpacity style={styles.button} onPress={onSubmit}>
@@ -69,7 +74,7 @@ const SignupScreen = ({ navigation }) => {
         </TouchableOpacity>
       </View>
 
-    </View>
+    </KeyboardAvoidingView>
   )
 }
 
