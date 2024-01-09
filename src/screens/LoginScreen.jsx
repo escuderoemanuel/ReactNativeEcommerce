@@ -1,5 +1,5 @@
 import Input from "../components/Input/Input";
-import { TouchableOpacity, StyleSheet, Text, View, KeyboardAvoidingView } from "react-native";
+import { TouchableOpacity, StyleSheet, Text, View, KeyboardAvoidingView, ActivityIndicator } from "react-native";
 import { colors } from '../global/colors';
 import { useLogInMutation } from '../services/authService';
 import { useEffect, useState } from 'react';
@@ -7,21 +7,18 @@ import { useDispatch } from 'react-redux';
 import { setUser } from '../features/authSlice';
 import { logInSchema } from '../validations/logInSchema';
 
-
 const LoginScreen = ({ navigation }) => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [loginError, setLoginError] = useState('')
-
+  const [isLoading, setIsLoading] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [loginError, setLoginError] = useState('');
   const [formErrors, setFormErrors] = useState({
     email: '',
     password: '',
-  })
+  });
 
-
-  const [triggerLogIn, result] = useLogInMutation()
-  const dispatch = useDispatch()
-
+  const [triggerLogIn, result] = useLogInMutation();
+  const dispatch = useDispatch();
 
   const onSubmit = async () => {
     try {
@@ -31,26 +28,30 @@ const LoginScreen = ({ navigation }) => {
         email: '',
         password: '',
       });
+
+      // Validar los datos con el esquema de inicio de sesión
       await logInSchema.validate({ email, password }, { abortEarly: false });
 
+      // Iniciar sesión
+      setIsLoading(true);
       const response = await triggerLogIn({ email, password });
 
-      // Check if the login was unsuccessful
+      // Verificar si el inicio de sesión fue sin éxito
       if (response.error) {
-        setLoginError('Usuario no registrado');
+        setLoginError('Unregistered user or Incorrect password');
       } else {
-        // Clear the error state if login was successful
+        // Limpiar el estado de error si el inicio de sesión fue exitoso
         setLoginError('');
         dispatch(setUser(response.data));
       }
     } catch (error) {
-      // Handle Yup validation errors
+      // Manejar errores de validación Yup
       if (error.name === 'ValidationError') {
         const validationErrors = {};
         error.inner.forEach((err) => {
           validationErrors[err.path] = err.message;
         });
-        // Assign error messages to the corresponding fields
+        // Asignar mensajes de error a los campos correspondientes
         if (validationErrors.email) {
           setFormErrors((prevErrors) => ({ ...prevErrors, email: validationErrors.email }));
         } else if (validationErrors.password) {
@@ -59,6 +60,9 @@ const LoginScreen = ({ navigation }) => {
       } else {
         console.error('Error during login:', error);
       }
+    } finally {
+      // Detener la carga después de la ejecución
+      setIsLoading(false);
     }
   };
 
@@ -82,15 +86,21 @@ const LoginScreen = ({ navigation }) => {
         isSecureEntry={true}
       />
       {loginError ? <Text style={styles.errorText}>{loginError}</Text> : null}
-      <TouchableOpacity style={styles.button} onPress={onSubmit}>
-        <Text style={styles.buttonText}>LogIn</Text>
-      </TouchableOpacity>
-      <View style={styles.altContainer}>
-        <Text style={styles.subtitle}>Don't have an account? </Text>
-        <TouchableOpacity onPress={() => { navigation.navigate('Signup') }}>
-          <Text style={styles.subtitleLink}>Create One</Text>
-        </TouchableOpacity>
-      </View>
+      {isLoading ? (
+        <ActivityIndicator style={{ flex: 1, backgroundColor: colors.darkBlue }} animating={true} hidesWhenStopped={true} size='large' color={colors.paleGoldenRod} />
+      ) : (
+        <>
+          <TouchableOpacity style={styles.button} onPress={onSubmit}>
+            <Text style={styles.buttonText}>LogIn</Text>
+          </TouchableOpacity>
+          <View style={styles.altContainer}>
+            <Text style={styles.subtitle}>Don't have an account? </Text>
+            <TouchableOpacity onPress={() => { navigation.navigate('Signup') }}>
+              <Text style={styles.subtitleLink}>Create One</Text>
+            </TouchableOpacity>
+          </View>
+        </>
+      )}
     </KeyboardAvoidingView>
   );
 };
@@ -105,17 +115,11 @@ const styles = StyleSheet.create({
     flex: 1,
     gap: 10,
   },
-  title: {
-    fontSize: 30,
-    color: colors.textLight,
-    fontWeight: 'bold',
-    marginBottom: 30,
-  },
   button: {
     padding: 10,
     backgroundColor: colors.textLight,
     borderRadius: 10,
-    margin: 5
+    margin: 5,
   },
   buttonText: {
     color: colors.darkBlue,
@@ -126,7 +130,7 @@ const styles = StyleSheet.create({
     gap: 5,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 50
+    marginTop: 50,
   },
   subtitle: {
     color: colors.textLight,
@@ -136,11 +140,11 @@ const styles = StyleSheet.create({
     color: colors.textLight,
     fontSize: 14,
     textDecorationLine: 'underline',
-    textTransform: 'uppercase'
+    textTransform: 'uppercase',
   },
   errorText: {
     color: colors.paleGoldenRod,
     fontSize: 14,
     marginTop: 10,
   },
-})
+});

@@ -10,7 +10,6 @@ const CartItem = ({ item, onRemoveItem }) => {
     onRemoveItem(item.id)
   }
 
-
   return (
     <Card style={styles.cartItemContainer}>
       <View style={styles.itemContainer}>

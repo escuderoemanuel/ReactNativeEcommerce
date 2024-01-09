@@ -23,6 +23,7 @@ const CartNavigator = () => {
         options={{ title: 'Title ' }}
       />
 
+
     </Stack.Navigator>
   );
 }

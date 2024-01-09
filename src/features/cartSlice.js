@@ -28,7 +28,7 @@ export const cartSlice = createSlice({
 
     removeItem: (state, action) => {
       const indexToRemove = state.items.findIndex(item => item.id === action.payload.id);
-      console.log(indexToRemove)
+
       if (indexToRemove !== -1) {
         const updateItems = [...state.items];
         updateItems.splice(indexToRemove, 1);
@@ -36,7 +36,7 @@ export const cartSlice = createSlice({
         state.items = updateItems;
         state.total = state.items.reduce((accumulator, currentItem) => accumulator += currentItem.price * currentItem.quantity, 0);
         state.updatedAt = Date.now().toLocaleString();
-        console.log(`Producto con id: ${indexToRemove} eliminado`)
+        //console.log(`Producto con id: ${indexToRemove} eliminado`)
       }
     },
 

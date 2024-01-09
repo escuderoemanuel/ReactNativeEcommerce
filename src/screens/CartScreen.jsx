@@ -1,9 +1,11 @@
+import CartItem from '../components/CartItem/CartItem'
+
 import { TouchableOpacity } from 'react-native'
 import { StyleSheet, Text, View, FlatList } from 'react-native'
-import CartItem from '../components/CartItem/CartItem'
 import { colors } from '../global/colors'
 import { useSelector } from 'react-redux'
 import { usePostOrderMutation } from '../services/shopService'
+import OrdersScreen from './OrdersScreen'
 
 import { useDispatch } from 'react-redux'
 import { removeItem } from '../features/cartSlice'
@@ -20,8 +22,8 @@ const CartScreen = ({ navigation }) => {
 
   const confirmCart = () => {
     triggerPost({ total, cartItems, user: 'LoggedUser' })
-    // console.log(result)
-    navigation.navigate('Orders')
+
+    navigation.navigate('OrderStack')
   }
 
   const renderCartItem = ({ item }) => (

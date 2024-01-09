@@ -3,6 +3,7 @@ import OrderItem from '../components/OrderItem/OrderItem'
 import orders_data from '../data/orders_data.json'
 
 const OrdersScreen = () => {
+
   const renderOrderItem = ({ item }) => {
     const total = item.items.reduce((acc, curr) => (
       acc + curr.price * curr.quantity
