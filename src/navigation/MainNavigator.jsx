@@ -1,15 +1,11 @@
 import { NavigationContainer } from '@react-navigation/native';
-import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import TabNavigator from './TabNavigator';
 import AuthNavigator from './AuthNavigator';
-import SignupScreen from '../screens/SignupScreen';
-import LoginScreen from '../screens/LoginScreen';
-
-
 
 const MainNavigator = () => {
-  const [user, setUser] = useState(null);
-  // const [token, setToken] = useState(null);
+  const user = useSelector(state => state.authReducer.user)
+  //const user = ''
 
   return (
     <NavigationContainer>

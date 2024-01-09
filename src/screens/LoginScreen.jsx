@@ -1,28 +1,51 @@
-import { TouchableOpacity, StyleSheet, Text, Value, View } from "react-native";
-import { colors } from '../global/colors';
 import Input from "../components/Input/Input";
+import { TouchableOpacity, StyleSheet, Text, View } from "react-native";
+import { colors } from '../global/colors';
+import { useLogInMutation } from '../services/authService';
+import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { setUser } from '../features/authSlice';
 
 
 const LoginScreen = ({ navigation }) => {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+
+  const [triggerLogIn, result] = useLogInMutation()
+
+  const onSubmit = () => {
+    triggerLogIn({ email, password });
+    console.log(result)
+  }
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    if (result.data) {
+      dispatch(setUser(result.data))
+    }
+  }, [result])
+
   return (
     <View style={styles.container}>
       <Input
         label='Email'
-        onChange={null}
+        onChange={setEmail}
         error=''
       />
       <Input
         label='Password'
-        onChange={null}
+        onChange={setPassword}
         error=''
-        isSecure={true}
+        isSecureEntry={true}
       />
-      <TouchableOpacity style={styles.button} onPress={null}>
+      <TouchableOpacity style={styles.button} onPress={onSubmit}>
         <Text style={styles.buttonText}>LogIn</Text>
       </TouchableOpacity>
       <View style={styles.signupContainer}>
         <Text style={styles.subtitle}>Don't have an account? </Text>
-        <TouchableOpacity onPress={() => { navigation.navigate('SignupScreen') }}>
+        <TouchableOpacity onPress={() => { navigation.navigate('Signup') }}>
           <Text style={styles.subtitleLink}>Create One</Text>
         </TouchableOpacity>
       </View>

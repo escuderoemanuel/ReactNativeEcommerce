@@ -1,34 +1,70 @@
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import Input from '../components/Input/Input'
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import { colors } from '../global/colors'
-
+import { useEffect, useState } from 'react'
+import { useSignUpMutation } from '../services/authService'
+import { useDispatch } from 'react-redux'
+import { setUser } from '../features/authSlice'
 
 const SignupScreen = ({ navigation }) => {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
+
+  const [emailError, setEmailError] = useState('')
+  const [passwordError, setPasswordError] = useState('')
+  const [confirmPasswordError, setConfirmPasswordError] = useState('')
+
+  const [triggerSignUp, result] = useSignUpMutation()
+
+  const onSubmit = () => {
+    triggerSignUp({ email, password });
+    //resetForm()
+    //navigation.navigate('Login')
+  }
+
+  const resetForm = () => {
+    setEmail('')
+    setPassword('')
+    setConfirmPassword('')
+    setEmailError('')
+    setPasswordError('')
+    setConfirmPasswordError('')
+  }
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    if (result.data) {
+      dispatch(setUser(result.data))
+    }
+  }, [result])
+
   return (
     <View style={styles.container}>
       <Input
         label='Email:'
-        onChange={null}
-        error=''
+        onChange={setEmail}
+        error={emailError}
       />
       <Input
         label='Password:'
-        onChange={null}
-        error=''
-        isSecure={true}
+        onChange={setPassword}
+        error={passwordError}
+        isSecureEntry={true}
       />
       <Input
-        label='Repeat Password:'
-        onChange={null}
-        error=''
-        isSecure={true}
+        label='Confirm Password:'
+        onChange={setConfirmPassword}
+        error={confirmPasswordError}
+        isSecureEntry={true}
       />
-      <TouchableOpacity style={styles.button} onPress={null}>
+      <TouchableOpacity style={styles.button} onPress={onSubmit}>
         <Text style={styles.buttonText}>SignUp</Text>
       </TouchableOpacity>
-      <View style={styles.signupContainer}>
+      <View style={styles.altContainer}>
         <Text style={styles.subtitle}>Already have an account? </Text>
-        <TouchableOpacity onPress={() => { navigation.navigate('LoginScreen') }}>
+        <TouchableOpacity onPress={() => { navigation.navigate('Login') }}>
           <Text style={styles.subtitleLink}>Login</Text>
         </TouchableOpacity>
       </View>
@@ -63,7 +99,7 @@ const styles = StyleSheet.create({
     color: colors.darkBlue,
     fontWeight: 'bold',
   },
-  signupContainer: {
+  altContainer: {
     flexDirection: 'row',
     gap: 5,
     justifyContent: 'center',

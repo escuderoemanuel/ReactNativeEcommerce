@@ -2,11 +2,12 @@ import { StyleSheet, Text, TextInput, View } from 'react-native';
 import { useState } from 'react';
 import { colors } from '../../global/colors';
 
-const Input = ({ label, onChange, error = '', isSecure = false }) => {
+const Input = ({ label, onChange, error = '', isSecureEntry = false }) => {
   const [input, setInput] = useState('');
 
   const onHandleChangeText = (text) => {
     setInput(text);
+    onChange(text);
   }
 
   return (
@@ -14,9 +15,9 @@ const Input = ({ label, onChange, error = '', isSecure = false }) => {
       <Text style={styles.label}>{label}</Text>
       <TextInput
         style={styles.input}
-        value={input}
         onChangeText={onHandleChangeText}
-        secureTextEntry={isSecure}
+        secureTextEntry={isSecureEntry}
+        value={input}
       />
       {error && <Text style={styles.error}>{error}</Text>}
     </View>
