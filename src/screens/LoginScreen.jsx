@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
     color: colors.darkBlue,
     fontWeight: 'bold',
   },
-  signupContainer: {
+  altContainer: {
     flexDirection: 'row',
     gap: 5,
     justifyContent: 'center',
