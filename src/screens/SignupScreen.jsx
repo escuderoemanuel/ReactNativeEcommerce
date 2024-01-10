@@ -6,6 +6,7 @@ import { useSignUpMutation } from '../services/authService'
 import { useDispatch } from 'react-redux'
 import { setUser } from '../features/authSlice'
 import { signUpSchema } from '../validations/signUpSchema'
+import { LinearGradient } from 'expo-linear-gradient'
 
 const SignupScreen = ({ navigation }) => {
   const [email, setEmail] = useState('')
@@ -45,36 +46,42 @@ const SignupScreen = ({ navigation }) => {
   }, [result])
 
   return (
-    <KeyboardAvoidingView style={styles.container} behavior='height'>
+    <LinearGradient
+      // Background Linear Gradient
+      colors={[colors.darkBlue, colors.lightBlue,]}
+      style={styles.background}
+      end={{ x: 0.5, y: 0.5 }}
+    >
+      <KeyboardAvoidingView style={styles.container} behavior='height'>
 
-      <Input
-        label='Email:'
-        onChange={setEmail}
-        error={formErrors.email}
-      />
-      <Input
-        label='Password:'
-        onChange={setPassword}
-        error={formErrors.password}
-        isSecureEntry={true}
-      />
-      <Input
-        label='Confirm Password:'
-        onChange={setConfirmPassword}
-        error={formErrors.confirmPassword}
-        isSecureEntry={true}
-      />
-      <TouchableOpacity style={styles.button} onPress={onSubmit}>
-        <Text style={styles.buttonText}>SignUp</Text>
-      </TouchableOpacity>
-      <View style={styles.altContainer}>
-        <Text style={styles.subtitle}>Already have an account? </Text>
-        <TouchableOpacity onPress={() => { navigation.navigate('Login') }}>
-          <Text style={styles.subtitleLink}>Login</Text>
+        <Input
+          label='Email:'
+          onChange={setEmail}
+          error={formErrors.email}
+        />
+        <Input
+          label='Password:'
+          onChange={setPassword}
+          error={formErrors.password}
+          isSecureEntry={true}
+        />
+        <Input
+          label='Confirm Password:'
+          onChange={setConfirmPassword}
+          error={formErrors.confirmPassword}
+          isSecureEntry={true}
+        />
+        <TouchableOpacity style={styles.button} onPress={onSubmit}>
+          <Text style={styles.buttonText}>SignUp</Text>
         </TouchableOpacity>
-      </View>
-
-    </KeyboardAvoidingView>
+        <View style={styles.altContainer}>
+          <Text style={styles.subtitle}>Already have an account? </Text>
+          <TouchableOpacity onPress={() => { navigation.navigate('Login') }}>
+            <Text style={styles.subtitleLink}>Login</Text>
+          </TouchableOpacity>
+        </View>
+      </KeyboardAvoidingView>
+    </LinearGradient>
   )
 }
 
@@ -82,7 +89,6 @@ export default SignupScreen
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.darkBlue,
     justifyContent: 'center',
     alignItems: 'center',
     flex: 1,
@@ -120,5 +126,11 @@ const styles = StyleSheet.create({
     fontSize: 14,
     textDecorationLine: 'underline',
     textTransform: 'uppercase'
-  }
+  }, background: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    height: '100%',
+  },
 })

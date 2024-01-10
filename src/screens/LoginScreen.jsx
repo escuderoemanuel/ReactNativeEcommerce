@@ -6,6 +6,8 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setUser } from '../features/authSlice';
 import { logInSchema } from '../validations/logInSchema';
+import { LinearGradient } from 'expo-linear-gradient';
+
 
 const LoginScreen = ({ navigation }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -73,35 +75,45 @@ const LoginScreen = ({ navigation }) => {
   }, [result]);
 
   return (
-    <KeyboardAvoidingView style={styles.container} behavior='height'>
-      <Input
-        label='Email:'
-        onChange={setEmail}
-        error={formErrors.email}
-      />
-      <Input
-        label='Password:'
-        onChange={setPassword}
-        error={formErrors.password}
-        isSecureEntry={true}
-      />
-      {loginError ? <Text style={styles.errorText}>{loginError}</Text> : null}
-      {isLoading ? (
-        <ActivityIndicator style={{ flex: 1, backgroundColor: colors.darkBlue }} animating={true} hidesWhenStopped={true} size='large' color={colors.paleGoldenRod} />
-      ) : (
-        <>
-          <TouchableOpacity style={styles.button} onPress={onSubmit}>
-            <Text style={styles.buttonText}>LogIn</Text>
-          </TouchableOpacity>
-          <View style={styles.altContainer}>
-            <Text style={styles.subtitle}>Don't have an account? </Text>
-            <TouchableOpacity onPress={() => { navigation.navigate('Signup') }}>
-              <Text style={styles.subtitleLink}>Create One</Text>
+    <LinearGradient
+      // Background Linear Gradient
+      colors={[colors.darkBlue, colors.lightBlue,]}
+      style={styles.background}
+      //start={{ x: 0, y: 0 }}
+      end={{ x: 0.5, y: 0.5 }}
+
+    >
+
+      <KeyboardAvoidingView style={styles.container} behavior='height'>
+        <Input
+          label='Email:'
+          onChange={setEmail}
+          error={formErrors.email}
+        />
+        <Input
+          label='Password:'
+          onChange={setPassword}
+          error={formErrors.password}
+          isSecureEntry={true}
+        />
+        {loginError ? <Text style={styles.errorText}>{loginError}</Text> : null}
+        {isLoading ? (
+          <ActivityIndicator style={{ flex: 1, }} animating={true} hidesWhenStopped={true} size='large' color={colors.paleGoldenRod} />
+        ) : (
+          <>
+            <TouchableOpacity style={styles.button} onPress={onSubmit}>
+              <Text style={styles.buttonText}>LogIn</Text>
             </TouchableOpacity>
-          </View>
-        </>
-      )}
-    </KeyboardAvoidingView>
+            <View style={styles.altContainer}>
+              <Text style={styles.subtitle}>Don't have an account? </Text>
+              <TouchableOpacity onPress={() => { navigation.navigate('Signup') }}>
+                <Text style={styles.subtitleLink}>Create One</Text>
+              </TouchableOpacity>
+            </View>
+          </>
+        )}
+      </KeyboardAvoidingView>
+    </LinearGradient>
   );
 };
 
@@ -109,7 +121,7 @@ export default LoginScreen;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.darkBlue,
+    //backgroundColor: colors.darkBlue,
     justifyContent: 'center',
     alignItems: 'center',
     flex: 1,
@@ -146,5 +158,12 @@ const styles = StyleSheet.create({
     color: colors.paleGoldenRod,
     fontSize: 14,
     marginTop: 10,
+  },
+  background: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    height: '100%',
   },
 });

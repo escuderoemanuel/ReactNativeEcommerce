@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 
 const base_auth_url = process.env.EXPO_PUBLIC_BASE_AUTH_URL;
-const api_key = process.env.EXPO_PUBLIC_APY_KEY;
+const api_key = process.env.EXPO_PUBLIC_API_KEY;
 
 export const authApi = createApi({
   reducerPath: 'authApi',
@@ -24,4 +24,5 @@ export const authApi = createApi({
   })
 })
 
-export const { useSignUpMutation, useLogInMutation } = authApi; 
+export const { useSignUpMutation, useLogInMutation } = authApi;
+// test@coder.com

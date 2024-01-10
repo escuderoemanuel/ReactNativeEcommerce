@@ -35,17 +35,34 @@ _It is necessary to install the dependencies listed in the package.json file_
 ---
 
 - [VisualStudioCode] (https://code.visualstudio.com/) - Code Editor
-- [HTML5] HyperText Markup Language
-- [CSS3] Cascading Style Sheets
+- [AndroidStudio] (https://developer.android.com/studio?hl=es-419)
 - [Javascript] (https://www.javascript.com/) - Scripting language
 - [ReactNative] (https://reactnative.dev/) - Javascript Framework/Library - Version 0.73
 - [GoogleFonts] (https://fonts.google.com/) - Text Fonts
 - [ExpoCLI] (https://docs.expo.dev/more/expo-cli/)
 - [Firebase] (https://firebase.google.com/?hl=es)
-
+- [ExpoLinearGradient] (https://docs.expo.dev/versions/latest/sdk/linear-gradient/)
 
 ### FrontEnd Deployment With
 
 ---
 
 - [] () -
+
+
+====================================================================================
+
+###  ToDo:
+
+_Navigators: don't show navegation icons in 'initialRouteName'._
+_Navigators: show category name or category product in the 'header'._
+
+_Cart: implement quantity substraction in firebase stock._
+
+_OrdersNavigation: show true orders._
+
+_Security: 'react-native-dotenv' or 'eas-cli' library for sensitive info._
+
+_Implement user profile._
+
+_Orders & User: Link orders to the corresponding user._
