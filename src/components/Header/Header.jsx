@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.darkBlue,
     paddingBottom: 20,
     paddingHorizontal: 20,
-    paddingTop: Constants.statusBarHeight,
+    //paddingTop: Constants.statusBarHeight,
   },
   headerText: {
     fontFamily: 'Outfit-ExtraBold',

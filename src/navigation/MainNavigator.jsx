@@ -4,7 +4,8 @@ import TabNavigator from './TabNavigator';
 import AuthNavigator from './AuthNavigator';
 
 const MainNavigator = () => {
-  const user = useSelector(state => state.authReducer.user)
+  //const user = useSelector(state => state.authReducer.user)
+  user = 'Logged'
 
   return (
     <NavigationContainer>

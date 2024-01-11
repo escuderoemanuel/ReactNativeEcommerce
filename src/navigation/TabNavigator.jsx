@@ -1,4 +1,4 @@
-import { MaterialCommunityIcons, Octicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons, Octicons, FontAwesome } from '@expo/vector-icons';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { StyleSheet } from "react-native";
 
@@ -7,6 +7,7 @@ import { colors } from '../global/colors';
 import ShopNavigator from './ShopNavigator';
 import CartNavigator from './CartNavigator';
 import OrdersNavigator from './OrdersNavigator';
+import ProfileNavigator from './ProfileNavigator';
 
 const Tab = createBottomTabNavigator();
 
@@ -37,6 +38,15 @@ const TabNavigator = () => {
         options={{
           tabBarIcon: ({ focused }) => (
             <Octicons name="list-unordered" style={focused ? styles.selected : styles.deselected} />
+          )
+        }}
+      />
+      <Tab.Screen
+        name="ProfileStack"
+        component={ProfileNavigator}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <FontAwesome name="user-o" style={focused ? styles.selected : styles.deselected} />
           )
         }}
       />

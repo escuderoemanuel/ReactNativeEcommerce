@@ -9,6 +9,7 @@ export const colors = {
   royalBlue: '#5650F2',
   redLabel: '#DD3F35',
   greyLabel: '#DBDBDB',
+  greyLabel1: '#CCCCCC',
   greyLabel2: '#747474',
   shadow: 'rgba(0, 0, 0, 0.5)',
   dark: '#212121',

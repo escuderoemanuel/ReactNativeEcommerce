@@ -63,6 +63,9 @@ _OrdersNavigation: show true orders._
 
 _Security: 'react-native-dotenv' or 'eas-cli' library for sensitive info._
 
-_Implement user profile._
-
 _Orders & User: Link orders to the corresponding user._
+
+_Implement user profile._
+_User Profile: edit profile._
+_User Profile: change password._
+_User Profile: recovery password._
