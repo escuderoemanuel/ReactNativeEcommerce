@@ -37,9 +37,11 @@ export const shopApi = createApi({
   })
 })
 
-export const { useGetCategoriesQuery,
+export const {
+  useGetCategoriesQuery,
   useGetProductsQuery,
   useGetProductsByCategoryQuery,
   usePostOrderMutation,
   usePutProfilePictureMutation,
-  useGetProfilePictureQuery } = shopApi
+  useGetProfilePictureQuery
+} = shopApi

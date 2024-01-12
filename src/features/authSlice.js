@@ -13,9 +13,8 @@ export const authSlice = createSlice({
       state.token = action.payload.idToken;
     },
     setProfilePicture: (state, action) => {
-      state.profilePicture = action.payload.image;
-    }
-    ,
+      state.profilePicture = action.payload;
+    },
     clearUser: (state) => {
       state.user = null;
       state.token = null;

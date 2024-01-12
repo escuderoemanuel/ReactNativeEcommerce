@@ -27,15 +27,18 @@ const ProfileScreen = ({ navigation }) => {
         >
           {
             image ?
-              <Image
-                source={{ uri: image }}
-                style={styles.profilePicture}
-                resizeMode='contain'
-              />
-              : <>
+              <View>
+                <Image
+                  source={{ uri: image }}
+                  style={styles.pictureProfile}
+                  resizeMode='contain'
+                />
+                <Text style={styles.editPictureProfile}>Change</Text>
+              </View>
+              :
+              <FontAwesome name="user-plus" style={styles.iconProfile}
+                resizeMode='contain' />
 
-                <FontAwesome name="user-plus" style={styles.profilePicture}
-                  resizeMode='contain' /* color="red" */ /></>
           }
         </Pressable>
 
@@ -61,7 +64,26 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     justifyContent: 'space-around',
   },
-  profilePicture: {
+  pictureProfile: {
+    width: 100,
+    height: 100,
+    borderRadius: 20,
+    borderWidth: 1,
+    borderColor: colors.textLight,
+  },
+  editPictureProfile: {
+    color: colors.greyLabel2,
+    textAlign: 'center',
+    backgroundColor: colors.greyLabel,
+    borderRadius: 10,
+    paddingVertical: 5,
+    marginTop: 10,
+    textTransform: 'uppercase',
+    fontSize: 14,
+    fontWeight: 'bold',
+
+  },
+  iconProfile: {
     fontSize: 60,
     textAlign: 'center',
     paddingVertical: 20,
