@@ -36,8 +36,15 @@ const ProfileScreen = ({ navigation }) => {
                 <Text style={styles.editProfilePicture}>Change</Text>
               </View>
               :
-              <FontAwesome name="user-plus" style={styles.profileIcon}
-                resizeMode='contain' />
+              <View style={styles.profilePictureContainer} >
+                <View
+                  style={styles.profilePicture}
+                >
+                  <FontAwesome name="user-plus" style={styles.profileIcon}
+                    resizeMode='contain' />
+                </View>
+                <Text style={styles.editProfilePicture}>Take a Picture</Text>
+              </View>
 
           }
         </Pressable>

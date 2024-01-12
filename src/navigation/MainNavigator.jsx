@@ -7,8 +7,8 @@ import { useEffect } from 'react';
 import { setProfilePicture } from '../features/authSlice';
 
 const MainNavigator = () => {
-  const user = useSelector(state => state.authReducer.user)
-  //user = 'Logged'
+  //const user = useSelector(state => state.authReducer.user)
+  const user = 'Logged'
   const localId = useSelector(state => state.authReducer.localId)
   const { data, error, isLoading } = useGetProfilePictureQuery(localId)
 

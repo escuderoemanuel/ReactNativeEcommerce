@@ -61,11 +61,11 @@ const styles = StyleSheet.create({
   },
   selected: {
     fontSize: 28,
-    color: colors.paleGoldenRod,
+    color: colors.textLight,
   },
   deselected: {
     fontSize: 24,
-    color: colors.greyLabel,
+    color: colors.greyLabel1,
 
   }
 })
