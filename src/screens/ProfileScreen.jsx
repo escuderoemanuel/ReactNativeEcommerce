@@ -23,11 +23,11 @@ const ProfileScreen = ({ navigation }) => {
 
         <Pressable
           onPress={() => navigation.navigate('Select Image')}
-          style={({ pressed }) => [{ backgroundColor: pressed ? colors.greyLabel : colors.textLight }, styles.button, styles.pressed]}
+          style={({ pressed }) => [{ backgroundColor: pressed ? colors.darkBlue : 'transparent' }, styles.pressed, styles.button]}
         >
           {
             image ?
-              <View>
+              <View style={styles.profilePictureContainer} >
                 <Image
                   source={{ uri: image }}
                   style={styles.profilePicture}
@@ -58,53 +58,57 @@ export default ProfileScreen
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
     paddingVertical: 30,
-    gap: 10,
-    alignItems: 'flex-start',
-    justifyContent: 'space-around',
+    gap: 50,
+    alignItems: 'center',
+    flex: 1,
+  },
+  button: {
+    padding: 5,
+    borderRadius: 20,
+  },
+  profilePictureContainer: {
+    padding: 5,
   },
   profilePicture: {
-    width: 100,
-    height: 100,
+    width: 200,
+    height: 200,
     borderRadius: 20,
     borderWidth: 1,
     borderColor: colors.textLight,
+    marginBottom: 20,
   },
   editProfilePicture: {
-    color: colors.greyLabel2,
+    width: 200,
     textAlign: 'center',
     backgroundColor: colors.greyLabel,
     borderRadius: 10,
-    paddingVertical: 5,
-    marginTop: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
     textTransform: 'uppercase',
     fontSize: 14,
     fontWeight: 'bold',
 
   },
   profileIcon: {
-    fontSize: 60,
+    fontSize: 150,
     textAlign: 'center',
     paddingVertical: 20,
     color: colors.greyLabel1,
   },
   userDataContainer: {
-    //marginTop: 10,
+    alignItems: 'center',
+    flexWrap: 'wrap',
+    padding: 10,
   },
   userTitle: {
-    fontSize: 16,
+    fontSize: 22,
     fontWeight: 'bold',
     color: colors.textLight,
   },
-  button: {
-    borderRadius: 20,
-    width: 100,
-    height: 100,
-  },
   userData: {
     fontWeight: 'normal',
-    fontSize: 14,
+    fontSize: 18,
     color: colors.textLight,
   },
   background: {
