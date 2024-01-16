@@ -8,7 +8,6 @@ import { useSelector } from 'react-redux'
 
 
 const ProfileScreen = ({ navigation }) => {
-  //const [image, setImage] = useState('')
   const image = useSelector(state => state.authReducer.profilePicture)
 
   return (

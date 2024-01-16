@@ -13,6 +13,7 @@ const ImageSelectorScreen = ({ navigation }) => {
   const localId = useSelector(state => state.authReducer.localId)
 
   const verifyCameraPermissions = async () => {
+    // Solicitud de permisos para la cámara
     const { granted } = await ImagePicker.requestCameraPermissionsAsync()
     if (!granted) {
       return false
@@ -36,7 +37,7 @@ const ImageSelectorScreen = ({ navigation }) => {
         setImage(`data:image/jpeg;base64,${result.assets[0].base64}`)
       }
     } else {
-      // console.log("No se han otorgado permisos para usar la cámara")
+      console.log("No se han otorgado permisos para usar la cámara")
     }
   }
 
