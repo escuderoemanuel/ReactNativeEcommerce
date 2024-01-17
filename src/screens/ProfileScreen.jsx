@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
     color: colors.textLight,
   },
   locationSelectorComponent: {
-    height: '100%',
+    width: '100%',
   },
   background: {
     position: 'absolute',

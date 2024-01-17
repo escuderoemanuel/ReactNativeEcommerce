@@ -5,18 +5,14 @@ import MapPreview from '../MapPreview/MapPreview'
 import { colors } from '../../global/colors'
 
 
-
-
-
-
 const LocationSelector = () => {
   const [location, setLocation] = useState('')
   const [error, setError] = useState('')
 
 
-
   useEffect(() => {
     (async () => {
+      //console.log(location)
       let { status } = await Location.requestForegroundPermissionsAsync()
       if (status !== 'granted') {
         setError('Permission to access location was denied')
@@ -30,13 +26,13 @@ const LocationSelector = () => {
 
   return (
     <View style={styles.containerLocationSelector}>
-      <Text style={styles.textLocationSelector}>My current location:</Text>
+      <Text style={styles.locationTitle}>My current location:</Text>
       {
         location.latitude || location.longitude ?
           <>
             <Text
-              style={styles.textLocationSelector}>
-              Lat: {location.latitude}, Long: {location.longitude}
+              style={styles.locationText}>
+              Lat: {location.latitude} Long: {location.longitude}
             </Text>
             <MapPreview location={location} />
           </>
@@ -56,8 +52,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 10,
   },
-  textLocationSelector: {
+  locationTitle: {
+    color: colors.textLight,
+    fontWeight: 'bold',
+  },
+  locationText: {
     color: colors.textLight,
     marginBottom: 10,
+
   }
 })
