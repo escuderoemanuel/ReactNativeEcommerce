@@ -1,10 +1,10 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 
-const base_url = process.env.EXPO_PUBLIC_BASE_URL;
+const BASE_URL = process.env.EXPO_PUBLIC_BASE_URL;
 
 export const shopApi = createApi({
   reducerPath: "shopApi",
-  baseQuery: fetchBaseQuery({ baseUrl: base_url }),
+  baseQuery: fetchBaseQuery({ baseUrl: BASE_URL }),
   endpoints: (builder) => ({
     getCategories: builder.query({
       query: () => 'categories.json',

@@ -42,6 +42,7 @@ _It is necessary to install the dependencies listed in the package.json file_
 - [ExpoCLI] (https://docs.expo.dev/more/expo-cli/)
 - [Firebase] (https://firebase.google.com/?hl=es)
 - [ExpoLinearGradient] (https://docs.expo.dev/versions/latest/sdk/linear-gradient/)
+- [ExpoLocation] ()
 
 ### FrontEnd Deployment With
 
@@ -55,6 +56,7 @@ _It is necessary to install the dependencies listed in the package.json file_
 ###  ToDo:
 
 _Navigators: don't show navegation icons in 'initialRouteName'._
+
 _Navigators: show category name or category product in the 'header'._
 
 _Cart: implement quantity substraction in firebase stock._
@@ -66,6 +68,11 @@ _Security: 'react-native-dotenv' or 'eas-cli' library for sensitive info._
 _Orders & User: Link orders to the corresponding user._
 
 _Implement user profile._
+
 _User Profile: edit profile._
+
 _User Profile: change password._
+
 _User Profile: recovery password._
+
+_Component: create my own Spiner component._

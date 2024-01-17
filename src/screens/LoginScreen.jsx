@@ -32,11 +32,12 @@ const LoginScreen = ({ navigation }) => {
       });
 
       // Validar los datos con el esquema de inicio de sesión
-      await logInSchema.validate({ email, password }, { abortEarly: false });
+      //await logInSchema.validate({ email, password }, { abortEarly: false }); //! Descomentar
 
       // Iniciar sesión
       setIsLoading(true);
-      const response = await triggerLogIn({ email, password });
+      //const response = await triggerLogIn({ email, password }); //! Descomentar
+      const response = await triggerLogIn({ email: 'test@coder.com', password: '123456' }); //! Eliminar
 
       // Verificar si el inicio de sesión fue sin éxito
       if (response.error) {
@@ -79,7 +80,6 @@ const LoginScreen = ({ navigation }) => {
       // Background Linear Gradient
       colors={[colors.darkBlue, colors.lightBlue,]}
       style={styles.background}
-      //start={{ x: 0, y: 0 }}
       end={{ x: 0.5, y: 0.5 }}
 
     >

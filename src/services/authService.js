@@ -1,22 +1,22 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 
-const base_auth_url = process.env.EXPO_PUBLIC_BASE_AUTH_URL;
-const api_key = process.env.EXPO_PUBLIC_API_KEY;
+const BASE_AUTH_URL = process.env.EXPO_PUBLIC_BASE_AUTH_URL;
+const API_KEY = process.env.EXPO_PUBLIC_API_KEY;
 
 export const authApi = createApi({
   reducerPath: 'authApi',
-  baseQuery: fetchBaseQuery({ baseUrl: base_auth_url }),
+  baseQuery: fetchBaseQuery({ baseUrl: BASE_AUTH_URL }),
   endpoints: (builder) => ({
     signUp: builder.mutation({
       query: ({ ...userData }) => ({
-        url: `accounts:signUp?key=${api_key}`,
+        url: `accounts:signUp?key=${API_KEY}`,
         method: 'POST',
         body: userData
       })
     }),
     logIn: builder.mutation({
       query: ({ ...userData }) => ({
-        url: `accounts:signInWithPassword?key=${api_key}`,
+        url: `accounts:signInWithPassword?key=${API_KEY}`,
         method: 'POST',
         body: userData
       })

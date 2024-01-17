@@ -5,6 +5,7 @@ import { colors } from '../global/colors'
 import { LinearGradient } from 'expo-linear-gradient'
 import { FontAwesome } from '@expo/vector-icons';
 import { useSelector } from 'react-redux'
+import LocationSelector from '../components/LocationSelector/LocationSelector'
 
 
 const ProfileScreen = ({ navigation }) => {
@@ -56,6 +57,7 @@ const ProfileScreen = ({ navigation }) => {
           <Text style={styles.userData}>City: {user_data.city}</Text>
         </View>
       </View>
+      <LocationSelector style={styles.locationSelectorComponent} />
     </LinearGradient>
   )
 }
@@ -64,28 +66,27 @@ export default ProfileScreen
 
 const styles = StyleSheet.create({
   container: {
+    flexDirection: 'row',
     paddingVertical: 30,
-    gap: 50,
-    alignItems: 'center',
-    flex: 1,
+    alignItems: 'flex-start',
+    justifyContent: 'space-between',
+    padding: 10
   },
   button: {
-    padding: 5,
     borderRadius: 20,
   },
   profilePictureContainer: {
-    padding: 5,
   },
   profilePicture: {
-    width: 200,
-    height: 200,
+    width: 130,
+    height: 130,
     borderRadius: 20,
     borderWidth: 1,
     borderColor: colors.textLight,
     marginBottom: 20,
   },
   editProfilePicture: {
-    width: 200,
+    width: 130,
     textAlign: 'center',
     backgroundColor: colors.greyLabel,
     borderRadius: 10,
@@ -103,19 +104,21 @@ const styles = StyleSheet.create({
     color: colors.greyLabel1,
   },
   userDataContainer: {
-    alignItems: 'center',
+    alignItems: 'flex-start',
     flexWrap: 'wrap',
-    padding: 10,
   },
   userTitle: {
-    fontSize: 22,
+    fontSize: 20,
     fontWeight: 'bold',
     color: colors.textLight,
   },
   userData: {
     fontWeight: 'normal',
-    fontSize: 18,
+    fontSize: 16,
     color: colors.textLight,
+  },
+  locationSelectorComponent: {
+    height: '100%',
   },
   background: {
     position: 'absolute',
@@ -123,5 +126,6 @@ const styles = StyleSheet.create({
     right: 0,
     top: 0,
     height: '100%',
+
   },
 })
