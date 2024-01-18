@@ -10,6 +10,7 @@ import LocationSelector from '../components/LocationSelector/LocationSelector'
 
 const ProfileScreen = ({ navigation }) => {
   const image = useSelector(state => state.authReducer.profilePicture)
+  const location = useSelector(state => state.authReducer.location)
 
   return (
     <LinearGradient
@@ -21,33 +22,34 @@ const ProfileScreen = ({ navigation }) => {
     >
       <View style={styles.container}>
 
-        <Pressable
-          onPress={() => navigation.navigate('Select Image')}
-          style={({ pressed }) => [{ backgroundColor: pressed ? colors.darkBlue : 'transparent' }, styles.pressed, styles.button]}
-        >
-          {
-            image ?
-              <View style={styles.profilePictureContainer} >
-                <Image
-                  source={{ uri: image }}
-                  style={styles.profilePicture}
-                  resizeMode='contain'
-                />
-                <Text style={styles.editProfilePicture}>Change</Text>
+        {
+          image ?
+            <View style={styles.profilePictureContainer} >
+              <Image
+                source={{ uri: image }}
+                style={styles.profilePicture}
+                resizeMode='contain'
+              />
+              <Pressable
+                onPress={() => navigation.navigate('Select Image')}
+                style={({ pressed }) => [{ backgroundColor: pressed ? colors.darkBlue : 'transparent' }, styles.pressed, styles.button]}
+              >
+                <Text style={styles.btnChangePicture}>Change</Text>
+              </Pressable>
+            </View>
+            :
+            <View style={styles.profilePictureContainer} >
+              <View
+                style={styles.profilePicture}
+              >
+                <FontAwesome name="user-plus" style={styles.profileIcon}
+                  resizeMode='contain' />
               </View>
-              :
-              <View style={styles.profilePictureContainer} >
-                <View
-                  style={styles.profilePicture}
-                >
-                  <FontAwesome name="user-plus" style={styles.profileIcon}
-                    resizeMode='contain' />
-                </View>
-                <Text style={styles.editProfilePicture}>Take a Picture</Text>
-              </View>
+              <Text style={styles.btnChangePicture}>Take a Picture</Text>
+            </View>
 
-          }
-        </Pressable>
+
+        }
 
         <View style={styles.userDataContainer}>
           <Text style={styles.userTitle}>Name: {user_data.name}</Text>
@@ -57,8 +59,26 @@ const ProfileScreen = ({ navigation }) => {
           <Text style={styles.userData}>City: {user_data.city}</Text>
         </View>
       </View>
+      <View style={styles.addresPreviewContainer} >
+        <Text style={styles.addressTitle}>
+          Last Saved Location
+        </Text>
+        {
+          location.address ?
+            <Text style={styles.addressDescription}
+            >
+              {location.address}
+            </Text>
+            :
+            <Text style={styles.addressDescription}
+            >
+              No Saved Location!
+            </Text>
+        }
+      </View>
+
       <LocationSelector style={styles.locationSelectorComponent} />
-    </LinearGradient>
+    </LinearGradient >
   )
 }
 
@@ -67,13 +87,9 @@ export default ProfileScreen
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    paddingVertical: 30,
     alignItems: 'flex-start',
     justifyContent: 'space-between',
     padding: 10
-  },
-  button: {
-    borderRadius: 20,
   },
   profilePictureContainer: {
   },
@@ -83,25 +99,17 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     borderWidth: 1,
     borderColor: colors.textLight,
-    marginBottom: 20,
+    marginBottom: 10,
   },
-  editProfilePicture: {
-    width: 130,
+  btnChangePicture: {
     textAlign: 'center',
     backgroundColor: colors.greyLabel,
-    borderRadius: 10,
+    borderRadius: 5,
     paddingVertical: 10,
-    paddingHorizontal: 20,
+    paddingHorizontal: 10,
     textTransform: 'uppercase',
     fontSize: 14,
     fontWeight: 'bold',
-
-  },
-  profileIcon: {
-    fontSize: 150,
-    textAlign: 'center',
-    paddingVertical: 20,
-    color: colors.greyLabel1,
   },
   userDataContainer: {
     alignItems: 'flex-start',
@@ -126,6 +134,22 @@ const styles = StyleSheet.create({
     right: 0,
     top: 0,
     height: '100%',
-
+  },
+  addresPreviewContainer: {
+    alignItems: 'center',
+    padding: 10,
+    margin: 10,
+    borderRadius: 10,
+    backgroundColor: colors.darkBlue,
+  },
+  addressTitle: {
+    fontSize: 14,
+    color: colors.textLight,
+    fontWeight: 'bold',
+  },
+  addressDescription: {
+    color: colors.textLight,
+    fontStyle: 'italic',
+    textAlign: 'center',
   },
 })

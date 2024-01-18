@@ -1,4 +1,4 @@
-import { FlatList, StyleSheet, View } from 'react-native'
+import { FlatList, StyleSheet, View, ActivityIndicator } from 'react-native'
 import CategoryItem from '../components/CategoryItem/CategoryItem'
 import { colors } from '../global/colors'
 import { useSelector } from 'react-redux'
@@ -15,13 +15,15 @@ const CategoriesScreen = ({ navigation }) => {
 
   return (
     <>
-      <View style={styles.categoriesScreen}>
-        <FlatList
-          data={data}
-          renderItem={renderCategoryItem}
-          keyExtractor={item => item}
-        />
-      </View>
+      {isLoading ? <ActivityIndicator style={{ flex: 1 }} size="large" color={colors.paleGoldenRod} /> :
+        <View style={styles.categoriesScreen}>
+          <FlatList
+            data={data}
+            renderItem={renderCategoryItem}
+            keyExtractor={item => item}
+          />
+        </View>
+      }
     </>
   )
 }
