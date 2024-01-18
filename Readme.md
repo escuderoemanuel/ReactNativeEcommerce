@@ -43,6 +43,7 @@ _It is necessary to install the dependencies listed in the package.json file_
 - [Firebase] (https://firebase.google.com/?hl=es)
 - [ExpoLinearGradient] (https://docs.expo.dev/versions/latest/sdk/linear-gradient/)
 - [ExpoLocation] ()
+- [GeoLib] ()
 
 ### FrontEnd Deployment With
 
@@ -76,3 +77,5 @@ _User Profile: change password._
 _User Profile: recovery password._
 
 _Component: create my own Spiner component._
+
+_Device: implement fingerprint unlock._

@@ -32,12 +32,12 @@ const LoginScreen = ({ navigation }) => {
       });
 
       // Validar los datos con el esquema de inicio de sesión
-      await logInSchema.validate({ email, password }, { abortEarly: false }); //! Comentar para hardcodear user y pass
+      //await logInSchema.validate({ email, password }, { abortEarly: false }); //! Comentar para hardcodear user y pass
 
       // Iniciar sesión
       setIsLoading(true);
-      const response = await triggerLogIn({ email, password }); //! Comentar para hardcodear user y pass
-      //const response = await triggerLogIn({ email: 'test@coder.com', password: '123456' }); //! Descomentar para hardcodear user y pass
+      //const response = await triggerLogIn({ email, password }); //! Comentar para hardcodear user y pass
+      const response = await triggerLogIn({ email: 'test@coder.com', password: '123456' }); //! Descomentar para hardcodear user y pass
 
       // Verificar si el inicio de sesión fue sin éxito
       if (response.error) {
@@ -83,36 +83,34 @@ const LoginScreen = ({ navigation }) => {
       end={{ x: 0.5, y: 0.5 }}
 
     >
+      {isLoading ? <ActivityIndicator style={{ flex: 1 }} size="large" color={colors.paleGoldenRod} /> :
 
-      <KeyboardAvoidingView style={styles.container} behavior='height'>
-        <Input
-          label='Email:'
-          onChange={setEmail}
-          error={formErrors.email}
-        />
-        <Input
-          label='Password:'
-          onChange={setPassword}
-          error={formErrors.password}
-          isSecureEntry={true}
-        />
-        {loginError ? <Text style={styles.errorText}>{loginError}</Text> : null}
-        {isLoading ? (
-          <ActivityIndicator style={{ flex: 1, }} animating={true} hidesWhenStopped={true} size='large' color={colors.paleGoldenRod} />
-        ) : (
-          <>
-            <TouchableOpacity style={styles.button} onPress={onSubmit}>
-              <Text style={styles.buttonText}>LogIn</Text>
+        <KeyboardAvoidingView style={styles.container} behavior='height'>
+          <Input
+            label='Email:'
+            onChange={setEmail}
+            error={formErrors.email}
+          />
+          <Input
+            label='Password:'
+            onChange={setPassword}
+            error={formErrors.password}
+            isSecureEntry={true}
+          />
+          {loginError ? <Text style={styles.errorText}>{loginError}</Text> : null}
+
+          <TouchableOpacity style={styles.button} onPress={onSubmit}>
+            <Text style={styles.buttonText}>LogIn</Text>
+          </TouchableOpacity>
+          <View style={styles.altContainer}>
+            <Text style={styles.subtitle}>Don't have an account? </Text>
+            <TouchableOpacity onPress={() => { navigation.navigate('Signup') }}>
+              <Text style={styles.subtitleLink}>Create One</Text>
             </TouchableOpacity>
-            <View style={styles.altContainer}>
-              <Text style={styles.subtitle}>Don't have an account? </Text>
-              <TouchableOpacity onPress={() => { navigation.navigate('Signup') }}>
-                <Text style={styles.subtitleLink}>Create One</Text>
-              </TouchableOpacity>
-            </View>
-          </>
-        )}
-      </KeyboardAvoidingView>
+          </View>
+
+        </KeyboardAvoidingView>
+      }
     </LinearGradient>
   );
 };

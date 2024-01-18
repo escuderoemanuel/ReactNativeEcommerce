@@ -7,6 +7,11 @@ export const authSlice = createSlice({
     token: null,
     profilePicture: null,
     localId: null,
+    location: {
+      latitude: null,
+      longitud: null,
+      address: null,
+    }
   },
   reducers: {
     setUser: (state, action) => {
@@ -20,9 +25,17 @@ export const authSlice = createSlice({
     clearUser: (state) => {
       state.user = null;
       state.token = null;
+    },
+    setUserLocation: (state, action) => {
+      state.location = {
+        latitude: action.payload.latitude,
+        longitude: action.payload.longitude,
+        address: action.payload.address,
+      };
+
     }
   }
 })
 
-export const { setUser, clearUser, setProfilePicture } = authSlice.actions;
+export const { setUser, clearUser, setProfilePicture, setUserLocation } = authSlice.actions;
 export default authSlice.reducer;

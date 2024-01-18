@@ -4,13 +4,15 @@ import TabNavigator from './TabNavigator';
 import AuthNavigator from './AuthNavigator';
 import { useGetProfilePictureQuery } from '../services/shopService';
 import { useEffect } from 'react';
-import { setProfilePicture } from '../features/authSlice';
+import { setProfilePicture, setUserLocation } from '../features/authSlice';
+import { useGetUserLocationQuery } from '../services/shopService';
 
 const MainNavigator = () => {
   const user = useSelector(state => state.authReducer.user)
-  //const user = 'Logged' // Para saltarse el login y el signup
   const localId = useSelector(state => state.authReducer.localId)
   const { data, error, isLoading } = useGetProfilePictureQuery(localId)
+
+  const { data: locationData, error: locationError, isLoading: locationIsLoading } = useGetUserLocationQuery(localId)
 
   const dispatch = useDispatch()
 
@@ -18,7 +20,10 @@ const MainNavigator = () => {
     if (data) {
       dispatch(setProfilePicture(data.image))
     }
-  }, [data])
+    if (locationData) {
+      dispatch(setUserLocation(locationData))
+    }
+  }, [data, locationData, isLoading, locationIsLoading])
 
   return (
     <NavigationContainer>

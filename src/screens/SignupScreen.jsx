@@ -9,6 +9,8 @@ import { signUpSchema } from '../validations/signUpSchema'
 import { LinearGradient } from 'expo-linear-gradient'
 
 const SignupScreen = ({ navigation }) => {
+  const [isLoading, setIsLoading] = useState(false);
+
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
@@ -32,6 +34,7 @@ const SignupScreen = ({ navigation }) => {
           errors[error.path] = error.message;
         });
         setFormErrors(errors);
+        setIsLoading(true);
       }
     }
   }
@@ -52,35 +55,37 @@ const SignupScreen = ({ navigation }) => {
       style={styles.background}
       end={{ x: 0.5, y: 0.5 }}
     >
-      <KeyboardAvoidingView style={styles.container} behavior='height'>
+      {isLoading ? <ActivityIndicator style={{ flex: 1 }} size="large" color={colors.paleGoldenRod} /> :
+        <KeyboardAvoidingView style={styles.container} behavior='height'>
 
-        <Input
-          label='Email:'
-          onChange={setEmail}
-          error={formErrors.email}
-        />
-        <Input
-          label='Password:'
-          onChange={setPassword}
-          error={formErrors.password}
-          isSecureEntry={true}
-        />
-        <Input
-          label='Confirm Password:'
-          onChange={setConfirmPassword}
-          error={formErrors.confirmPassword}
-          isSecureEntry={true}
-        />
-        <TouchableOpacity style={styles.button} onPress={onSubmit}>
-          <Text style={styles.buttonText}>SignUp</Text>
-        </TouchableOpacity>
-        <View style={styles.altContainer}>
-          <Text style={styles.subtitle}>Already have an account? </Text>
-          <TouchableOpacity onPress={() => { navigation.navigate('Login') }}>
-            <Text style={styles.subtitleLink}>Login</Text>
+          <Input
+            label='Email:'
+            onChange={setEmail}
+            error={formErrors.email}
+          />
+          <Input
+            label='Password:'
+            onChange={setPassword}
+            error={formErrors.password}
+            isSecureEntry={true}
+          />
+          <Input
+            label='Confirm Password:'
+            onChange={setConfirmPassword}
+            error={formErrors.confirmPassword}
+            isSecureEntry={true}
+          />
+          <TouchableOpacity style={styles.button} onPress={onSubmit}>
+            <Text style={styles.buttonText}>SignUp</Text>
           </TouchableOpacity>
-        </View>
-      </KeyboardAvoidingView>
+          <View style={styles.altContainer}>
+            <Text style={styles.subtitle}>Already have an account? </Text>
+            <TouchableOpacity onPress={() => { navigation.navigate('Login') }}>
+              <Text style={styles.subtitleLink}>Login</Text>
+            </TouchableOpacity>
+          </View>
+        </KeyboardAvoidingView>
+      }
     </LinearGradient>
   )
 }
