@@ -1,8 +1,8 @@
 import { StyleSheet, Text, TouchableOpacity } from 'react-native'
 import Card from '../Card/Card'
-import { colors } from '../global/colors'
+import { colors } from '../../global/colors'
 import { useDispatch } from 'react-redux'
-import { setCategorySelected } from '../features/shopSlice'
+import { setCategorySelected } from '../../features/shopSlice'
 
 const CategoryItem = ({ category, navigation }) => {
   const dispatch = useDispatch()

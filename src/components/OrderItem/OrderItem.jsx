@@ -1,7 +1,7 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import Card from '../Card/Card'
 import { Feather } from '@expo/vector-icons'
-import { colors } from '../global/colors';
+import { colors } from '../../global/colors';
 
 
 const OrderItem = ({ order, total }) => {

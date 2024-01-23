@@ -1,11 +1,11 @@
 import { ActivityIndicator, StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import { useState, useEffect } from 'react'
 import * as Location from 'expo-location'
-import MapPreview from './MapPreview'
-import { colors } from '../global/colors'
-import { setUserLocation } from '../features/authSlice'
+import MapPreview from '../MapPreview/MapPreview'
+import { colors } from '../../global/colors'
+import { setUserLocation } from '../../features/authSlice'
 import { useDispatch, useSelector } from 'react-redux'
-import { usePutUserLocationMutation } from '../services/shopService'
+import { usePutUserLocationMutation } from '../../services/shopService'
 import { getDistance } from 'geolib'
 
 const MAPS_API_KEY = process.env.EXPO_PUBLIC_MAPS_API_KEY;
@@ -46,7 +46,7 @@ const LocationSelector = () => {
             const formattedAddress = data.results[0].formatted_address
             const distance = getDistance(
               { latitude: location.latitude, longitude: location.longitude },
-              { latitude: location.latitude, longitude: location.longitude + 0.0001 }
+              { latitude: location.latitude, longitude: location.longitude + 0.001 }
             )
             setDistance(distance)
             setAddress(formattedAddress)

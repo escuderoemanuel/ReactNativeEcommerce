@@ -2,7 +2,7 @@ import { Ionicons } from '@expo/vector-icons'
 import { TouchableOpacity } from 'react-native'
 import { StyleSheet, Text, View, Image } from 'react-native'
 import Card from '../Card/Card'
-import { colors } from '../global/colors'
+import { colors } from '../../global/colors'
 
 const CartItem = ({ item, onRemoveItem }) => {
 

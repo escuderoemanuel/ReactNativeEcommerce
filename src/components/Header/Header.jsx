@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
-import { colors } from '../global/colors'
+import { colors } from '../../global/colors'
 import { Ionicons, AntDesign } from '@expo/vector-icons';
 import Constants from 'expo-constants';
 
