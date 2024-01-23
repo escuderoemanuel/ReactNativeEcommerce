@@ -1,81 +1,92 @@
 # React Native Ecommerce App!
 
 
-## Emanuel Escudero
-
-##### FrontEnd Developer
+### Emanuel Escudero [FrontEnd Developer]
 
 _Mobile shopping application. Compatible with Android and iOS._
 
-### Created With
-
-- [ReactNative] (https://reactnative.dev/) - Javascript Framework/Library - Version 0.73
-- [ExpoCLI] (https://docs.expo.dev/more/expo-cli/)
-
 ### About the project
 
-- URL: ()
-- Github Repository: (https://github.com/escuderoemanuel/ReactNativeEcommerce)
-- Author: Emanuel Escudero
+- Github Repository: [React Native Ecommerce](https://github.com/escuderoemanuel/ReactNativeEcommerce)
+- Author: [Emanuel Escudero](http://emanuelescudero.ar)
+- Type: Online Store Application
+- The application has the following functions:
+  - Login with Validations
+  - Signup with Validations
+  - Using the Device Location
+  - Using the Device Camera
+  - Navigation by Categories
+  - Navigation by Product List
+  - View Detail Products
+  - Add Product to the Cart
+  - View Products in the Cart
+  - Delete Product in the Cart
+  - Calculate the Final Price in the Cart
+  - Create Orders
+  - Data Persist in Firebase
 
 ### Requirements
 
-_It is necessary to install Android Studio Software or another emulator_
-_It is necessary to install the dependencies listed in the package.json file_
+- [Visual Studio Code](https://code.visualstudio.com/) 
+  _Or the IDE that you prefer_
+- [Android Studio](https://developer.android.com/studio?hl=es-419)
+  - _You can also use your Browser or the Expo Go Phone application_.
 
-`npm i`
+### Techs & Tools
 
-### Execution
+- [React Native](https://reactnative.dev/)
+- [Expo CLI](https://docs.expo.dev/more/expo-cli/)
+- [Redux](https://redux.js.org/)
+- [GeoLib](https://www.npmjs.com/package/geolib)
+- [Yup](https://www.npmjs.com/package/yup)
+- [Google Fonts](https://fonts.google.com/)
+- [Firebase](https://firebase.google.com/?hl=es) 
 
-`npm expo start`
 
+### Get Started!
 
-### Technologies & Tools
+- Open the project with Visual Studio Code
+- Install the dependencies listed in the package.json file
+  ```
+  npm install
+  ```
+- Open Android Studio
+- Create a New Device
+- Launch Device
+- Run the Project
+  ```
+  npm expo start
+  ```
+- Choose option 'a' in the console
 
----
-
-- [VisualStudioCode] (https://code.visualstudio.com/) - Code Editor
-- [AndroidStudio] (https://developer.android.com/studio?hl=es-419)
-- [Javascript] (https://www.javascript.com/) - Scripting language
-- [ReactNative] (https://reactnative.dev/) - Javascript Framework/Library - Version 0.73
-- [GoogleFonts] (https://fonts.google.com/) - Text Fonts
-- [ExpoCLI] (https://docs.expo.dev/more/expo-cli/)
-- [Firebase] (https://firebase.google.com/?hl=es)
-- [ExpoLinearGradient] (https://docs.expo.dev/versions/latest/sdk/linear-gradient/)
-- [ExpoLocation] ()
-- [GeoLib] ()
 
 ### FrontEnd Deployment With
 
----
-
-- [] () -
+- []()
 
 
-====================================================================================
+### Screenshots
 
-###  ToDo:
 
-_Navigators: don't show navegation icons in 'initialRouteName'._
 
-_Navigators: show category name or category product in the 'header'._
 
-_Cart: implement quantity substraction in firebase stock._
 
-_OrdersNavigation: show true orders._
+==================================================
+###  Ideas for Future Implementations:
 
-_Security: 'react-native-dotenv' or 'eas-cli' library for sensitive info._
-
-_Orders & User: Link orders to the corresponding user._
-
-_Implement user profile._
-
-_User Profile: edit profile._
-
-_User Profile: change password._
-
-_User Profile: recovery password._
-
-_Component: create my own Spiner component._
-
-_Device: implement fingerprint unlock._
+- **Navigators:** _don't show navegation icons in 'initialRouteName'._
+- **Navigators:** _show category name or category product in the 'header'._
+- Cart: _implement quantity substraction in firebase stock._
+- OrdersNavigation: _show true orders._
+- Security: _'react-native-dotenv' or 'eas-cli' library for sensitive info._
+- Orders & User: _Link orders to the corresponding user._
+- User Profile: _Implement user profile._
+- User Profile: _edit profile._
+- User Profile: _change password._
+- User Profile: _recovery password._
+- Component: _create my own Spiner component._
+- Component: _custom errors._
+- Device: _implement fingerprint unlock._
+- Pay Methods.
+- Documentation: fetallar features, librerías, utilización
+- Code Optimization!!!

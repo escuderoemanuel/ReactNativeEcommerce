@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native'
-import { colors } from '../../global/colors'
+import { colors } from '../global/colors'
 
 export default function NoSearchResult() {
   return (

@@ -1,4 +1,4 @@
-import { colors } from '../../global/colors'
+import { colors } from '../global/colors'
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import Carousel from '../Carousel/Carousel'
 

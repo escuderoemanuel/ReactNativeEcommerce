@@ -1,6 +1,6 @@
 import { StyleSheet, View, TextInput, Pressable, Text } from 'react-native'
 import { useState } from 'react'
-import { colors } from '../../global/colors'
+import { colors } from '../global/colors'
 import { AntDesign, EvilIcons } from '@expo/vector-icons';
 
 const Search = ({ onSearchHandlerEvent }) => {
