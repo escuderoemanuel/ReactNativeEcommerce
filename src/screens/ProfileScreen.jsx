@@ -17,7 +17,7 @@ const ProfileScreen = ({ navigation }) => {
       // Background Linear Gradient
       colors={[colors.darkBlue, colors.lightBlue,]}
       style={styles.background}
-      end={{ x: 0.5, y: 0.5 }}
+    /* end={{ x: 0.5, y: 0.5 }} */
 
     >
       <View style={styles.container}>

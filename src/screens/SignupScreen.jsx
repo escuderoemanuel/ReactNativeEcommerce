@@ -53,7 +53,7 @@ const SignupScreen = ({ navigation }) => {
       // Background Linear Gradient
       colors={[colors.darkBlue, colors.lightBlue,]}
       style={styles.background}
-      end={{ x: 0.5, y: 0.5 }}
+    /* end={{ x: 0.5, y: 0.5 }} */
     >
       {isLoading ? <ActivityIndicator style={{ flex: 1 }} size="large" color={colors.paleGoldenRod} /> :
         <KeyboardAvoidingView style={styles.container} behavior='height'>
@@ -131,7 +131,8 @@ const styles = StyleSheet.create({
     fontSize: 14,
     textDecorationLine: 'underline',
     textTransform: 'uppercase'
-  }, background: {
+  },
+  background: {
     position: 'absolute',
     left: 0,
     right: 0,

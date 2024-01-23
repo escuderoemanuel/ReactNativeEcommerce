@@ -80,7 +80,7 @@ const LoginScreen = ({ navigation }) => {
       // Background Linear Gradient
       colors={[colors.darkBlue, colors.lightBlue,]}
       style={styles.background}
-      end={{ x: 0.5, y: 0.5 }}
+     /*  end={{ x: 0.5, y: 0.5 }} */
 
     >
       {isLoading ? <ActivityIndicator style={{ flex: 1 }} size="large" color={colors.paleGoldenRod} /> :
