@@ -5,12 +5,14 @@ import { StyleSheet, Text, View, FlatList } from 'react-native'
 import { colors } from '../global/colors'
 import { useSelector } from 'react-redux'
 import { usePostOrderMutation } from '../services/shopService'
-import OrdersScreen from './OrdersScreen'
+
 
 import { useDispatch } from 'react-redux'
 import { removeItem } from '../features/cartSlice'
 
-const CartScreen = ({ navigation }) => {
+const CartScreen = ({ navigation, order }) => {
+  // Para obtener el localId de authSlice
+  const localId = useSelector(state => state.authReducer.localId)
 
   const dispatch = useDispatch()
   const onRemoveItem = (id) => { dispatch(removeItem({ id })) }
@@ -21,7 +23,11 @@ const CartScreen = ({ navigation }) => {
   const [triggerPost, result] = usePostOrderMutation()
 
   const confirmCart = () => {
-    triggerPost({ total, cartItems, user: 'LoggedUser' })
+    const dateString = new Date(Date.now()).toLocaleString('es-AR', { timeZone: 'America/Argentina/Buenos_Aires' });
+    // Cambiar esto porque se puede repetir
+    const orderId = Math.ceil(Math.random(1, 10) * 9000)
+
+    triggerPost({ total, cartItems, localId: localId, createdAt: dateString, orderId: orderId })
 
     navigation.navigate('OrderStack')
   }

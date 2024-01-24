@@ -4,19 +4,20 @@ import { Feather } from '@expo/vector-icons'
 import { colors } from '../../global/colors';
 
 
-const OrderItem = ({ order, total }) => {
+const OrderItem = ({ order, setOrderId }) => {
+
   return (
     <Card style={styles.cartItemContainer}>
       <View style={styles.itemContainer}>
         <View style={styles.textContainer}>
           <Text style={styles.itemText}>
-            Creada el {new Date(order.createdAt).toLocaleDateString()}
+            Creada el {order.createdAt}
           </Text>
           <Text style={styles.totalText}>
-            Total: ${total}
+            Total: ${order.total}
           </Text>
         </View>
-        <TouchableOpacity style={styles.searchIcon} onPress={null}>
+        <TouchableOpacity style={styles.searchIcon} onPress={() => setOrderId(order.orderId)}>
           <Feather name='search' size={24} color={colors.paleGoldenRod} />
         </TouchableOpacity>
       </View>
