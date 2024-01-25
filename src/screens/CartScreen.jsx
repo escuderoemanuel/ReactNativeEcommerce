@@ -8,9 +8,9 @@ import { usePostOrderMutation } from '../services/shopService'
 
 
 import { useDispatch } from 'react-redux'
-import { removeItem } from '../features/cartSlice'
+import { removeItem, clearCart } from '../features/cartSlice'
 
-const CartScreen = ({ navigation, order }) => {
+const CartScreen = ({ navigation }) => {
   // Para obtener el localId de authSlice
   const localId = useSelector(state => state.authReducer.localId)
 
@@ -30,6 +30,7 @@ const CartScreen = ({ navigation, order }) => {
     triggerPost({ total, cartItems, localId: localId, createdAt: dateString, orderId: orderId })
 
     navigation.navigate('OrderStack')
+    dispatch(clearCart({}))
   }
 
   const renderCartItem = ({ item }) => (
