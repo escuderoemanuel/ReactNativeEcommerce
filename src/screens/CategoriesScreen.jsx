@@ -3,6 +3,8 @@ import CategoryItem from '../components/CategoryItem/CategoryItem'
 import { colors } from '../global/colors'
 import { useSelector } from 'react-redux'
 import { useGetCategoriesQuery } from '../services/shopService'
+import BackgroundGradient from '../components/BackgroundGradient/BackgroundGradient'
+import Spinner from '../components/Spinner/Spinner'
 
 const CategoriesScreen = ({ navigation }) => {
 
@@ -14,9 +16,9 @@ const CategoriesScreen = ({ navigation }) => {
   )
 
   return (
-    <>
-      {isLoading ? <ActivityIndicator style={{ flex: 1 }} size="large" color={colors.paleGoldenRod} /> :
-        <View style={styles.categoriesScreen}>
+    <BackgroundGradient>
+      {isLoading ? <Spinner /> :
+        <View>
           <FlatList
             data={data}
             renderItem={renderCategoryItem}
@@ -24,14 +26,8 @@ const CategoriesScreen = ({ navigation }) => {
           />
         </View>
       }
-    </>
+    </BackgroundGradient>
   )
 }
 
 export default CategoriesScreen
-
-const styles = StyleSheet.create({
-  categoriesScreen: {
-    backgroundColor: colors.darkBlue
-  }
-})

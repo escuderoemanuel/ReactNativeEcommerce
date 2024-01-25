@@ -9,7 +9,7 @@ export const authSlice = createSlice({
     localId: null,
     location: {
       latitude: null,
-      longitud: null,
+      longitude: null,
       address: null,
     }
   },
@@ -22,20 +22,23 @@ export const authSlice = createSlice({
     setProfilePicture: (state, action) => {
       state.profilePicture = action.payload;
     },
-    clearUser: (state) => {
-      state.user = null;
-      state.token = null;
-    },
     setUserLocation: (state, action) => {
       state.location = {
         latitude: action.payload.latitude,
         longitude: action.payload.longitude,
         address: action.payload.address,
       };
-
+    },
+    logout: (state) => {
+      state.user = null
+      state.token = null
+      state.profilePicture = null
+      state.localId = null
+      state.location = null
     }
+
   }
 })
 
-export const { setUser, clearUser, setProfilePicture, setUserLocation } = authSlice.actions;
+export const { setUser, setProfilePicture, setUserLocation, logout } = authSlice.actions;
 export default authSlice.reducer;

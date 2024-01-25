@@ -46,7 +46,7 @@ export const shopApi = createApi({
         method: 'PUT',
         body: {
           latitude: location.latitude,
-          longitud: location.longitud,
+          longitude: location.longitude,
           address: location.address,
         },
       })

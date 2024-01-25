@@ -1,3 +1,5 @@
+import BackgroundGradient from '../components/BackgroundGradient/BackgroundGradient'
+import Spinner from '../components/Spinner/Spinner'
 import { Text, View, FlatList, StyleSheet, Modal, Pressable } from 'react-native'
 import OrderItem from '../components/OrderItem/OrderItem'
 import { useGetOrdersQuery } from '../services/shopService'
@@ -47,11 +49,17 @@ const OrdersScreen = () => {
 
   return (
     //! Aquí poner un ActivityIndicator!
-    <>
-      <FlatList
-        data={orderData}
-        renderItem={renderOrderItem}
-      />
+    <BackgroundGradient>
+
+      {
+        isLoading ?
+          <ActivityIndicator style={{ flex: 1 }} size="large" color={colors.paleGoldenRod} />
+          :
+          <FlatList
+            data={orderData}
+            renderItem={renderOrderItem}
+          />
+      }
 
 
       {orderSelected &&
@@ -78,7 +86,7 @@ const OrdersScreen = () => {
           </View>
         </Modal>
       }
-    </>
+    </BackgroundGradient>
 
   )
 }

@@ -7,6 +7,8 @@ import NoSearchResult from '../components/NoSearchResult/NoSearchResult'
 import { colors } from '../global/colors'
 import { useSelector } from 'react-redux'
 import { useGetProductsByCategoryQuery } from '../services/shopService'
+import BackgroundGradient from '../components/BackgroundGradient/BackgroundGradient'
+import Spinner from '../components/Spinner/Spinner'
 
 const ProductsByCategoryScreen = ({ navigation }) => {
 
@@ -41,31 +43,33 @@ const ProductsByCategoryScreen = ({ navigation }) => {
   };
 
   return (
-    <View style={style.container}>
+    <BackgroundGradient>
+      <View style={style.container}>
 
-      {
-        isLoading ?
-          <ActivityIndicator size="large" color={colors.darkBlue} />
-          :
-          <>
-            <Search onSearchHandlerEvent={onSearch} />
+        {
+          isLoading ?
+            <Spinner />
+            :
             <>
-              {productsByCategory.length === 0 && (
-                <NoSearchResult />
-              )}
+              <Search onSearchHandlerEvent={onSearch} />
+              <>
+                {productsByCategory.length === 0 && (
+                  <NoSearchResult />
+                )}
 
-              <FlatList
-                style={style.containerProductsByCategory}
-                data={productsByCategory}
-                renderItem={renderProductItem}
-                keyExtractor={item => item.id}
-              />
+                <FlatList
+                  style={style.containerProductsByCategory}
+                  data={productsByCategory}
+                  renderItem={renderProductItem}
+                  keyExtractor={item => item.id}
+                />
+              </>
             </>
-          </>
-      }
+        }
 
 
-    </View >
+      </View >
+    </BackgroundGradient>
   )
 }
 
@@ -74,9 +78,6 @@ export default ProductsByCategoryScreen
 const style = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.darkBlue,
   },
-  containerProductsByCategory: {
-    marginBottom: 10
-  }
+
 })
