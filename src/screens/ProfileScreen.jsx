@@ -86,7 +86,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'flex-start',
     justifyContent: 'space-between',
-    padding: 10
+    padding: 10,
+    gap: 10,
   },
   profilePictureContainer: {
   },
@@ -110,7 +111,8 @@ const styles = StyleSheet.create({
   },
   userDataContainer: {
     alignItems: 'flex-start',
-    flexWrap: 'wrap',
+    justifyContent: 'flex-start',
+    flexShrink: 1,
   },
   userTitle: {
     fontSize: 20,
@@ -124,13 +126,6 @@ const styles = StyleSheet.create({
   },
   locationSelectorComponent: {
     width: '100%',
-  },
-  background: {
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    top: 0,
-    height: '100%',
   },
   addresPreviewContainer: {
     alignItems: 'center',

@@ -32,6 +32,7 @@ const Search = ({ onSearchHandlerEvent }) => {
         <TextInput
           style={styles.searchInput}
           placeholder="Search..."
+          placeholderTextColor={styles.searchInput.color}
           onChangeText={setSearchInput}
           value={searchInput}
         />
@@ -39,10 +40,10 @@ const Search = ({ onSearchHandlerEvent }) => {
         <View style={styles.searchIcons}>
 
           <Pressable onPress={onResetSearchHandler}>
-            <EvilIcons name="trash" size={30} color="black" />
+            <EvilIcons name="trash" size={30} color={styles.searchIcons.color} />
           </Pressable>
           <Pressable onPress={() => { onSearchHandler(searchInput) }}>
-            <AntDesign name="search1" size={24} color="black" />
+            <AntDesign name="search1" size={24} color={styles.searchIcons.color} />
           </Pressable>
 
         </View>
@@ -68,8 +69,9 @@ const styles = StyleSheet.create({
   },
   searchContainer: {
     padding: 10,
-    backgroundColor: colors.paleGoldenRod,
-    borderColor: colors.paleGoldenRod,
+    backgroundColor: colors.darkBlue,
+    borderWidth: 1.5,
+    borderColor: colors.textLight,
     marginBottom: 10,
     borderRadius: 10,
     flexDirection: 'row',
@@ -78,10 +80,12 @@ const styles = StyleSheet.create({
   },
   searchInput: {
     width: '80%',
+    color: colors.textLight,
   },
   searchIcons: {
     flexDirection: 'row',
     gap: 10,
+    color: colors.textLight,
   },
   errorMessageContainer: {
     padding: 10,
@@ -89,7 +93,7 @@ const styles = StyleSheet.create({
     borderRadius: 7,
   },
   errorText: {
-    fontSize: 18,
+    fontSize: 16,
     textAlign: 'center',
     color: colors.greyLabel,
   }
