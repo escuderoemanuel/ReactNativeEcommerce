@@ -1,3 +1,5 @@
+import BackgroundGradient from '../components/BackgroundGradient/BackgroundGradient';
+import Spinner from '../components/Spinner/Spinner';
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native'
 import { colors } from '../global/colors'
 import { MaterialIcons } from '@expo/vector-icons';
@@ -52,7 +54,7 @@ const ImageSelectorScreen = ({ navigation }) => {
   }
 
   return (
-    <View style={styles.container}>
+    <BackgroundGradient>
       {
         image
           ?
@@ -79,7 +81,7 @@ const ImageSelectorScreen = ({ navigation }) => {
             </TouchableOpacity>
           </View>
       }
-    </View>
+    </BackgroundGradient>
   )
 }
 

@@ -6,7 +6,8 @@ import { useSignUpMutation } from '../services/authService'
 import { useDispatch } from 'react-redux'
 import { setUser } from '../features/authSlice'
 import { signUpSchema } from '../validations/signUpSchema'
-import { LinearGradient } from 'expo-linear-gradient'
+import BackgroundGradient from '../components/BackgroundGradient/BackgroundGradient';
+
 
 const SignupScreen = ({ navigation }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -49,12 +50,7 @@ const SignupScreen = ({ navigation }) => {
   }, [result])
 
   return (
-    <LinearGradient
-      // Background Linear Gradient
-      colors={[colors.darkBlue, colors.lightBlue,]}
-      style={styles.background}
-    /* end={{ x: 0.5, y: 0.5 }} */
-    >
+    <BackgroundGradient>
       {isLoading ? <ActivityIndicator style={{ flex: 1 }} size="large" color={colors.paleGoldenRod} /> :
         <KeyboardAvoidingView style={styles.container} behavior='height'>
 
@@ -86,7 +82,7 @@ const SignupScreen = ({ navigation }) => {
           </View>
         </KeyboardAvoidingView>
       }
-    </LinearGradient>
+    </BackgroundGradient>
   )
 }
 

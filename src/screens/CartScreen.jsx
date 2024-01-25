@@ -1,3 +1,6 @@
+import BackgroundGradient from '../components/BackgroundGradient/BackgroundGradient'
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import Spinner from '../components/Spinner/Spinner'
 import CartItem from '../components/CartItem/CartItem'
 
 import { TouchableOpacity } from 'react-native'
@@ -8,9 +11,9 @@ import { usePostOrderMutation } from '../services/shopService'
 
 
 import { useDispatch } from 'react-redux'
-import { removeItem } from '../features/cartSlice'
+import { removeItem, clearCart } from '../features/cartSlice'
 
-const CartScreen = ({ navigation, order }) => {
+const CartScreen = ({ navigation }) => {
   // Para obtener el localId de authSlice
   const localId = useSelector(state => state.authReducer.localId)
 
@@ -30,6 +33,7 @@ const CartScreen = ({ navigation, order }) => {
     triggerPost({ total, cartItems, localId: localId, createdAt: dateString, orderId: orderId })
 
     navigation.navigate('OrderStack')
+    dispatch(clearCart({}))
   }
 
   const renderCartItem = ({ item }) => (
@@ -37,27 +41,32 @@ const CartScreen = ({ navigation, order }) => {
   )
 
   return (
-    <View style={styles.cartContainer}>
-      {cartItems.length === 0 ? (
-        <Text style={styles.emptyCartText}>Empty Cart!</Text>
-      ) : (
-        <>
-          <FlatList
-            data={cartItems}
-            renderItem={renderCartItem}
-            keyExtractor={(item) => item.id}
-          />
-          <View style={styles.cartConfirm}>
-            <Text style={styles.totalPrice}>Total: U$D {total}</Text>
-            <TouchableOpacity style={styles.confirmButton} onPress={confirmCart}>
-              <Text style={styles.confirmText}>Confirm! </Text>
-            </TouchableOpacity>
+    <BackgroundGradient>
+      <View style={styles.cartContainer}>
+        {cartItems.length === 0 ? (
+          <View style={styles.emptyCart}>
+            <Text style={styles.emptyCartText}>There are no products in your cart!</Text>
+            <MaterialCommunityIcons name="cart-outline" size={124} color="whitesmoke" />
+          </View>
+        ) : (
+          <>
+            <FlatList
+              data={cartItems}
+              renderItem={renderCartItem}
+              keyExtractor={(item) => item.id}
+            />
+            <View style={styles.cartConfirm}>
+              <Text style={styles.totalPrice}>Total: U$D {total}</Text>
+              <TouchableOpacity style={styles.confirmButton} onPress={confirmCart}>
+                <Text style={styles.confirmText}>Confirm! </Text>
+              </TouchableOpacity>
 
 
-          </View></>
-      )}
+            </View></>
+        )}
+      </View>
+    </BackgroundGradient>
 
-    </View>
   )
 }
 
@@ -66,38 +75,50 @@ export default CartScreen
 const styles = StyleSheet.create({
   cartContainer: {
     flex: 1,
-    backgroundColor: colors.greyLabel,
+  },
+  emptyCart: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 100,
   },
   emptyCartText: {
-    flex: 1,
+    width: '50%',
     fontSize: 20,
     fontWeight: 'bold',
     textAlign: 'center',
-    color: colors.darkBlue,
+    color: colors.textLight,
     marginVertical: 50,
   },
   cartConfirm: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
     alignItems: 'center',
-    paddingHorizontal: 25,
-    paddingVertical: 10,
-    backgroundColor: colors.paleGoldenRod,
+    backgroundColor: colors.darkBlue,
+    width: '90%',
+    textAlign: 'center',
+    borderTopEndRadius: 10,
+    borderTopStartRadius: 10,
+    marginHorizontal: '5%',
+
+
   },
   totalPrice: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: colors.darkBlue,
+    color: colors.textLight,
+    backgroundColor: colors.darkBlue,
+
   },
   confirmButton: {
-    backgroundColor: colors.redLabel,
-    padding: 10,
+    backgroundColor: colors.darkBlue,
+    padding: 12,
     borderRadius: 10,
   },
   confirmText: {
     fontSize: 18,
-    color: colors.greyLabel,
+    color: colors.paleGoldenRod,
     fontWeight: 'bold',
+    textTransform: 'uppercase',
 
   }
 })

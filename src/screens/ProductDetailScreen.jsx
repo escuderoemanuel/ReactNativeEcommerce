@@ -3,7 +3,8 @@ import { useEffect, useState } from 'react'
 import { colors } from '../global/colors'
 import ProductDetail from '../components/ProductDetail/ProductDetail'
 import { useSelector } from 'react-redux'
-
+import BackgroundGradient from '../components/BackgroundGradient/BackgroundGradient'
+import Spinner from '../components/Spinner/Spinner'
 
 import { useDispatch } from 'react-redux'
 import { addItem } from '../features/cartSlice'
@@ -37,25 +38,22 @@ const ProductDetailScreen = ({ route }) => {
 
 
   return (
-    <>
+    <BackgroundGradient>
 
       <ScrollView style={style.containerProductDetail}>
         {isLoading ?
-          <ActivityIndicator style={{ flex: 1, backgroundColor: colors.darkBlue }} animating={true} hidesWhenStopped={true} size='large' color={colors.paleGoldenRod} />
+          <Spinner />
           :
           <ProductDetail productSelected={productSelected} isPortrait={isPortrait} onAddToCart={onAddToCart} />
 
         }
       </ScrollView>
-    </>
+    </BackgroundGradient>
   )
 }
 
 export default ProductDetailScreen
 
 const style = StyleSheet.create({
-  containerProductDetail: {
-    backgroundColor: colors.darkBlue,
 
-  }
 })

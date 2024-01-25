@@ -4,7 +4,7 @@ import { Feather } from '@expo/vector-icons'
 import { colors } from '../../global/colors';
 
 
-const OrderItem = ({ order, setOrderId }) => {
+const OrderItem = ({ order, setOrderId, setModalVisible }) => {
 
   return (
     <Card style={styles.cartItemContainer}>
@@ -17,7 +17,13 @@ const OrderItem = ({ order, setOrderId }) => {
             Total: ${order.total}
           </Text>
         </View>
-        <TouchableOpacity style={styles.searchIcon} onPress={() => setOrderId(order.orderId)}>
+        <TouchableOpacity
+          style={styles.searchIcon}
+          onPress={() => {
+            setOrderId(order.orderId)
+            setModalVisible(true)
+          }}
+        >
           <Feather name='search' size={24} color={colors.paleGoldenRod} />
         </TouchableOpacity>
       </View>

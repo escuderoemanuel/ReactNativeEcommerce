@@ -1,4 +1,5 @@
-import { Image, Pressable, StyleSheet, Text, View } from 'react-native'
+import BackgroundGradient from '../components/BackgroundGradient/BackgroundGradient'
+import { Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native'
 import React, { useState } from 'react'
 import user_data from '../data/user_data.json'
 import { colors } from '../global/colors'
@@ -13,72 +14,68 @@ const ProfileScreen = ({ navigation }) => {
   const location = useSelector(state => state.authReducer.location)
 
   return (
-    <LinearGradient
-      // Background Linear Gradient
-      colors={[colors.darkBlue, colors.lightBlue,]}
-      style={styles.background}
-    /* end={{ x: 0.5, y: 0.5 }} */
+    <BackgroundGradient>
+      <ScrollView>
+        <View style={styles.container}>
 
-    >
-      <View style={styles.container}>
-
-        {
-          image ?
-            <View style={styles.profilePictureContainer} >
-              <Image
-                source={{ uri: image }}
-                style={styles.profilePicture}
-                resizeMode='contain'
-              />
-              <Pressable
-                onPress={() => navigation.navigate('Select Image')}
-                style={({ pressed }) => [{ backgroundColor: pressed ? colors.darkBlue : 'transparent' }, styles.pressed, styles.button]}
-              >
-                <Text style={styles.btnChangePicture}>Change</Text>
-              </Pressable>
-            </View>
-            :
-            <View style={styles.profilePictureContainer} >
-              <View
-                style={styles.profilePicture}
-              >
-                <FontAwesome name="user-plus" style={styles.profileIcon}
-                  resizeMode='contain' />
+          {
+            image ?
+              <View style={styles.profilePictureContainer} >
+                <Image
+                  source={{ uri: image }}
+                  style={styles.profilePicture}
+                  resizeMode='contain'
+                />
+                <Pressable
+                  onPress={() => navigation.navigate('Select Image')}
+                  style={({ pressed }) => [{ backgroundColor: pressed ? colors.darkBlue : 'transparent' }, styles.pressed, styles.button]}
+                >
+                  <Text style={styles.btnChangePicture}>Change</Text>
+                </Pressable>
               </View>
-              <Text style={styles.btnChangePicture}>Take a Picture</Text>
-            </View>
+              :
+              <View style={styles.profilePictureContainer} >
+                <View
+                  style={styles.profilePicture}
+                >
+                  <FontAwesome name="user-plus" style={styles.profileIcon}
+                    resizeMode='contain' />
+                </View>
+                <Text style={styles.btnChangePicture}>Take a Picture</Text>
+              </View>
 
 
-        }
+          }
 
-        <View style={styles.userDataContainer}>
-          <Text style={styles.userTitle}>Name: {user_data.name}</Text>
-          <Text style={styles.userData}>Rol: {user_data.role}</Text>
-          <Text style={styles.userData}>Level: {user_data.level}</Text>
-          <Text style={styles.userData}>Address: {user_data.address}</Text>
-          <Text style={styles.userData}>City: {user_data.city}</Text>
+          <View style={styles.userDataContainer}>
+            <Text style={styles.userTitle}>Name: {user_data.name}</Text>
+            <Text style={styles.userData}>Rol: {user_data.role}</Text>
+            <Text style={styles.userData}>Level: {user_data.level}</Text>
+            <Text style={styles.userData}>Address: {user_data.address}</Text>
+            <Text style={styles.userData}>City: {user_data.city}</Text>
+          </View>
         </View>
-      </View>
-      <View style={styles.addresPreviewContainer} >
-        <Text style={styles.addressTitle}>
-          Last Saved Location
-        </Text>
-        {
-          location.address ?
-            <Text style={styles.addressDescription}
-            >
-              {location.address}
-            </Text>
-            :
-            <Text style={styles.addressDescription}
-            >
-              No Saved Location!
-            </Text>
-        }
-      </View>
+        <View style={styles.addresPreviewContainer} >
+          <Text style={styles.addressTitle}>
+            Last Saved Location
+          </Text>
+          {
+            location.address ?
+              <Text style={styles.addressDescription}
+              >
+                {location.address}
+              </Text>
+              :
+              <Text style={styles.addressDescription}
+              >
+                No Saved Location!
+              </Text>
+          }
+        </View>
 
-      <LocationSelector style={styles.locationSelectorComponent} />
-    </LinearGradient >
+        <LocationSelector style={styles.locationSelectorComponent} />
+      </ScrollView>
+    </BackgroundGradient >
   )
 }
 

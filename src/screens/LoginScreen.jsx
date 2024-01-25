@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setUser } from '../features/authSlice';
 import { logInSchema } from '../validations/logInSchema';
-import { LinearGradient } from 'expo-linear-gradient';
+import BackgroundGradient from '../components/BackgroundGradient/BackgroundGradient';
 
 
 const LoginScreen = ({ navigation }) => {
@@ -76,13 +76,8 @@ const LoginScreen = ({ navigation }) => {
   }, [result]);
 
   return (
-    <LinearGradient
-      // Background Linear Gradient
-      colors={[colors.darkBlue, colors.lightBlue,]}
-      style={styles.background}
-    /*  end={{ x: 0.5, y: 0.5 }} */
+    <BackgroundGradient>
 
-    >
       {isLoading ? <ActivityIndicator style={{ flex: 1 }} size="large" color={colors.paleGoldenRod} /> :
 
         <KeyboardAvoidingView style={styles.container} behavior='height'>
@@ -111,7 +106,7 @@ const LoginScreen = ({ navigation }) => {
 
         </KeyboardAvoidingView>
       }
-    </LinearGradient>
+    </BackgroundGradient>
   );
 };
 
