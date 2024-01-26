@@ -109,3 +109,4 @@ _Mobile shopping application. Compatible with Android and iOS._
 - ACREGAR UNA SCREEN QUE MUESTRE METODO DE PAGO SIMULADO LUEGO DE PONER PAGAR EN EL CARRITO. SE MUESTRA SI EL USUARIO ESTÁ LOGGEADO Y SINO LO LLEVA A LA PANTALLA DE LOGGEO.
 - ANIMAR EL INICIO DE LA APP, CON FADE IN, FADE UP  O SIMILAR
 - LOCATION: Muestra la ubicación correcta en dispositivo físico pero no en Android Studio
+- Ver Clase SQLite!!
