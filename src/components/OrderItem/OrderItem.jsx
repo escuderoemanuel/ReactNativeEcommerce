@@ -24,7 +24,7 @@ const OrderItem = ({ order, setOrderId, setModalVisible }) => {
             setModalVisible(true)
           }}
         >
-          <Feather name='search' size={24} color={colors.paleGoldenRod} />
+          <Feather name='search' size={24} color={colors.textLight} />
         </TouchableOpacity>
       </View>
     </Card>
@@ -36,16 +36,16 @@ export default OrderItem
 
 const styles = StyleSheet.create({
   cartItemContainer: {
-    backgroundColor: colors.darkBlue,
+    borderRadius: 12,
+    borderColor: colors.textLight,
+    borderWidth: 1,
   },
   itemContainer: {
-    backgroundColor: colors.redLabel,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     width: '100%',
     padding: 20,
-    borderRadius: 10,
   }
   ,
   textContainer: {
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
   },
   itemText: {
     color: colors.greyLabel,
-    fontSize: 18,
+    fontSize: 16,
     fontStyle: 'italic',
   },
   totalText: {

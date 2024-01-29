@@ -1,16 +1,14 @@
 # React Native Ecommerce App!
 
-
 ### Emanuel Escudero [FrontEnd Developer]
 
-_Mobile shopping application. Compatible with Android and iOS._
+__Mobile shopping application with offline synchronization and data persistence capabilities. Compatible with Android and iOS.__
 
 ### About the project
 
 - Github Repository: [React Native Ecommerce](https://github.com/escuderoemanuel/ReactNativeEcommerce)
 - Author: [Emanuel Escudero](http://emanuelescudero.ar)
-- Type: Online Store Application
-
+- Type: Online Store Application - Ecommerce
 
 ### Description
 
@@ -108,5 +106,4 @@ _Mobile shopping application. Compatible with Android and iOS._
 - CAMBIAR EL SEARCH A LA PANTALLA DE CATEGORIES Y QUE PUEDA BUSCAR CUALQUIER PRODUCTO DESDE ALLÍ. SACARLO DE DENTRO DE CADA CATEGORIA.
 - ACREGAR UNA SCREEN QUE MUESTRE METODO DE PAGO SIMULADO LUEGO DE PONER PAGAR EN EL CARRITO. SE MUESTRA SI EL USUARIO ESTÁ LOGGEADO Y SINO LO LLEVA A LA PANTALLA DE LOGGEO.
 - ANIMAR EL INICIO DE LA APP, CON FADE IN, FADE UP  O SIMILAR
-- LOCATION: Muestra la ubicación correcta en dispositivo físico pero no en Android Studio
 - Ver Clase SQLite!!

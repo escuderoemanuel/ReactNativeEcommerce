@@ -5,6 +5,9 @@ import OrderItem from '../components/OrderItem/OrderItem'
 import { useGetOrdersQuery } from '../services/shopService'
 import { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
+import { colors } from '../global/colors'
+
+
 
 
 const OrdersScreen = () => {
@@ -14,9 +17,6 @@ const OrdersScreen = () => {
   const [orderIdSelected, setOrderIdSelected] = useState('');
   const [orderSelected, setOrderSelected] = useState({})
   const [modalVisible, setModalVisible] = useState(false);
-
-
-
 
   // Convierte el {{}} en [{}] para poder recorrerlos y mostrarlos en el flatlist
   // Si no se hace esto, no se puede mostrar el modal con la información de la orden seleccionada
@@ -34,7 +34,6 @@ const OrdersScreen = () => {
     setOrderSelected(orderSelected)
   }, [orderIdSelected, orderData])
 
-
   const renderOrderItem = ({ item }) => {
     return (
       <OrderItem
@@ -45,15 +44,13 @@ const OrdersScreen = () => {
     )
   }
 
-
-
   return (
     //! Aquí poner un ActivityIndicator!
     <BackgroundGradient>
 
       {
         isLoading ?
-          <ActivityIndicator style={{ flex: 1 }} size="large" color={colors.paleGoldenRod} />
+          <Spinner />
           :
           <FlatList
             data={orderData}
@@ -61,19 +58,19 @@ const OrdersScreen = () => {
           />
       }
 
-
       {orderSelected &&
-        <Modal visible={modalVisible}>
+        <Modal visible={modalVisible} transparent={true}>
           <View style={styles.centeredView}>
             <View style={styles.modalView}>
               <View>
-                <Text style={styles.modalText}>Price: U$D {orderSelected.total}</Text>
-                <Text style={styles.modalText}>Date: {orderSelected.createdAt}</Text>
+                <Text style={styles.modalTitle}>Order Id: {orderSelected.orderId}</Text>
+                <Text style={styles.modalText}>• Price: U$D {orderSelected.total}</Text>
+                <Text style={styles.modalText}>• Date: {orderSelected.createdAt}</Text>
                 {orderSelected.cartItems?.map((item, index) => (
                   <View key={index}>
-                    <Text style={styles.modalText}>Name: {item.title}</Text>
-                    <Text style={styles.modalText}>Description: {item.description}</Text>
-                    <Text style={styles.modalText}>Quantity: {item.quantity}</Text>
+                    <Text style={styles.modalText}>• Name: {item.title}</Text>
+                    <Text style={styles.modalText}>• Description: {item.description}</Text>
+                    <Text style={styles.modalText}>• Quantity: {item.quantity}</Text>
                   </View>
                 ))}
               </View>
@@ -104,9 +101,10 @@ const styles = StyleSheet.create({
     margin: 20,
     backgroundColor: 'white',
     borderRadius: 20,
-    padding: 35,
+    paddingVertical: 20,
+    paddingHorizontal: 30,
     alignItems: 'center',
-    shadowColor: '#000',
+    shadowColor: colors.dark,
     shadowOffset: {
       width: 0,
       height: 2,
@@ -121,15 +119,20 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   buttonClose: {
-    backgroundColor: '#2196F3',
+    backgroundColor: colors.lightBlue,
+    marginTop: 20,
   },
   textStyle: {
     color: 'white',
     fontWeight: 'bold',
     textAlign: 'center',
   },
-  modalText: {
+  modalTitle: {
     marginBottom: 15,
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  modalText: {
     textAlign: 'left',
   },
 });
