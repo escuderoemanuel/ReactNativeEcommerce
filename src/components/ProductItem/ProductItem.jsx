@@ -17,13 +17,21 @@ const ProductItem = ({ product, navigation }) => {
 
   return (
     <View style={styles.containerProductGlobal}>
-      <TouchableOpacity style={styles.containerProduct}
-        onPress={() => { handlerSetProductDispatch() }
-        } >
-        <Image source={{ uri: product.thumbnail }} style={styles.productThumbnail} />
-        <Text style={
-          width < 400 ? styles.productTitle : styles.productTitleOther}>{product.title}</Text>
-      </TouchableOpacity>
+      <View style={styles.containerProduct}>
+        <View style={styles.containerImg}>
+          <TouchableOpacity style={styles.containerTouchable}
+            onPress={() => { handlerSetProductDispatch() }
+            } >
+            <Image source={{ uri: product.thumbnail }} style={styles.productThumbnail} />
+          </TouchableOpacity>
+        </View>
+        <View style={styles.textContainer}>
+          <Text style={styles.productText}>U$D {product.price}
+          </Text>
+          <Text style={styles.productText}>{product.title}
+          </Text>
+        </View>
+      </View>
     </View >
   )
 }
@@ -32,41 +40,30 @@ export default ProductItem
 
 const styles = StyleSheet.create({
   containerProductGlobal: {
+    flex: 1,
+    width: '100%',
+    paddingVertical: 5,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+  },
+  containerProduct: {
+    width: 150,
+    marginBottom: 10,
+  },
+  productThumbnail: {
+    width: '100%',
+    height: 150,
+    borderRadius: 12,
+  },
+  textContainer: {
     width: '100%',
     paddingVertical: 5,
     paddingHorizontal: 10,
   },
-  containerProduct: {
-    height: 100,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    borderColor: colors.greyLabel,
-    backgroundColor: colors.shadow,
-    borderRadius: 15,
-    overflow: 'hidden',
+  productText: {
+    textAlign: 'center',
+    color: colors.textLight,
+    fontSize: 14,
+    textTransform: 'uppercase',
   },
-  productTitle: {
-    color: colors.greyLabel,
-    fontSize: 18,
-    textAlign: 'right',
-    width: '70%',
-    height: '100%',
-    flexWrap: 'wrap',
-    padding: 10,
-  },
-  productTitleOther: {
-    color: colors.paleGoldenRod,
-    fontWeight: 'bold',
-    fontSize: 20,
-    textAlign: 'right',
-    width: '70%',
-    height: '100%',
-    flexWrap: 'wrap',
-    padding: 10,
-  },
-  productThumbnail: {
-    width: '30%',
-    height: '100%',
-  }
 })

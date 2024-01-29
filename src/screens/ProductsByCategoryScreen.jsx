@@ -44,7 +44,7 @@ const ProductsByCategoryScreen = ({ navigation }) => {
 
   return (
     <BackgroundGradient>
-      <View style={style.container}>
+      <View style={styles.container}>
 
         {
           isLoading ?
@@ -58,10 +58,11 @@ const ProductsByCategoryScreen = ({ navigation }) => {
                 )}
 
                 <FlatList
-                  style={style.containerProductsByCategory}
+                  style={styles.containerProductsByCategory}
                   data={productsByCategory}
                   renderItem={renderProductItem}
                   keyExtractor={item => item.id}
+                  numColumns={2}
                 />
               </>
             </>
@@ -75,9 +76,9 @@ const ProductsByCategoryScreen = ({ navigation }) => {
 
 export default ProductsByCategoryScreen
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
+  }
 
 })
