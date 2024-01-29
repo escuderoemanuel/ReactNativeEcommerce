@@ -90,20 +90,36 @@ __Mobile shopping application with offline synchronization and data persistence 
 - **Navigators:** _don\'t show navegation icons in \'initialRouteName\'._
 - **Navigators:** _show category name or category product in the \'header\'._
 - Cart: _implement quantity substraction in firebase stock._
-- OrdersNavigation: _show true orders._
 - Security: _\'react-native-dotenv\' or \'eas-cli\' library for sensitive info._
-- Orders & User: _Link orders to the corresponding user._
-- User Profile: _Implement user profile._
 - User Profile: _edit profile._
 - User Profile: _change password._
 - User Profile: _recovery password._
-- Component: _create my own Spiner component._
-- Component: _custom errors._
 - Device: _implement fingerprint unlock._
 - Pay Methods.
-- Documentation: fetallar features, librerías, utilización
-- Code Optimization!!!
-- CAMBIAR EL SEARCH A LA PANTALLA DE CATEGORIES Y QUE PUEDA BUSCAR CUALQUIER PRODUCTO DESDE ALLÍ. SACARLO DE DENTRO DE CADA CATEGORIA.
-- ACREGAR UNA SCREEN QUE MUESTRE METODO DE PAGO SIMULADO LUEGO DE PONER PAGAR EN EL CARRITO. SE MUESTRA SI EL USUARIO ESTÁ LOGGEADO Y SINO LO LLEVA A LA PANTALLA DE LOGGEO.
-- ANIMAR EL INICIO DE LA APP, CON FADE IN, FADE UP  O SIMILAR
+
+# Falta Terminar
+
 - Ver Clase SQLite!!
+- Documentation: fetallar features, librerías, utilización
+
+- Poner logo o ícono en login
+- Poner logo o ícono en signin
+
+- Mejorar headers
+
+- Mejorar Categorias
+- Mejorar Imagenes
+
+- Poner icono LogIn / LogOut siempre visible
+- Code Optimization!!!
+
+
+
+# Mejoras en lo posible antes de entregar
+
+- Screen de pago simulado
+- Que el Login lo pida antes de ir a pagar, es decir que la screen de pago la cargue solamente si está loggeado
+  
+- CAMBIAR EL SEARCH A LA PANTALLA DE CATEGORIES Y QUE PUEDA BUSCAR CUALQUIER PRODUCTO DESDE ALLÍ. SACARLO DE DENTRO DE CADA CATEGORIA.
+
+- ANIMAR EL INICIO DE LA APP, CON FADE IN, FADE UP  O SIMILAR
