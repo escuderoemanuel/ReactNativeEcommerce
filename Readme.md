@@ -102,17 +102,10 @@ __Mobile shopping application with offline synchronization and data persistence 
 - Ver Clase SQLite!!
 - Documentation: fetallar features, librerías, utilización
 
-- Poner logo o ícono en login
-- Poner logo o ícono en signin
-
-- Mejorar headers
-
-- Mejorar Categorias
 - Mejorar Imagenes
 
 - Poner icono LogIn / LogOut siempre visible
 - Code Optimization!!!
-
 
 
 # Mejoras en lo posible antes de entregar

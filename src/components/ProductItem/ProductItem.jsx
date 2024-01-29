@@ -16,6 +16,8 @@ const ProductItem = ({ product, navigation }) => {
   }
 
   return (
+
+
     <View style={styles.containerProductGlobal}>
       <View style={styles.containerProduct}>
         <View style={styles.containerImg}>
@@ -25,9 +27,13 @@ const ProductItem = ({ product, navigation }) => {
             <Image source={{ uri: product.thumbnail }} style={styles.productThumbnail} />
           </TouchableOpacity>
         </View>
-        <View style={styles.textContainer}>
-          <Text style={styles.productText}>U$D {product.price}
-          </Text>
+        <View st
+          yle={styles.textContainer}>
+          {
+            product.price &&
+            <Text style={styles.productText}>U$D {product.price}
+            </Text>
+          }
           <Text style={styles.productText}>{product.title}
           </Text>
         </View>

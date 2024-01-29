@@ -29,7 +29,6 @@ const OrdersScreen = () => {
 
   // Para mostrar el modal con la información de la orden seleccionada
   useEffect(() => {
-    console.log('orderIdSelected:', orderIdSelected)
     const orderSelected = orderData.find((order) => order.orderId === orderIdSelected)
     setOrderSelected(orderSelected)
   }, [orderIdSelected, orderData])
@@ -45,7 +44,6 @@ const OrdersScreen = () => {
   }
 
   return (
-    //! Aquí poner un ActivityIndicator!
     <BackgroundGradient>
 
       {

@@ -1,5 +1,5 @@
 import Input from "../components/Input/Input";
-import { TouchableOpacity, StyleSheet, Text, View, KeyboardAvoidingView, ActivityIndicator } from "react-native";
+import { Image, TouchableOpacity, StyleSheet, Text, View, KeyboardAvoidingView, ActivityIndicator } from "react-native";
 import { colors } from '../global/colors';
 import { useLogInMutation } from '../services/authService';
 import { useEffect, useState } from 'react';
@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import { setUser } from '../features/authSlice';
 import { logInSchema } from '../validations/logInSchema';
 import BackgroundGradient from '../components/BackgroundGradient/BackgroundGradient';
+import login from '../../assets/img/login.png';
 
 
 const LoginScreen = ({ navigation }) => {
@@ -80,31 +81,34 @@ const LoginScreen = ({ navigation }) => {
 
       {isLoading ? <ActivityIndicator style={{ flex: 1 }} size="large" color={colors.paleGoldenRod} /> :
 
-        <KeyboardAvoidingView style={styles.container} behavior='height'>
-          <Input
-            label='Email:'
-            onChange={setEmail}
-            error={formErrors.email}
-          />
-          <Input
-            label='Password:'
-            onChange={setPassword}
-            error={formErrors.password}
-            isSecureEntry={true}
-          />
-          {loginError ? <Text style={styles.errorText}>{loginError}</Text> : null}
+        <>
+          <Image source={login} style={styles.loginIcon} />
+          <KeyboardAvoidingView style={styles.container} behavior='height'>
+            <Input
+              label='Email:'
+              onChange={setEmail}
+              error={formErrors.email}
+            />
+            <Input
+              label='Password:'
+              onChange={setPassword}
+              error={formErrors.password}
+              isSecureEntry={true}
+            />
+            {loginError ? <Text style={styles.errorText}>{loginError}</Text> : null}
 
-          <TouchableOpacity style={styles.button} onPress={onSubmit}>
-            <Text style={styles.buttonText}>LogIn</Text>
-          </TouchableOpacity>
-          <View style={styles.altContainer}>
-            <Text style={styles.subtitle}>Don't have an account? </Text>
-            <TouchableOpacity onPress={() => { navigation.navigate('Signup') }}>
-              <Text style={styles.subtitleLink}>Create One</Text>
+            <TouchableOpacity style={styles.button} onPress={onSubmit}>
+              <Text style={styles.buttonText}>LogIn</Text>
             </TouchableOpacity>
-          </View>
+            <View style={styles.altContainer}>
+              <Text style={styles.subtitle}>Don't have an account? </Text>
+              <TouchableOpacity onPress={() => { navigation.navigate('Signup') }}>
+                <Text style={styles.subtitleLink}>Create One</Text>
+              </TouchableOpacity>
+            </View>
 
-        </KeyboardAvoidingView>
+          </KeyboardAvoidingView>
+        </>
       }
     </BackgroundGradient>
   );
@@ -151,11 +155,10 @@ const styles = StyleSheet.create({
     fontSize: 14,
     marginTop: 10,
   },
-  background: {
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    top: 0,
-    height: '100%',
-  },
+  loginIcon: {
+    alignSelf: 'center',
+    width: '50%',
+    height: '20%',
+    marginTop: 50,
+  }
 });

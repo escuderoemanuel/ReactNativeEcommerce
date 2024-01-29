@@ -42,6 +42,18 @@ const ProductsByCategoryScreen = ({ navigation }) => {
     setSearch(search);
   };
 
+  const numColumns = 2;
+  const formatData = (data, numColumns) => {
+    const numberOfFullRows = Math.floor(data.length / numColumns);
+
+    let numberOfElementsLastRow = data.length - (numberOfFullRows * numColumns);
+    while (numberOfElementsLastRow !== numColumns && numberOfElementsLastRow !== 0) {
+      data.push({ key: `blank-${numberOfElementsLastRow}`, empty: true });
+      numberOfElementsLastRow++;
+    }
+    return data;
+  }
+
   return (
     <BackgroundGradient>
       <View style={styles.container}>
@@ -59,10 +71,10 @@ const ProductsByCategoryScreen = ({ navigation }) => {
 
                 <FlatList
                   style={styles.containerProductsByCategory}
-                  data={productsByCategory}
+                  data={formatData(productsByCategory, numColumns)}
                   renderItem={renderProductItem}
                   keyExtractor={item => item.id}
-                  numColumns={2}
+                  numColumns={numColumns}
                 />
               </>
             </>

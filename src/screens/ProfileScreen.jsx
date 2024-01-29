@@ -1,17 +1,26 @@
 import BackgroundGradient from '../components/BackgroundGradient/BackgroundGradient'
-import { Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native'
+import { Button, Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native'
 import React, { useState } from 'react'
 import user_data from '../data/user_data.json'
 import { colors } from '../global/colors'
-import { LinearGradient } from 'expo-linear-gradient'
 import { FontAwesome } from '@expo/vector-icons';
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import LocationSelector from '../components/LocationSelector/LocationSelector'
+import { logout } from '../features/authSlice'
 
 
 const ProfileScreen = ({ navigation }) => {
   const image = useSelector(state => state.authReducer.profilePicture)
   const location = useSelector(state => state.authReducer.location)
+
+  const dispatch = useDispatch()
+
+  // Logout
+  const handleLogout = () => {
+    dispatch(logout())
+    //navigation.navigate('Login')
+  }
+
 
   return (
     <BackgroundGradient>
@@ -74,7 +83,14 @@ const ProfileScreen = ({ navigation }) => {
         </View>
 
         <LocationSelector style={styles.locationSelectorComponent} />
+
       </ScrollView>
+      <Pressable
+        onPress={handleLogout}
+        style={styles.logoutButton}
+      >
+        <Text style={styles.logoutText}>Logout</Text>
+      </Pressable>
     </BackgroundGradient >
   )
 }
@@ -144,4 +160,19 @@ const styles = StyleSheet.create({
     fontStyle: 'italic',
     textAlign: 'center',
   },
+  logoutButton: {
+    width: '90%',
+    alignSelf: 'center',
+    backgroundColor: colors.redLabel,
+    borderRadius: 10,
+    marginVertical: 10,
+  },
+  logoutText: {
+    color: colors.textLight,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    textTransform: 'uppercase',
+    fontSize: 16,
+    paddingVertical: 12,
+  }
 })
