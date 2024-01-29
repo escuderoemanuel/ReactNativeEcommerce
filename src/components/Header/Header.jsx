@@ -18,7 +18,7 @@ const Header = ({ title, navigation }) => {
       <TouchableOpacity onPress={navigation.popToTop} style={styles.headerIcon}>
         {
           navigation.canGoBack() &&
-          <AntDesign name="home" style={styles.icon} />
+          <AntDesign name="home" style={styles.icon} onPress={() => navigation.navigate('CATEGORIES')} />
         }
       </TouchableOpacity>
     </View >
@@ -43,10 +43,6 @@ const styles = StyleSheet.create({
     color: colors.textLight,
     justifyContent: 'center',
     textAlign: 'center',
-  },
-  headerIcon: {
-    /*  width: 26,
-     color: colors.textLight, */
   },
   icon: {
     fontSize: 26,

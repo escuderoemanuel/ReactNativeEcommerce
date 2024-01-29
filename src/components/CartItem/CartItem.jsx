@@ -47,7 +47,7 @@ export default CartItem
 
 const styles = StyleSheet.create({
   cartItemContainer: {
-    backgroundColor: colors.redLabel,
+    backgroundColor: colors.shadow,
   },
   itemContainer: {
     width: '100%',
