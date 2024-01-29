@@ -1,10 +1,11 @@
+import cart from '../../assets/img/cart.png'
 import BackgroundGradient from '../components/BackgroundGradient/BackgroundGradient'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import Spinner from '../components/Spinner/Spinner'
 import CartItem from '../components/CartItem/CartItem'
 
 import { TouchableOpacity } from 'react-native'
-import { StyleSheet, Text, View, FlatList } from 'react-native'
+import { StyleSheet, Text, View, FlatList, Image } from 'react-native'
 import { colors } from '../global/colors'
 import { useSelector } from 'react-redux'
 import { usePostOrderMutation } from '../services/shopService'
@@ -46,7 +47,8 @@ const CartScreen = ({ navigation }) => {
         {cartItems.length === 0 ? (
           <View style={styles.emptyCart}>
             <Text style={styles.emptyCartText}>There are no products in your cart!</Text>
-            <MaterialCommunityIcons name="cart-outline" size={124} color="whitesmoke" />
+            <Image source={cart} style={styles.cart} resizeMode='contain' />
+
           </View>
         ) : (
           <>
@@ -79,7 +81,9 @@ const styles = StyleSheet.create({
   emptyCart: {
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 100,
+  },
+  cart: {
+    width: 250,
   },
   emptyCartText: {
     width: '50%',
@@ -119,6 +123,5 @@ const styles = StyleSheet.create({
     color: colors.paleGoldenRod,
     fontWeight: 'bold',
     textTransform: 'uppercase',
-
-  }
+  },
 })

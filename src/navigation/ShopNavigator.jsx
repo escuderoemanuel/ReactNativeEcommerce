@@ -12,7 +12,7 @@ const ShopNavigation = () => {
 
   return (
     <Stack.Navigator
-      initialRouteName='Categories'
+      initialRouteName='CATEGORIES'
       screenOptions={
         ({ navigation, route }) => ({
           header: () => <Header title={route.name} navigation={navigation} />,
@@ -20,17 +20,17 @@ const ShopNavigation = () => {
       }
     >
       <Stack.Screen
-        name='Categories'
+        name='CATEGORIES'
         component={CategoriesScreen}
         options={{ title: 'Title ' }}
       />
       <Stack.Screen
-        name='ProductsByCategory'
+        name='PRODUCTS'
         component={ProductsByCategoryScreen}
         options={({ route }) => ({ title: route.params?.category || 'Title ' })}
       />
       <Stack.Screen
-        name='ProductDetails'
+        name='DETAIL'
         component={ProductDetailScreen}
         options={{ title: 'Title ' }}
       />

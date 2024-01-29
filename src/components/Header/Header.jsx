@@ -10,7 +10,7 @@ const Header = ({ title, navigation }) => {
       <TouchableOpacity onPress={navigation.goBack} style={styles.headerIcon}>
         {
           navigation.canGoBack() &&
-          <Ionicons name="arrow-back-circle-outline" size={30} color={colors.paleGoldenRod} />
+          <Ionicons name="arrow-back-circle-outline" style={styles.icon} />
         }
       </TouchableOpacity>
 
@@ -18,7 +18,7 @@ const Header = ({ title, navigation }) => {
       <TouchableOpacity onPress={navigation.popToTop} style={styles.headerIcon}>
         {
           navigation.canGoBack() &&
-          <AntDesign name="home" size={24} color={colors.paleGoldenRod} />
+          <AntDesign name="home" style={styles.icon} />
         }
       </TouchableOpacity>
     </View >
@@ -36,16 +36,21 @@ const styles = StyleSheet.create({
     backgroundColor: colors.darkBlue,
     paddingBottom: 20,
     paddingHorizontal: 20,
-    //paddingTop: Constants.statusBarHeight,
   },
   headerText: {
-    fontFamily: 'Outfit-ExtraBold',
-    fontSize: 24,
-    color: colors.paleGoldenRod,
+    fontFamily: 'Outfit-Bold',
+    fontSize: 20,
+    color: colors.textLight,
     justifyContent: 'center',
     textAlign: 'center',
   },
   headerIcon: {
-    width: 26,
+    /*  width: 26,
+     color: colors.textLight, */
+  },
+  icon: {
+    fontSize: 26,
+    fontWeight: 'bold',
+    color: colors.textLight,
   }
 })

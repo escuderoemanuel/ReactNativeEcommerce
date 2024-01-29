@@ -12,7 +12,7 @@ const ProductItem = ({ product, navigation }) => {
   const handlerSetProductDispatch = () => {
     dispatch(setProductIdSelected(product.id));
     dispatch(setProductSelected(product.id));
-    navigation.navigate('ProductDetails', product.id)
+    navigation.navigate('DETAIL', product.id)
   }
 
   return (

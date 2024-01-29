@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
   searchContainer: {
     padding: 10,
     backgroundColor: colors.darkBlue,
-    borderWidth: 1.5,
+    borderWidth: 1,
     borderColor: colors.textLight,
     marginBottom: 10,
     borderRadius: 10,

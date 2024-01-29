@@ -11,7 +11,7 @@ const CategoryItem = ({ category, navigation }) => {
 
     <TouchableOpacity
       onPress={() => {
-        navigation.navigate('ProductsByCategory', { category })
+        navigation.navigate('PRODUCTS', { category })
         dispatch(setCategorySelected(category))
       }}
       accessibilityRole="button"
