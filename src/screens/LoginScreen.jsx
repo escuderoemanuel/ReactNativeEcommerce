@@ -8,6 +8,7 @@ import { setUser } from '../features/authSlice';
 import { logInSchema } from '../validations/logInSchema';
 import BackgroundGradient from '../components/BackgroundGradient/BackgroundGradient';
 import login from '../../assets/img/login.png';
+import { insertSession } from '../database';
 
 
 const LoginScreen = ({ navigation }) => {
@@ -73,6 +74,15 @@ const LoginScreen = ({ navigation }) => {
   useEffect(() => {
     if (result.data) {
       dispatch(setUser(result.data));
+      insertSession({
+        localId: result.data.localId,
+        email: result.data.email,
+        token: result.data.idToken,
+      })
+        .then(
+          result => console.log('User inserted succesfully: ', result))
+        .catch(
+          error => console.log('Error inserting user:', error))
     }
   }, [result]);
 

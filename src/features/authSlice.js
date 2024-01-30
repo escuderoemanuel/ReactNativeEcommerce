@@ -36,7 +36,6 @@ export const authSlice = createSlice({
       state.localId = null
       state.location = null
     }
-
   }
 })
 

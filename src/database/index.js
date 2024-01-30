@@ -2,12 +2,14 @@ import * as SQLite from 'expo-sqlite';
 
 const db = SQLite.openDatabase('ecommerceReactNative.db')
 
+// CREATE TABLE
 export const init = () => {
+
   const promise = new Promise((resolve, reject) => {
+
     db.transaction(transaction => {
-      transaction.executeSql('CREATE TABLE IF NOT EXISTS sessions (localId TEXT PRIMARY_KEY NOT NULL, email TEXT NOT NULL, token TEXT NOT NULL)',
-        [],
-        () => resolve(),
+      // executeSql(sqlStatement, args, resolve callback, reject errorCallback)
+      transaction.executeSql('CREATE TABLE IF NOT EXISTS sessions (localId TEXT PRIMARY_KEY NOT NULL, email TEXT NOT NULL, token TEXT NOT NULL)', [], () => resolve(),
         (_, error) => reject(error)
       )
     })
@@ -15,6 +17,7 @@ export const init = () => {
   return promise
 }
 
+// UPDATE TABLE
 export const insertSession = ({ localId, email, token }) => {
   const promise = new Promise((resolve, reject) => {
     db.transaction(transaction => {
@@ -29,6 +32,7 @@ export const insertSession = ({ localId, email, token }) => {
   return promise
 }
 
+// READ TABLE
 export const fetchSessions = () => {
   const promise = new Promise((resolve, reject) => {
     db.transaction(transaction => {
@@ -43,6 +47,7 @@ export const fetchSessions = () => {
   return promise
 }
 
+// DELETE TABLE
 export const deleteSession = (localId) => {
   const promise = new Promise((resolve, reject) => {
     db.transaction(transaction => {

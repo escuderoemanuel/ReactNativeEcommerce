@@ -96,6 +96,7 @@ __Mobile shopping application with offline synchronization and data persistence 
 - User Profile: _recovery password._
 - Device: _implement fingerprint unlock._
 - Pay Methods.
+- Favorite List
 
 # Falta Terminar
 
@@ -103,9 +104,11 @@ __Mobile shopping application with offline synchronization and data persistence 
 - Documentation: fetallar features, librerías, utilización
 
 - Mejorar Imagenes
+- No cargan las órdenes inmediatamente!
 
 - Poner icono LogIn / LogOut siempre visible
 - Code Optimization!!!
+
 
 
 # Mejoras en lo posible antes de entregar

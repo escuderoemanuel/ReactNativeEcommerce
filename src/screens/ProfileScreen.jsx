@@ -7,18 +7,21 @@ import { FontAwesome } from '@expo/vector-icons';
 import { useDispatch, useSelector } from 'react-redux'
 import LocationSelector from '../components/LocationSelector/LocationSelector'
 import { logout } from '../features/authSlice'
+import { deleteSession } from '../database'
 
 
 const ProfileScreen = ({ navigation }) => {
   const image = useSelector(state => state.authReducer.profilePicture)
   const location = useSelector(state => state.authReducer.location)
-
-  const dispatch = useDispatch()
+  const email = useSelector(state => state.authReducer.user)
+  const localId = useSelector(state => state.authReducer.localId)
 
   // Logout
+  const dispatch = useDispatch()
   const handleLogout = () => {
     dispatch(logout())
-    //navigation.navigate('Login')
+    deleteSession(localId)
+    console.log('Sesion Eliminada')
   }
 
 
@@ -85,12 +88,14 @@ const ProfileScreen = ({ navigation }) => {
         <LocationSelector style={styles.locationSelectorComponent} />
 
       </ScrollView>
-      <Pressable
-        onPress={handleLogout}
-        style={styles.logoutButton}
-      >
-        <Text style={styles.logoutText}>Logout</Text>
-      </Pressable>
+      {
+        email &&
+        <Pressable
+          onPress={handleLogout}
+          style={styles.logoutButton}
+        >
+          <Text style={styles.logoutText}>Logout!</Text>
+        </Pressable>}
     </BackgroundGradient >
   )
 }

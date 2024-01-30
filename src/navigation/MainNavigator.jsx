@@ -1,21 +1,25 @@
+import { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { useSelector, useDispatch } from 'react-redux';
 import TabNavigator from './TabNavigator';
 import AuthNavigator from './AuthNavigator';
 import { useGetProfilePictureQuery } from '../services/shopService';
 import { useEffect } from 'react';
-import { setProfilePicture, setUserLocation } from '../features/authSlice';
+import { setProfilePicture, setUserLocation, setUser } from '../features/authSlice';
 import { useGetUserLocationQuery } from '../services/shopService';
+import { fetchSessions } from '../database';
+import Spinner from '../components/Spinner/Spinner';
 
 const MainNavigator = () => {
   const user = useSelector(state => state.authReducer.user)
   const localId = useSelector(state => state.authReducer.localId)
   const { data, error, isLoading } = useGetProfilePictureQuery(localId)
-
+  const [loadingSession, setLoadingSession] = useState(true);
   const { data: locationData, error: locationError, isLoading: locationIsLoading } = useGetUserLocationQuery(localId)
-
+  console.log('USER', user)
   const dispatch = useDispatch()
 
+  // Data Profile
   useEffect(() => {
     if (data) {
       dispatch(setProfilePicture(data.image))
@@ -25,11 +29,57 @@ const MainNavigator = () => {
     }
   }, [data, locationData, isLoading, locationIsLoading])
 
+  // Data Session
+  useEffect(() => {
+    (async () => {
+      try {
+        const session = await fetchSessions()
+        console.log('SESSION', session)
+        if (session?.rows.length) {
+          const user = session.rows._array[0]
+          console.log('Se han encontrado Datos del User')
+          dispatch(setUser(user))
+        }
+      } catch (error) {
+        console.log('MainNav: error al obtener datos', error.message)
+      } finally {
+        setLoadingSession(false)
+      }
+    })()
+  }, [])
+
   return (
     <NavigationContainer>
-      {user && !isLoading ? <TabNavigator /> : <AuthNavigator />}
+      {/* Si no está cargando el tabNavigator o no está cargando la sesión, renderiza el contenido */}
+      {(isLoading || loadingSession)
+        ?
+        <Spinner />
+        :
+        user
+          ?
+          <TabNavigator />
+          :
+          <AuthNavigator />
+      }
     </NavigationContainer>
   )
 }
 
 export default MainNavigator
+
+/* 
+
+ <NavigationContainer>
+      Si no está cargando el tabNavigator o no está cargando la sesión, renderiza el contenido
+      {(!isLoading || !loadingSession)
+        ?
+        user
+          ?
+          <TabNavigator />
+          :
+          <AuthNavigator />
+        :
+        <Spinner />
+      }
+    </NavigationContainer>
+*/

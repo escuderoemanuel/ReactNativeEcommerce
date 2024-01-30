@@ -6,9 +6,17 @@ import Spinner from './src/components/Spinner/Spinner';
 import MainNavigator from './src/navigation/MainNavigator';
 import { Provider } from 'react-redux';
 import store from './src/store';
+import { init } from './src/database/index';
 
 export default function App() {
+
+  // Sql Consult
+  init()
+    .then(() => console.log('DataBase Initialized'))
+    .catch((error) => console.log(`Error: ${error}`))
+
   const [fontsLoaded] = useFonts(myFonts)
+
 
   if (!fontsLoaded) {
     return <Spinner />
