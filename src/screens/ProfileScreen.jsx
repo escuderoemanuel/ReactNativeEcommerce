@@ -183,8 +183,6 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 10,
     borderBottomLeftRadius: 10,
     marginVertical: 10,
-    borderColor: colors.paleGoldenRod,
-    borderWidth: 1.5,
     marginRight: -2
   },
   logoutText: {

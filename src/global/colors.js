@@ -13,5 +13,7 @@ export const colors = {
   greyLabel2: '#747474',
   shadow: 'rgba(0, 0, 0, 0.5)',
   dark: '#212121',
-  lightBlue: '#0081CF'
+  lightBlue: '#0081CF',
+  golden: '#FFA447',
+  pink: '#F28585'
 }
