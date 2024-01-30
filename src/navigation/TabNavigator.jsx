@@ -1,6 +1,9 @@
-import { MaterialCommunityIcons, Octicons, FontAwesome } from '@expo/vector-icons';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { StyleSheet } from "react-native";
+import { StyleSheet, Image } from "react-native";
+import user from '../../assets/img/users.png'
+import list from '../../assets/img/list.png'
+import cart from '../../assets/img/cart2.png'
+import shop from '../../assets/img/shop.png'
 
 import { colors } from '../global/colors';
 
@@ -22,22 +25,22 @@ const TabNavigator = () => {
       }}
     >
       <Tab.Screen name="ShopStack" component={ShopNavigator} options={{
-        tabBarIcon: ({ focused }) => (
-          <MaterialCommunityIcons name="storefront" style={focused ? styles.selected : styles.deselected} />
+        tabBarIcon: () => (
+          <Image source={shop} style={{ width: 30, height: 30 }} />
         ),
 
       }} />
       <Tab.Screen name="CartStack" component={CartNavigator} options={{
-        tabBarIcon: ({ focused }) => (
-          <MaterialCommunityIcons name="cart" style={focused ? styles.selected : styles.deselected} />
+        tabBarIcon: () => (
+          <Image source={cart} style={{ width: 30, height: 30 }} />
         ),
       }} />
       <Tab.Screen
         name="OrderStack"
         component={OrdersNavigator}
         options={{
-          tabBarIcon: ({ focused }) => (
-            <Octicons name="list-unordered" style={focused ? styles.selected : styles.deselected} />
+          tabBarIcon: () => (
+            <Image source={list} style={{ width: 30, height: 20 }} />
           )
         }}
       />
@@ -45,8 +48,8 @@ const TabNavigator = () => {
         name="ProfileStack"
         component={ProfileNavigator}
         options={{
-          tabBarIcon: ({ focused }) => (
-            <FontAwesome name="user-o" style={focused ? styles.selected : styles.deselected} />
+          tabBarIcon: () => (
+            <Image source={user} style={{ width: 30, height: 30 }} />
           )
         }}
       />

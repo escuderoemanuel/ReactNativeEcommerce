@@ -97,16 +97,16 @@ __Mobile shopping application with offline synchronization and data persistence 
 - Device: _implement fingerprint unlock._
 - Pay Methods.
 - Favorite List
+- Otro modo de manejar LogIn / LogOut
 
 # Falta Terminar
 
-- Ver Clase SQLite!!
+- No cargan las órdenes inmediatamente!
+
 - Documentation: fetallar features, librerías, utilización
 
 - Mejorar Imagenes
-- No cargan las órdenes inmediatamente!
 
-- Poner icono LogIn / LogOut siempre visible
 - Code Optimization!!!
 
 

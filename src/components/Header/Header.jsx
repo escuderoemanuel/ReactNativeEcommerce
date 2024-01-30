@@ -1,7 +1,7 @@
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native'
 import { colors } from '../../global/colors'
-import { Ionicons, AntDesign } from '@expo/vector-icons';
-import Constants from 'expo-constants';
+import home from '../../../assets/img/home.png'
+import back from '../../../assets/img/back.png'
 
 const Header = ({ title, navigation }) => {
 
@@ -13,7 +13,7 @@ const Header = ({ title, navigation }) => {
             <TouchableOpacity onPress={navigation.goBack} style={styles.headerIcon}>
               {
                 navigation.canGoBack() &&
-                <Ionicons name="arrow-back-circle-outline" style={styles.icon} />
+                <Image source={back} style={styles.iconBack} />
               }
             </TouchableOpacity>
 
@@ -23,7 +23,7 @@ const Header = ({ title, navigation }) => {
             <TouchableOpacity onPress={navigation.popToTop} style={styles.headerIcon}>
               {
                 navigation.canGoBack() &&
-                <AntDesign name="home" style={styles.icon} onPress={() => navigation.navigate('CATEGORIES')} />
+                <Image source={home} style={styles.iconHome} onPress={() => navigation.navigate('CATEGORIES')} />
               }
             </TouchableOpacity>
           </>
@@ -54,10 +54,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     textAlign: 'center',
   },
-  icon: {
-    fontSize: 26,
-    fontWeight: 'bold',
-    color: colors.textLight,
+  iconHome: {
+    width: 30,
+    height: 30,
+  },
+  iconBack: {
+    width: 40,
+    height: 26,
+
   },
   headerTextCenter: {
     fontFamily: 'Outfit-Bold',

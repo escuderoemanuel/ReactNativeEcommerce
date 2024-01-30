@@ -27,8 +27,7 @@ const ProductItem = ({ product, navigation }) => {
             <Image source={{ uri: product.thumbnail }} style={styles.productThumbnail} />
           </TouchableOpacity>
         </View>
-        <View st
-          yle={styles.textContainer}>
+        <View style={styles.textContainer}>
           {
             product.price &&
             <Text style={styles.productText}>U$D {product.price}

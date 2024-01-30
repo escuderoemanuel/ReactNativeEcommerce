@@ -9,6 +9,8 @@ import { setProfilePicture, setUserLocation, setUser } from '../features/authSli
 import { useGetUserLocationQuery } from '../services/shopService';
 import { fetchSessions } from '../database';
 import Spinner from '../components/Spinner/Spinner';
+import { Text } from 'react-native';
+import Welcome from '../components/Welcome/Welcome';
 
 const MainNavigator = () => {
   const user = useSelector(state => state.authReducer.user)
@@ -18,6 +20,7 @@ const MainNavigator = () => {
   const { data: locationData, error: locationError, isLoading: locationIsLoading } = useGetUserLocationQuery(localId)
   console.log('USER', user)
   const dispatch = useDispatch()
+  const [showWelcomeMessage, setShowWelcomeMessage] = useState(true);
 
   // Data Profile
   useEffect(() => {
@@ -48,20 +51,31 @@ const MainNavigator = () => {
     })()
   }, [])
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowWelcomeMessage(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <NavigationContainer>
-      {/* Si no está cargando el tabNavigator o no está cargando la sesión, renderiza el contenido */}
-      {(isLoading || loadingSession)
-        ?
-        <Spinner />
-        :
-        user
-          ?
-          <TabNavigator />
-          :
-          <AuthNavigator />
-      }
+      {showWelcomeMessage ? (
+        <Welcome />
+      ) : (
+        isLoading || loadingSession ? (
+          <Spinner />
+        ) : (
+          user ? (
+            <TabNavigator />
+          ) : (
+            <AuthNavigator />
+          )
+        )
+      )}
     </NavigationContainer>
+
   )
 }
 
