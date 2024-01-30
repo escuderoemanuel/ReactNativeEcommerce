@@ -54,7 +54,7 @@ const SignupScreen = ({ navigation }) => {
   return (
     <BackgroundGradient>
       {isLoading ? <ActivityIndicator style={{ flex: 1 }} size="large" color={colors.paleGoldenRod} /> :
-        <>
+        <View style={styles.signupContainer}>
           <Image source={login} style={styles.loginIcon} />
 
           <KeyboardAvoidingView style={styles.container} behavior='height'>
@@ -86,7 +86,7 @@ const SignupScreen = ({ navigation }) => {
               </TouchableOpacity>
             </View>
           </KeyboardAvoidingView>
-        </>
+        </View>
       }
 
     </BackgroundGradient>
@@ -96,10 +96,14 @@ const SignupScreen = ({ navigation }) => {
 export default SignupScreen
 
 const styles = StyleSheet.create({
+  signupContainer: {
+    flex: 1,
+    justifyContent: 'space-evenly',
+
+  },
   container: {
     justifyContent: 'center',
     alignItems: 'center',
-    flex: 1,
     gap: 10,
   },
   title: {
@@ -137,8 +141,7 @@ const styles = StyleSheet.create({
   },
   loginIcon: {
     alignSelf: 'center',
-    width: '50%',
+    width: '45%',
     height: '20%',
-    marginTop: 50,
   }
 })

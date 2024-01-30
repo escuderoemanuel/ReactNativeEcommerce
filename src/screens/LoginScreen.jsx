@@ -1,4 +1,5 @@
 import Input from "../components/Input/Input";
+import Spinner from "../components/Spinner/Spinner";
 import { Image, TouchableOpacity, StyleSheet, Text, View, KeyboardAvoidingView, ActivityIndicator } from "react-native";
 import { colors } from '../global/colors';
 import { useLogInMutation } from '../services/authService';
@@ -89,9 +90,9 @@ const LoginScreen = ({ navigation }) => {
   return (
     <BackgroundGradient>
 
-      {isLoading ? <ActivityIndicator style={{ flex: 1 }} size="large" color={colors.paleGoldenRod} /> :
+      {isLoading ? <Spinner /> :
 
-        <>
+        <View style={styles.loginContainer}>
           <Image source={login} style={styles.loginIcon} />
           <KeyboardAvoidingView style={styles.container} behavior='height'>
             <Input
@@ -118,7 +119,7 @@ const LoginScreen = ({ navigation }) => {
             </View>
 
           </KeyboardAvoidingView>
-        </>
+        </View>
       }
     </BackgroundGradient>
   );
@@ -127,10 +128,14 @@ const LoginScreen = ({ navigation }) => {
 export default LoginScreen;
 
 const styles = StyleSheet.create({
+  loginContainer: {
+    flex: 1,
+    justifyContent: 'space-evenly',
+  },
   container: {
+    height: '55%',
     justifyContent: 'center',
     alignItems: 'center',
-    flex: 1,
     gap: 10,
   },
   button: {
@@ -167,8 +172,7 @@ const styles = StyleSheet.create({
   },
   loginIcon: {
     alignSelf: 'center',
-    width: '50%',
+    width: '45%',
     height: '20%',
-    marginTop: 50,
   }
 });
