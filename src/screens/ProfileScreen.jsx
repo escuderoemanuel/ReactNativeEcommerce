@@ -1,5 +1,5 @@
 import BackgroundGradient from '../components/BackgroundGradient/BackgroundGradient'
-import { Button, Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native'
+import { Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native'
 import React, { useState } from 'react'
 import user_data from '../data/user_data.json'
 import { colors } from '../global/colors'
@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import LocationSelector from '../components/LocationSelector/LocationSelector'
 import { logout } from '../features/authSlice'
 import { deleteSession } from '../database'
+import alert from '../../assets/img/alert.png'
 
 
 const ProfileScreen = ({ navigation }) => {
@@ -27,7 +28,7 @@ const ProfileScreen = ({ navigation }) => {
 
   return (
     <BackgroundGradient>
-      <ScrollView>
+      <ScrollView >
         <View style={styles.container}>
 
           {
@@ -94,7 +95,8 @@ const ProfileScreen = ({ navigation }) => {
           onPress={handleLogout}
           style={styles.logoutButton}
         >
-          <Text style={styles.logoutText}>Logout!</Text>
+          <Text style={styles.logoutText}>Logout</Text>
+          <Image source={alert} style={styles.alert} />
         </Pressable>}
     </BackgroundGradient >
   )
@@ -103,14 +105,13 @@ const ProfileScreen = ({ navigation }) => {
 export default ProfileScreen
 
 const styles = StyleSheet.create({
+
   container: {
     flexDirection: 'row',
     alignItems: 'flex-start',
     justifyContent: 'space-between',
     padding: 10,
     gap: 10,
-  },
-  profilePictureContainer: {
   },
   profilePicture: {
     width: 130,
@@ -134,6 +135,7 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
     flexShrink: 1,
+
   },
   userTitle: {
     fontSize: 20,
@@ -147,6 +149,7 @@ const styles = StyleSheet.create({
   },
   locationSelectorComponent: {
     width: '100%',
+
   },
   addresPreviewContainer: {
     alignItems: 'center',
@@ -154,6 +157,7 @@ const styles = StyleSheet.create({
     margin: 10,
     borderRadius: 10,
     backgroundColor: colors.darkBlue,
+
   },
   addressTitle: {
     fontSize: 14,
@@ -166,18 +170,33 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   logoutButton: {
-    width: '90%',
-    alignSelf: 'center',
-    backgroundColor: colors.redLabel,
-    borderRadius: 10,
+    position: 'absolute',
+    bottom: 0,
+    right: 0,
+    flexDirection: 'row',
+    width: '40%',
+    alignSelf: 'flex-end',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 10,
+    backgroundColor: colors.dark,
+    borderTopLeftRadius: 10,
+    borderBottomLeftRadius: 10,
     marginVertical: 10,
+    borderColor: colors.paleGoldenRod,
+    borderWidth: 1.5,
+    marginRight: -2
   },
   logoutText: {
     color: colors.textLight,
     fontWeight: 'bold',
     textAlign: 'center',
     textTransform: 'uppercase',
-    fontSize: 16,
+    fontSize: 20,
     paddingVertical: 12,
+  },
+  alert: {
+    width: 30,
+    height: 25,
   }
 })

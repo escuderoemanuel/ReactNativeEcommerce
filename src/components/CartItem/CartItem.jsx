@@ -1,8 +1,8 @@
-import { Ionicons } from '@expo/vector-icons'
 import { TouchableOpacity } from 'react-native'
 import { StyleSheet, Text, View, Image } from 'react-native'
 import Card from '../Card/Card'
 import { colors } from '../../global/colors'
+import trash from '../../../assets/img/trash.png'
 
 const CartItem = ({ item, onRemoveItem }) => {
 
@@ -36,7 +36,8 @@ const CartItem = ({ item, onRemoveItem }) => {
 
         <TouchableOpacity style={styles.trashCash}
           onPress={handleRemoveItem}>
-          <Ionicons name='trash-outline' size={24} color={colors.paleGoldenRod} />
+          <Image style={styles.trashCart} source={trash} />
+
         </TouchableOpacity>
       </View>
     </Card>
@@ -68,7 +69,8 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   trashCart: {
-    width: '20%',
+    width: 25,
+    height: 35,
   },
   cartTitle: {
     textTransform: 'capitalize',

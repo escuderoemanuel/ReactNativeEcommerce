@@ -1,7 +1,9 @@
-import { StyleSheet, View, TextInput, Pressable, Text } from 'react-native'
+import { StyleSheet, View, TextInput, Pressable, Text, Image } from 'react-native'
 import { useState } from 'react'
 import { colors } from '../../global/colors'
-import { AntDesign, EvilIcons } from '@expo/vector-icons';
+import trash from '../../../assets/img/trash2.png'
+import search from '../../../assets/img/search.png'
+
 
 const Search = ({ onSearchHandlerEvent }) => {
   const [searchInput, setSearchInput] = useState('')
@@ -40,10 +42,10 @@ const Search = ({ onSearchHandlerEvent }) => {
         <View style={styles.searchIcons}>
 
           <Pressable onPress={onResetSearchHandler}>
-            <EvilIcons name="trash" size={30} color={styles.searchIcons.color} />
+            <Image style={styles.trashCart} source={trash} />
           </Pressable>
           <Pressable onPress={() => { onSearchHandler(searchInput) }}>
-            <AntDesign name="search1" size={24} color={styles.searchIcons.color} />
+            <Image style={styles.searchCart} source={search} />
           </Pressable>
 
         </View>
@@ -84,8 +86,6 @@ const styles = StyleSheet.create({
   },
   searchIcons: {
     flexDirection: 'row',
-    gap: 10,
-    color: colors.textLight,
   },
   errorMessageContainer: {
     padding: 10,
@@ -96,6 +96,14 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textAlign: 'center',
     color: colors.greyLabel,
+  },
+  trashCart: {
+    width: 40,
+    height: 30,
+  },
+  searchCart: {
+    width: 25,
+    height: 30,
   }
 }
 )

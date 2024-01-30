@@ -1,7 +1,8 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native'
 import Card from '../Card/Card'
-import { Feather } from '@expo/vector-icons'
 import { colors } from '../../global/colors';
+import search from '../../../assets/img/search.png'
+
 
 
 const OrderItem = ({ order, setOrderId, setModalVisible }) => {
@@ -24,7 +25,8 @@ const OrderItem = ({ order, setOrderId, setModalVisible }) => {
             setModalVisible(true)
           }}
         >
-          <Feather name='search' size={24} color={colors.textLight} />
+          <Image style={styles.search} source={search} />
+
         </TouchableOpacity>
       </View>
     </Card>
@@ -60,6 +62,10 @@ const styles = StyleSheet.create({
     color: colors.greyLabel,
     fontSize: 18,
     fontWeight: 'bold',
+  },
+  search: {
+    width: 25,
+    height: 35,
   }
 
 

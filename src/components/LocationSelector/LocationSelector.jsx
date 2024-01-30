@@ -60,7 +60,7 @@ const LocationSelector = () => {
       latitude: location.latitude,
       longitude: location.longitude,
       address: address,
-      
+
     }
 
     dispatch(setUserLocation(locationFormatted))
@@ -100,6 +100,8 @@ const styles = StyleSheet.create({
     width: '100%',
     alignItems: 'center',
     padding: 10,
+    marginBottom: 60
+
   },
   locationTitle: {
     color: colors.textLight,
