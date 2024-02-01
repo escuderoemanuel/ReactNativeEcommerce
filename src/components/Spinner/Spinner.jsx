@@ -4,13 +4,11 @@ import BackgroundGradient from '../BackgroundGradient/BackgroundGradient'
 
 const Spinner = () => {
   return (
-    <BackgroundGradient>
-      <ActivityIndicator
-        style={{ flex: 1 }}
-        size="large"
-        color={colors.paleGoldenRod}
-      />
-    </BackgroundGradient>
+    <ActivityIndicator
+      style={{ flex: 1 }}
+      size="large"
+      color={colors.paleGoldenRod}
+    />
   )
 }
 

@@ -56,8 +56,6 @@ const ProfileScreen = ({ navigation }) => {
                 </View>
                 <Text style={styles.btnChangePicture}>Take a Picture</Text>
               </View>
-
-
           }
 
           <View style={styles.userDataContainer}>
@@ -67,20 +65,21 @@ const ProfileScreen = ({ navigation }) => {
             <Text style={styles.userData}>Address: {user_data.address}</Text>
             <Text style={styles.userData}>City: {user_data.city}</Text>
           </View>
+
         </View>
-        <View style={styles.addresPreviewContainer} >
+
+        <View style={styles.addressPreviewContainer} >
           <Text style={styles.addressTitle}>
             Last Saved Location
           </Text>
           {
-            location.address ?
-              <Text style={styles.addressDescription}
-              >
+            location.address
+              ?
+              <Text style={styles.addressDescription}>
                 {location.address}
               </Text>
               :
-              <Text style={styles.addressDescription}
-              >
+              <Text style={styles.addressDescription}>
                 No Saved Location!
               </Text>
           }
@@ -89,6 +88,7 @@ const ProfileScreen = ({ navigation }) => {
         <LocationSelector style={styles.locationSelectorComponent} />
 
       </ScrollView>
+
       {
         email &&
         <Pressable
@@ -97,7 +97,8 @@ const ProfileScreen = ({ navigation }) => {
         >
           <Text style={styles.logoutText}>Logout</Text>
           <Image source={alert} style={styles.alert} />
-        </Pressable>}
+        </Pressable>
+      }
     </BackgroundGradient >
   )
 }
@@ -151,7 +152,7 @@ const styles = StyleSheet.create({
     width: '100%',
 
   },
-  addresPreviewContainer: {
+  addressPreviewContainer: {
     alignItems: 'center',
     padding: 10,
     margin: 10,
