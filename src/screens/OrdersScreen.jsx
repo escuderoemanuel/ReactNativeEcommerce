@@ -47,16 +47,21 @@ const OrdersScreen = () => {
     <BackgroundGradient>
 
       {
-        isLoading ?
+        orderData.length === 0 ? (
+          <View style={styles.noOrdersContainer}>
+            <Text style={styles.noOrdersText}>There are not orders!</Text>
+          </View>
+        ) : isLoading ? (
           <Spinner />
-          :
+        ) : (
           <FlatList
             data={orderData}
             renderItem={renderOrderItem}
           />
+        )
       }
 
-      {orderSelected &&
+      {orderSelected && (
         <Modal visible={modalVisible} transparent={true}>
           <View style={styles.centeredView}>
             <View style={styles.modalView}>
@@ -80,7 +85,8 @@ const OrdersScreen = () => {
             </View>
           </View>
         </Modal>
-      }
+      )}
+
     </BackgroundGradient>
 
   )
@@ -133,4 +139,14 @@ const styles = StyleSheet.create({
   modalText: {
     textAlign: 'left',
   },
+  noOrdersContainer: {
+    flex: 1,
+  },
+  noOrdersText: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: colors.textLight,
+    marginVertical: 50,
+  }
 });
