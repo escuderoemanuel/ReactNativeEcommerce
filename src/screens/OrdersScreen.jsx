@@ -4,28 +4,31 @@ import { Text, View, FlatList, StyleSheet, Modal, Pressable } from 'react-native
 import OrderItem from '../components/OrderItem/OrderItem'
 import { useGetOrdersQuery } from '../services/shopService'
 import { useState, useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { colors } from '../global/colors'
 
+
+import { setLocalOrder } from '../features/orderSlice'
 
 
 
 const OrdersScreen = () => {
   const localId = useSelector((state) => state.authReducer.localId);
   const { data, isLoading, error } = useGetOrdersQuery(localId);
-  const [orderData, setOrderData] = useState([]);
+  //const [orderData, setOrderData] = useState([]);
+  const orderData = useSelector((state) => state.orderReducer.orderData);
   const [orderIdSelected, setOrderIdSelected] = useState('');
   const [orderSelected, setOrderSelected] = useState({})
   const [modalVisible, setModalVisible] = useState(false);
-
+  const dispatch = useDispatch();
   // Convierte el {{}} en [{}] para poder recorrerlos y mostrarlos en el flatlist
   // Si no se hace esto, no se puede mostrar el modal con la información de la orden seleccionada
   useEffect(() => {
     if (data) {
       const orderData = Object.values(data)
-      setOrderData(orderData)
+      dispatch(setLocalOrder(orderData))
     }
-  }, [data, isLoading])
+  }, [data, isLoading, dispatch])
 
   // Para mostrar el modal con la información de la orden seleccionada
   useEffect(() => {
