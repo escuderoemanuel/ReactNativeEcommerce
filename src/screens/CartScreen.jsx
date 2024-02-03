@@ -26,6 +26,7 @@ const CartScreen = ({ navigation }) => {
 
   const [triggerPost, result] = usePostOrderMutation()
 
+
   const confirmCart = () => {
     const dateString = new Date(Date.now()).toLocaleString('es-AR', { timeZone: 'America/Argentina/Buenos_Aires' });
     // Cambiar esto porque se puede repetir
