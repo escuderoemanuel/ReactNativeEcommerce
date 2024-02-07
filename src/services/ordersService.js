@@ -7,11 +7,11 @@ export const ordersApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: BASE_URL }),
   endpoints: (builder) => ({
     getOrdersByUser: builder.query({
-      query: (userId) => `/orders/user/${userId}`,
+      query: (localId) => `orders/${localId}.json`
     }),
     postOrders: builder.mutation({
       query: ({ ...order }) => ({
-        url: '/orders',
+        url: `orders/${order.localId}.json`,
         method: 'POST',
         body: order,
       })
