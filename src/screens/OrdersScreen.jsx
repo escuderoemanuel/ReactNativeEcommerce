@@ -1,40 +1,53 @@
 import BackgroundGradient from '../components/BackgroundGradient/BackgroundGradient'
 import Spinner from '../components/Spinner/Spinner'
-import { Text, View, FlatList, StyleSheet, Modal, Pressable } from 'react-native'
-import OrderItem from '../components/OrderItem/OrderItem'
-import { useGetOrdersQuery } from '../services/shopService'
-import { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
 import { colors } from '../global/colors'
+import { Text, View, FlatList, StyleSheet, Modal, Pressable } from 'react-native'
+import { useState, useEffect } from 'react'
+import OrderItem from '../components/OrderItem/OrderItem'
+import { useGetOrdersByUserQuery } from '../services/ordersService'
+import { useDispatch, useSelector } from 'react-redux'
+
+import { setLocalOrders } from '../features/orderSlice'
 
 
-import { setLocalOrder } from '../features/orderSlice'
 
-
-
-const OrdersScreen = () => {
+const OrdersScreen = ({ navigation }) => {
+  const [orders, setOrders] = useState([])
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.authReducer.user);
   const localId = useSelector((state) => state.authReducer.localId);
-  const { data, isLoading, error } = useGetOrdersQuery(localId);
-  //const [orderData, setOrderData] = useState([]);
-  const orderData = useSelector((state) => state.orderReducer.orderData);
+  const localOrders = useSelector((state) => state.orderReducer.orders);
+
+  const { data: ordersData, isLoading, error } = useGetOrdersByUserQuery(localId);
+
   const [orderIdSelected, setOrderIdSelected] = useState('');
   const [orderSelected, setOrderSelected] = useState({})
   const [modalVisible, setModalVisible] = useState(false);
-  const dispatch = useDispatch();
+
   // Convierte el {{}} en [{}] para poder recorrerlos y mostrarlos en el flatlist
   // Si no se hace esto, no se puede mostrar el modal con la información de la orden seleccionada
   useEffect(() => {
-    if (data) {
-      const orderData = Object.values(data)
-      dispatch(setLocalOrder(orderData))
+    if (ordersData) {
+      const orderDataItem = Object.values(ordersData)
+      const orderDataKey = Object.keys(ordersData)
+      const orderId = orderDataItem.map((order, index) => {
+        return {
+          orderId: orderDataKey[index],
+          ...order
+        }
+      })
+      setOrders(orderId)
+      dispatch(setLocalOrders(orderId))
     }
-  }, [data, isLoading, dispatch])
+  }, [ordersData, localId, user, isLoading])
 
   // Para mostrar el modal con la información de la orden seleccionada
   useEffect(() => {
-    const orderSelected = orderData.find((order) => order.orderId === orderIdSelected)
-    setOrderSelected(orderSelected)
-  }, [orderIdSelected, orderData])
+    //const orderSelected = ordersData.find((order) => order.orderId === orderIdSelected)
+    if (localOrders !== orders) {
+      setOrders(localOrders)
+    }
+  }, [localOrders])
 
   const renderOrderItem = ({ item }) => {
     return (
@@ -50,7 +63,7 @@ const OrdersScreen = () => {
     <BackgroundGradient>
 
       {
-        orderData.length === 0 ? (
+        orders.length === 0 ? (
           <View style={styles.noOrdersContainer}>
             <Text style={styles.noOrdersText}>There are not orders!</Text>
           </View>
@@ -58,8 +71,9 @@ const OrdersScreen = () => {
           <Spinner />
         ) : (
           <FlatList
-            data={orderData}
+            data={orders}
             renderItem={renderOrderItem}
+            keyExtractor={(item) => item.orderId}
           />
         )
       }

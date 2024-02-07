@@ -1,48 +1,53 @@
-import cart from '../../assets/img/cart.png'
-import BackgroundGradient from '../components/BackgroundGradient/BackgroundGradient'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import Spinner from '../components/Spinner/Spinner'
-import CartItem from '../components/CartItem/CartItem'
-
-import { TouchableOpacity } from 'react-native'
-import { StyleSheet, Text, View, FlatList, Image } from 'react-native'
+import BackgroundGradient from '../components/BackgroundGradient/BackgroundGradient'
 import { colors } from '../global/colors'
-import { useSelector } from 'react-redux'
-import { usePostOrderMutation } from '../services/shopService'
 
+import { TouchableOpacity, StyleSheet, Text, View, FlatList, Image } from 'react-native'
+import CartItem from '../components/CartItem/CartItem'
+import cart from '../../assets/img/cart.png'
+import { useSelector, useDispatch } from 'react-redux'
+import { usePostOrdersMutation } from '../services/ordersService'
+import { setLocalOrders } from '../features/orderSlice';
 
-import { useDispatch } from 'react-redux'
 import { removeItem, clearCart } from '../features/cartSlice'
-import { setLocalOrder } from '../features/orderSlice';
 
 const CartScreen = ({ navigation }) => {
   // Para obtener el localId de authSlice
   const localId = useSelector(state => state.authReducer.localId)
-
-  const dispatch = useDispatch()
-  const onRemoveItem = (id) => { dispatch(removeItem({ id })) }
-
   const cartItems = useSelector(state => state.cartReducer.items)
   const total = useSelector(state => state.cartReducer.total)
+  const localOrders = useSelector(state => state.orderReducer.orders)
 
-  const [triggerPost, result] = usePostOrderMutation()
+  const dispatch = useDispatch()
+  const [triggerPostOrder, result] = usePostOrdersMutation()
+
+  const onRemoveItem = (id) => { dispatch(removeItem({ id })) }
 
 
-
-  const confirmCart = () => {
+  const confirmCart = async () => {
     const dateString = new Date(Date.now()).toLocaleString('es-AR', { timeZone: 'America/Argentina/Buenos_Aires' });
     // Cambiar esto porque se puede repetir
+
+    const { data: newOrderData } = await triggerPostOrder({ total, cartItems, localId: localId, createdAt: dateString, orderId: orderId })
     const orderId = Math.ceil(Math.random(1, 10) * 9000)
+    const updatedOrders = [...localOrders, { cartItems, total, createdAt: dateString, localId, orderId }];
+    //const orderData = { total, cartItems, localId: localId, createdAt: dateString, orderId: orderId }
+    dispatch(setLocalOrders(updatedOrders));
+    dispatch(clearCart({}));
+    navigation.navigate('OrderStack')
 
-    const orderData = { total, cartItems, localId: localId, createdAt: dateString, orderId: orderId }
-
-    triggerPost({ total, cartItems, localId: localId, createdAt: dateString, orderId: orderId })
-      .then(() => {
-        dispatch(setLocalOrder(orderData))
-        navigation.navigate('OrderStack')
-        dispatch(clearCart({}))
-      })
+    /*     triggerPost({ total, cartItems, localId: localId, createdAt: dateString, orderId: orderId })
+          .then(() => {
+            dispatch(setLocalOrder(orderData))
+            navigation.navigate('OrderStack')
+            dispatch(clearCart({}))
+          }) */
   }
+
+  /* const clearCart = () => {
+    dispatch(clearCart({}))
+  } */
 
   const renderCartItem = ({ item }) => (
     <CartItem item={item} onRemoveItem={onRemoveItem} />
@@ -69,6 +74,9 @@ const CartScreen = ({ navigation }) => {
               <TouchableOpacity style={styles.confirmButton} onPress={confirmCart}>
                 <Text style={styles.confirmText}>Confirm! </Text>
               </TouchableOpacity>
+              {/*   <TouchableOpacity style={styles.confirmButton} onPress={clearCart}>
+                <Text style={styles.confirmText}>Clear! </Text>
+              </TouchableOpacity> */}
 
 
             </View></>
