@@ -8,7 +8,6 @@ export const ordersApi = createApi({
   endpoints: (builder) => ({
     getOrdersByUser: builder.query({
       query: (userId) => `/orders/user/${userId}`,
-
     }),
     postOrders: builder.mutation({
       query: ({ ...order }) => ({

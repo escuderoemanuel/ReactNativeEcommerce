@@ -103,6 +103,9 @@ __Mobile shopping application with offline synchronization and data persistence 
 
 - No cargan las órdenes inmediatamente!
 
+
+- Cambiar los servicios de profle a profileServices
+
 - Documentation: fetallar features, librerías, utilización
 
 - Mejorar Imagenes

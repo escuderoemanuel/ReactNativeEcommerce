@@ -22,10 +22,13 @@ export const shopSlice = createSlice({
     },
     setProductSelected: (state) => {
       state.productSelected = state.products.find(product => product.id === state.productIdSelected)
+    },
+    setProducts: (state, action) => {
+      state.products = action.payload
     }
   }
 })
 
-export const { setCategorySelected, setProductIdSelected, setProductSelected } = shopSlice.actions
+export const { setCategorySelected, setProductIdSelected, setProductSelected, setProducts } = shopSlice.actions
 
 export default shopSlice.reducer

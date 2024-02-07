@@ -10,11 +10,14 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setLocalOrders } from '../features/orderSlice'
 
 
-
 const OrdersScreen = ({ navigation }) => {
+
   const [orders, setOrders] = useState([])
+
   const dispatch = useDispatch();
+
   const user = useSelector((state) => state.authReducer.user);
+  console.log('user', user)
   const localId = useSelector((state) => state.authReducer.localId);
   const localOrders = useSelector((state) => state.orderReducer.orders);
 
@@ -27,17 +30,17 @@ const OrdersScreen = ({ navigation }) => {
   // Convierte el {{}} en [{}] para poder recorrerlos y mostrarlos en el flatlist
   // Si no se hace esto, no se puede mostrar el modal con la información de la orden seleccionada
   useEffect(() => {
-    if (ordersData) {
-      const orderDataItem = Object.values(ordersData)
-      const orderDataKey = Object.keys(ordersData)
-      const orderId = orderDataItem.map((order, index) => {
-        return {
-          orderId: orderDataKey[index],
-          ...order
-        }
+    if (!isLoading && ordersData) {
+      const ordersDataValues = Object.values(ordersData)
+      const ordersDataKeys = Object.keys(ordersData)
+      const ordersDataId = ordersDataValues.map((order, index) => {
+        return ({
+          ...order,
+          orderId: ordersDataKeys[index],
+        })
       })
-      setOrders(orderId)
-      dispatch(setLocalOrders(orderId))
+      setOrders(ordersDataId)
+      dispatch(setLocalOrders(ordersDataId))
     }
   }, [ordersData, localId, user, isLoading])
 
