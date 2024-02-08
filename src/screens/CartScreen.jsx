@@ -14,24 +14,27 @@ import { removeItem, clearCart } from '../features/cartSlice'
 const CartScreen = ({ navigation }) => {
   // Para obtener el localId de authSlice
   const localId = useSelector(state => state.authReducer.localId)
-
-  const dispatch = useDispatch()
-  const onRemoveItem = (id) => { dispatch(removeItem({ id })) }
-
   const cartItems = useSelector(state => state.cartReducer.items)
   const total = useSelector(state => state.cartReducer.total)
+  const localOrders = useSelector(state => state.orderReducer.orders)
 
-  const [triggerPost, result] = usePostOrdersMutation()
+  const dispatch = useDispatch()
+  const [triggerPostOrder, result] = usePostOrdersMutation()
 
-  const confirmCart = () => {
+  const onRemoveItem = (id) => { dispatch(removeItem({ id })) }
+
+
+  const confirmCart = async () => {
     const dateString = new Date(Date.now()).toLocaleString('es-AR', { timeZone: 'America/Argentina/Buenos_Aires' });
     // Cambiar esto porque se puede repetir
     const orderId = Math.ceil(Math.random(1, 10) * 9000)
 
-    triggerPost({ total, cartItems, localId: localId, createdAt: dateString, orderId: orderId })
 
-    navigation.navigate('OrderStack')
+    const { data: newOrderData } = await triggerPostOrder({ total, cartItems, localId: localId, createdAt: dateString, orderId: orderId })
+    const updatedOrders = [...localOrders, { cartItems, total, createdAt: dateString, localId, orderId }];
+    dispatch(setLocalOrders(updatedOrders));
     dispatch(clearCart({}))
+    navigation.navigate('OrderStack')
   }
 
   const renderCartItem = ({ item }) => (
@@ -59,6 +62,9 @@ const CartScreen = ({ navigation }) => {
               <TouchableOpacity style={styles.confirmButton} onPress={confirmCart}>
                 <Text style={styles.confirmText}>Confirm! </Text>
               </TouchableOpacity>
+              {/*  <TouchableOpacity style={styles.confirmButton} onPress={clearCart}>
+                <Text style={styles.confirmText}>Clear! </Text>
+              </TouchableOpacity> */}
 
 
             </View></>
