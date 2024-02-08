@@ -1,6 +1,6 @@
 import BackgroundGradient from '../components/BackgroundGradient/BackgroundGradient'
 import { Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import user_data from '../data/user_data.json'
 import { colors } from '../global/colors'
 import { FontAwesome } from '@expo/vector-icons';
@@ -24,6 +24,8 @@ const ProfileScreen = ({ navigation }) => {
     deleteSession(localId)
     console.log('Sesion Eliminada')
   }
+
+
 
 
   return (
@@ -54,7 +56,12 @@ const ProfileScreen = ({ navigation }) => {
                   <FontAwesome name="user-plus" style={styles.profileIcon}
                     resizeMode='contain' />
                 </View>
-                <Text style={styles.btnChangePicture}>Take a Picture</Text>
+                <Pressable
+                  onPress={() => navigation.navigate('Select Image')}
+                  style={({ pressed }) => [{ backgroundColor: pressed ? colors.darkBlue : 'transparent' }, styles.pressed, styles.button]}
+                >
+                  <Text style={styles.btnChangePicture}>Take a Picture</Text>
+                </Pressable>
               </View>
           }
 
@@ -197,5 +204,10 @@ const styles = StyleSheet.create({
   alert: {
     width: 30,
     height: 25,
+  },
+  profileIcon: {
+    fontSize: 80,
+    color: colors.textLight,
+    padding: 20
   }
 })

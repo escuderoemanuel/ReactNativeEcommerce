@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
   image: {
     width: 250,
     height: 250,
-    borderRadius: 250,
+    borderRadius: 20,
   },
   btnContainer: {
     flexDirection: 'row',

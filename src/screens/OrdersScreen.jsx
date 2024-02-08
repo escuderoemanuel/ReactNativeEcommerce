@@ -41,13 +41,13 @@ const OrdersScreen = ({ navigation }) => {
       setOrders(localOrderData)
       dispatch(setLocalOrders(localOrderData))
     }
-  }, [data, isLoading, localId, user])
+  }, [data, isLoading, user])
 
   useEffect(() => {
     if (orderData !== orders) {
       setOrders(orderData)
     }
-  }, [localOrders])
+  }, [localOrders, user])
 
 
   // Para mostrar el modal con la información de la orden seleccionada
@@ -74,15 +74,16 @@ const OrdersScreen = ({ navigation }) => {
       {
         isLoading ?
           <Spinner />
-          :
-          <FlatList
-            data={localOrders} //! Matchea pero no puedo abrir el modal de la order
-            //data={orders}
-            renderItem={renderOrderItem}
-          />
+          : localOrders.length === 0 ?
+            <Text style={styles.emptyOrdersText}>There are no order in your order list!</Text>
+            : <FlatList
+              data={localOrders}
+              renderItem={renderOrderItem}
+            />
       }
 
-      {orderSelected &&
+      {
+        orderSelected &&
         <Modal visible={modalVisible} transparent={true}>
           <View style={styles.centeredView}>
             <View style={styles.modalView}>
@@ -107,7 +108,7 @@ const OrdersScreen = ({ navigation }) => {
           </View>
         </Modal>
       }
-    </BackgroundGradient>
+    </BackgroundGradient >
 
   )
 }
@@ -159,4 +160,12 @@ const styles = StyleSheet.create({
   modalText: {
     textAlign: 'left',
   },
+  emptyOrdersText: {
+    flex: 1,
+    fontSize: 20,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: colors.textLight,
+    marginVertical: '50%',
+  }
 });

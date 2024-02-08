@@ -102,6 +102,7 @@ __Mobile shopping application with offline synchronization and data persistence 
 # Falta Terminar
 
 - Ver si intenta leer address antes de setear el user y por eso falla a veces
+# TypeError: Cannot read property 'address' of null #
 
 - Cambiar los servicios de profle a profileServices
 
