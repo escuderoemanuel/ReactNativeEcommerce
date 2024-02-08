@@ -34,17 +34,12 @@ const OrdersScreen = ({ navigation }) => {
   useEffect(() => {
     if (data) {
       const orderData = Object.values(data)
-      const orderDataId = Object.keys(data)
-      const orderDataIdMapped = orderData.map((order, index) => {
-        return { ...order, orderId: orderDataId[index] }
+      const localOrderData = orderData.map((order, index) => {
+        return { ...order, orderId: orderData[index].orderId }
       })
-      setOrderData(orderData) //! Devuelve las ordenes bien
-      setOrders(orderDataIdMapped) //! Devuelve las ordenes bien
-      dispatch(setLocalOrders(orderDataIdMapped))
-      console.log('orders1', orders)
-      console.log('orderDataIdMapped', orderDataIdMapped)
-      console.log('localOrders1', localOrders)
-      console.log('orderData', orderData)
+      setOrderData(orderData)
+      setOrders(localOrderData)
+      dispatch(setLocalOrders(localOrderData))
     }
   }, [data, isLoading, localId, user])
 

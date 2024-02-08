@@ -101,8 +101,7 @@ __Mobile shopping application with offline synchronization and data persistence 
 
 # Falta Terminar
 
-- No cargan las órdenes inmediatamente!
-
+- Ver si intenta leer address antes de setear el user y por eso falla a veces
 
 - Cambiar los servicios de profle a profileServices
 
