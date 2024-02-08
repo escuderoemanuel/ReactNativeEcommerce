@@ -6,7 +6,7 @@ import MapPreview from '../MapPreview/MapPreview'
 import { colors } from '../../global/colors'
 import { setUserLocation } from '../../features/authSlice'
 import { useDispatch, useSelector } from 'react-redux'
-import { usePutUserLocationMutation } from '../../services/shopService'
+import { usePutUserLocationMutation } from '../../services/userService'
 import { getDistance } from 'geolib'
 
 const MAPS_API_KEY = process.env.EXPO_PUBLIC_MAPS_API_KEY;
@@ -55,16 +55,15 @@ const LocationSelector = () => {
   }, [location])
 
 
-  const onConfirmAddress = () => {
+  const onConfirmAddress = async () => {
     const locationFormatted = {
       latitude: location.latitude,
       longitude: location.longitude,
       address: address,
-
     }
 
     dispatch(setUserLocation(locationFormatted))
-    triggerPutUserLocation({
+    await triggerPutUserLocation({
       location: locationFormatted, localId
     })
   }

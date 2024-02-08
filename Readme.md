@@ -98,15 +98,13 @@ __Mobile shopping application with offline synchronization and data persistence 
 - Pay Methods.
 - Favorite List
 - Otro modo de manejar LogIn / LogOut
+- Mejorar los schemas de validations
 
 # Falta Terminar
 
-- Ver si intenta leer address antes de setear el user y por eso falla a veces
-# TypeError: Cannot read property 'address' of null #
 
-- Cambiar los servicios de profle a profileServices
 
-- Documentation: fetallar features, librerías, utilización
+- Documentation: detallar features, librerías, utilización
 
 - Mejorar Imagenes
 
@@ -118,6 +116,6 @@ __Mobile shopping application with offline synchronization and data persistence 
 
 - Screen de pago simulado
 - Que el Login lo pida antes de ir a pagar, es decir que la screen de pago la cargue solamente si está loggeado
-  
+- Que para registrarse pida más datos y sean los que se guarden en el profile del usuario
 - CAMBIAR EL SEARCH A LA PANTALLA DE CATEGORIES Y QUE PUEDA BUSCAR CUALQUIER PRODUCTO DESDE ALLÍ. SACARLO DE DENTRO DE CADA CATEGORIA.
 

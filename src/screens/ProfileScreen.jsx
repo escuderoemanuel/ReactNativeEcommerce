@@ -80,7 +80,7 @@ const ProfileScreen = ({ navigation }) => {
             Last Saved Location
           </Text>
           {
-            location.address
+            location && location.address
               ?
               <Text style={styles.addressDescription}>
                 {location.address}
@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'flex-start',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
     padding: 10,
     gap: 10,
   },
