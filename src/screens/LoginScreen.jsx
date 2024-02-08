@@ -1,6 +1,6 @@
 import Input from "../components/Input/Input";
 import Spinner from "../components/Spinner/Spinner";
-import { Image, TouchableOpacity, StyleSheet, Text, View, KeyboardAvoidingView, ActivityIndicator } from "react-native";
+import { Image, TouchableOpacity, StyleSheet, Text, View, KeyboardAvoidingView } from "react-native";
 import { colors } from '../global/colors';
 import { useLogInMutation } from '../services/authService';
 import { useEffect, useState } from 'react';

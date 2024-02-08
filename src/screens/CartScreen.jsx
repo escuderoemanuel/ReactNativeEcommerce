@@ -1,18 +1,15 @@
-import cart from '../../assets/img/cart.png'
-import BackgroundGradient from '../components/BackgroundGradient/BackgroundGradient'
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import Spinner from '../components/Spinner/Spinner'
 import { colors } from '../global/colors'
 import { TouchableOpacity, StyleSheet, Text, View, FlatList, Image } from 'react-native'
-import CartItem from '../components/CartItem/CartItem'
 import { useSelector } from 'react-redux'
 import { usePostOrdersMutation } from '../services/ordersService'
 import { setLocalOrders } from '../features/orderSlice'
 import { useDispatch } from 'react-redux'
 import { removeItem, clearCart } from '../features/cartSlice'
+import BackgroundGradient from '../components/BackgroundGradient/BackgroundGradient'
+import cart from '../../assets/img/cart.png'
+import CartItem from '../components/CartItem/CartItem'
 
 const CartScreen = ({ navigation }) => {
-  // Para obtener el localId de authSlice
   const localId = useSelector(state => state.authReducer.localId)
   const cartItems = useSelector(state => state.cartReducer.items)
   const total = useSelector(state => state.cartReducer.total)
@@ -23,12 +20,14 @@ const CartScreen = ({ navigation }) => {
 
   const onRemoveItem = (id) => { dispatch(removeItem({ id })) }
 
+  const onClearCart = () => {
+    dispatch(clearCart({}))
+  }
 
-  const confirmCart = async () => {
+  const onConfirmCart = async () => {
     const dateString = new Date(Date.now()).toLocaleString('es-AR', { timeZone: 'America/Argentina/Buenos_Aires' });
     // Cambiar esto porque se puede repetir
     const orderId = Math.ceil(Math.random(1, 10) * 9000)
-
 
     const { data: newOrderData } = await triggerPostOrder({ total, cartItems, localId: localId, createdAt: dateString, orderId: orderId })
     const updatedOrders = [...localOrders, { cartItems, total, createdAt: dateString, localId, orderId }];
@@ -59,12 +58,12 @@ const CartScreen = ({ navigation }) => {
             />
             <View style={styles.cartConfirm}>
               <Text style={styles.totalPrice}>Total: U$D {total}</Text>
-              <TouchableOpacity style={styles.confirmButton} onPress={confirmCart}>
+              <TouchableOpacity style={styles.confirmButton} onPress={onConfirmCart}>
                 <Text style={styles.confirmText}>Confirm! </Text>
               </TouchableOpacity>
-              {/*  <TouchableOpacity style={styles.confirmButton} onPress={clearCart}>
+              <TouchableOpacity style={styles.confirmButton} onPress={onClearCart}>
                 <Text style={styles.confirmText}>Clear! </Text>
-              </TouchableOpacity> */}
+              </TouchableOpacity>
 
 
             </View></>

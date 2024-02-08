@@ -1,5 +1,4 @@
 import BackgroundGradient from '../components/BackgroundGradient/BackgroundGradient';
-import Spinner from '../components/Spinner/Spinner';
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native'
 import { colors } from '../global/colors'
 import { MaterialIcons } from '@expo/vector-icons';
@@ -20,7 +19,6 @@ const ImageSelectorScreen = ({ navigation }) => {
     if (!granted) {
       return false
     }
-    // console.log("Permisos otorgados")
     return true
   }
 
@@ -35,11 +33,10 @@ const ImageSelectorScreen = ({ navigation }) => {
         quality: 0.2
       })
       if (!result.canceled) {
-        //console.log(result)
         setImage(`data:image/jpeg;base64,${result.assets[0].base64}`)
       }
     } else {
-      console.log("No se han otorgado permisos para usar la cámara")
+      throw new Error("No se han otorgado permisos para usar la cámara")
     }
   }
 
@@ -75,7 +72,7 @@ const ImageSelectorScreen = ({ navigation }) => {
           </View>
           :
           <View style={styles.noImageContainer}>
-            <MaterialIcons name="no-photography" size={200} color="#ccc" />
+            <MaterialIcons name="no-photography" size={200} color={colors.textLight} />
             <TouchableOpacity style={styles.btn} onPress={pickImage}>
               <Text style={styles.textBtn}>Open Cam</Text>
             </TouchableOpacity>
@@ -101,7 +98,7 @@ const styles = StyleSheet.create({
     marginTop: 50,
   },
   textBtn: {
-    color: '#fff'
+    color: colors.textLight,
   },
   imageContainer: {
     justifyContent: 'center',

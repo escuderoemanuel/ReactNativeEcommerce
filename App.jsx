@@ -12,7 +12,6 @@ export default function App() {
 
   // Sql Consult
   init()
-    .then(() => console.log('DataBase Initialized'))
     .catch((error) => console.log(`Error: ${error}`))
 
   const [fontsLoaded] = useFonts(myFonts)

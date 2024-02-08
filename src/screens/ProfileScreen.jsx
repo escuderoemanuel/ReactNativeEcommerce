@@ -1,6 +1,5 @@
 import BackgroundGradient from '../components/BackgroundGradient/BackgroundGradient'
 import { Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native'
-import { useState } from 'react'
 import user_data from '../data/user_data.json'
 import { colors } from '../global/colors'
 import { FontAwesome } from '@expo/vector-icons';
@@ -9,7 +8,6 @@ import LocationSelector from '../components/LocationSelector/LocationSelector'
 import { logout } from '../features/authSlice'
 import { deleteSession } from '../database'
 import alert from '../../assets/img/alert.png'
-
 
 const ProfileScreen = ({ navigation }) => {
   const image = useSelector(state => state.authReducer.profilePicture)
@@ -22,11 +20,7 @@ const ProfileScreen = ({ navigation }) => {
   const handleLogout = () => {
     dispatch(logout())
     deleteSession(localId)
-    console.log('Sesion Eliminada')
   }
-
-
-
 
   return (
     <BackgroundGradient>

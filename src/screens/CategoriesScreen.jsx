@@ -8,11 +8,9 @@ const CategoriesScreen = ({ navigation }) => {
 
   const { data, isLoading, error } = useGetCategoriesQuery()
 
-
   const renderCategoryItem = ({ item }) => (
     <CategoryItem category={item} navigation={navigation} />
   )
-
 
   return (
     <BackgroundGradient>

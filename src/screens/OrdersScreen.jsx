@@ -9,17 +9,12 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { setLocalOrders } from '../features/orderSlice'
 
+const OrdersScreen = () => {
 
-
-
-
-
-const OrdersScreen = ({ navigation }) => {
-
-  const [orders, setOrders] = useState([]) //!
-  const dispatch = useDispatch() //!
-  const user = useSelector((state) => state.authReducer.user) //!
-  const localOrders = useSelector((state) => state.orderReducer.orders) //!
+  const [orders, setOrders] = useState([])
+  const dispatch = useDispatch()
+  const user = useSelector((state) => state.authReducer.user)
+  const localOrders = useSelector((state) => state.orderReducer.orders)
 
   const localId = useSelector((state) => state.authReducer.localId);
   const { data, isLoading, error } = useGetOrdersByUserQuery(localId);

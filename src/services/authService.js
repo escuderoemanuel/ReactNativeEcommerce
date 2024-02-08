@@ -25,4 +25,3 @@ export const authApi = createApi({
 })
 
 export const { useSignUpMutation, useLogInMutation } = authApi;
-// test@coder.com

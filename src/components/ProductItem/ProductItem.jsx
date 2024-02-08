@@ -7,8 +7,6 @@ const ProductItem = ({ product, navigation }) => {
 
   const dispatch = useDispatch()
 
-  const { width } = useWindowDimensions()
-
   const handlerSetProductDispatch = () => {
     dispatch(setProductIdSelected(product.id));
     dispatch(setProductSelected(product.id));
@@ -16,7 +14,6 @@ const ProductItem = ({ product, navigation }) => {
   }
 
   return (
-
 
     <View style={styles.containerProductGlobal}>
       <View style={styles.containerProduct}>

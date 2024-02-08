@@ -36,7 +36,6 @@ export const cartSlice = createSlice({
         state.items = updateItems;
         state.total = state.items.reduce((accumulator, currentItem) => accumulator += currentItem.price * currentItem.quantity, 0);
         state.updatedAt = Date.now().toLocaleString();
-        //console.log(`Producto con id: ${indexToRemove} eliminado`)
       }
     },
 

@@ -8,9 +8,6 @@ import { setUser } from '../features/authSlice'
 import { signUpSchema } from '../validations/signUpSchema'
 import BackgroundGradient from '../components/BackgroundGradient/BackgroundGradient';
 import login from '../../assets/img/login.png';
-import Spinner from '../components/Spinner/Spinner'
-
-
 
 const SignupScreen = ({ navigation }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -42,7 +39,6 @@ const SignupScreen = ({ navigation }) => {
       }
     }
   }
-
 
   const dispatch = useDispatch()
 
@@ -99,7 +95,6 @@ const styles = StyleSheet.create({
   signupContainer: {
     flex: 1,
     justifyContent: 'space-evenly',
-
   },
   container: {
     justifyContent: 'center',

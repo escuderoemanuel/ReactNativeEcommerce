@@ -1,10 +1,8 @@
-import { ActivityIndicator } from 'react-native'
 import { FlatList, View, StyleSheet } from 'react-native'
 import { useEffect, useState } from 'react'
 import ProductItem from '../components/ProductItem/ProductItem'
 import Search from '../components/Search/Search'
 import NoSearchResult from '../components/NoSearchResult/NoSearchResult'
-import { colors } from '../global/colors'
 import { useSelector } from 'react-redux'
 import { useGetProductsByCategoryQuery } from '../services/shopService'
 import BackgroundGradient from '../components/BackgroundGradient/BackgroundGradient'
@@ -14,13 +12,8 @@ const ProductsByCategoryScreen = ({ navigation }) => {
 
   const [productsByCategory, setProductsByCategory] = useState([])
   const [search, setSearch] = useState('')
-
   const category = useSelector(state => state.shopReducer.categorySelected)
-
   const { data: productsFilteredByCategory, isLoading, error } = useGetProductsByCategoryQuery(category)
-
-  //const productsFilteredByCategory = useSelector(state => state.shopReducer.productsFilteredByCategory)
-
 
   useEffect(() => {
 
@@ -32,7 +25,6 @@ const ProductsByCategoryScreen = ({ navigation }) => {
     }
 
   }, [isLoading, category, search])
-
 
   const renderProductItem = ({ item }) => (
     <ProductItem product={item} navigation={navigation} />
@@ -79,8 +71,6 @@ const ProductsByCategoryScreen = ({ navigation }) => {
               </>
             </>
         }
-
-
       </View >
     </BackgroundGradient>
   )
@@ -92,5 +82,4 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   }
-
 })

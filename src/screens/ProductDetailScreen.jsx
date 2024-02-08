@@ -1,16 +1,11 @@
-import { ActivityIndicator, ScrollView, StyleSheet, useWindowDimensions } from 'react-native'
+import { ScrollView, StyleSheet, useWindowDimensions } from 'react-native'
 import { useEffect, useState } from 'react'
-import { colors } from '../global/colors'
 import ProductDetail from '../components/ProductDetail/ProductDetail'
 import { useSelector } from 'react-redux'
 import BackgroundGradient from '../components/BackgroundGradient/BackgroundGradient'
 import Spinner from '../components/Spinner/Spinner'
-
 import { useDispatch } from 'react-redux'
 import { addItem } from '../features/cartSlice'
-
-
-
 
 const ProductDetailScreen = ({ route }) => {
 
@@ -45,7 +40,6 @@ const ProductDetailScreen = ({ route }) => {
           <Spinner />
           :
           <ProductDetail productSelected={productSelected} isPortrait={isPortrait} onAddToCart={onAddToCart} />
-
         }
       </ScrollView>
     </BackgroundGradient>

@@ -1,12 +1,10 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { StyleSheet, Image } from "react-native";
+import { colors } from '../global/colors';
 import user from '../../assets/img/users.png'
 import list from '../../assets/img/list.png'
 import cart from '../../assets/img/cart2.png'
 import shop from '../../assets/img/shop.png'
-
-import { colors } from '../global/colors';
-
 import ShopNavigator from './ShopNavigator';
 import CartNavigator from './CartNavigator';
 import OrdersNavigator from './OrdersNavigator';
@@ -69,6 +67,5 @@ const styles = StyleSheet.create({
   deselected: {
     fontSize: 24,
     color: colors.greyLabel1,
-
   }
 })

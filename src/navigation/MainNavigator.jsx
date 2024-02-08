@@ -1,15 +1,14 @@
 import { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { useSelector, useDispatch } from 'react-redux';
-import TabNavigator from './TabNavigator';
-import AuthNavigator from './AuthNavigator';
 import { useGetProfilePictureQuery } from '../services/userService';
 import { useEffect } from 'react';
 import { setProfilePicture, setUserLocation, setUser } from '../features/authSlice';
 import { useGetUserLocationQuery } from '../services/userService';
 import { fetchSessions } from '../database';
+import TabNavigator from './TabNavigator';
+import AuthNavigator from './AuthNavigator';
 import Spinner from '../components/Spinner/Spinner';
-import { Text } from 'react-native';
 import Welcome from '../components/Welcome/Welcome';
 
 const MainNavigator = () => {
@@ -18,7 +17,6 @@ const MainNavigator = () => {
   const { data, error, isLoading } = useGetProfilePictureQuery(localId)
   const [loadingSession, setLoadingSession] = useState(true);
   const { data: locationData, error: locationError, isLoading: locationIsLoading } = useGetUserLocationQuery(localId)
-  console.log('USER', user)
   const dispatch = useDispatch()
   const [showWelcomeMessage, setShowWelcomeMessage] = useState(true);
 
@@ -37,14 +35,12 @@ const MainNavigator = () => {
     (async () => {
       try {
         const session = await fetchSessions()
-        console.log('SESSION', session)
         if (session?.rows.length) {
           const user = session.rows._array[0]
-          console.log('Se han encontrado Datos del User')
           dispatch(setUser(user))
         }
       } catch (error) {
-        console.log('MainNav: error al obtener datos', error.message)
+        throw new Error(error.message)
       } finally {
         setLoadingSession(false)
       }
@@ -80,20 +76,3 @@ const MainNavigator = () => {
 }
 
 export default MainNavigator
-
-/* 
-
- <NavigationContainer>
-      Si no está cargando el tabNavigator o no está cargando la sesión, renderiza el contenido
-      {(!isLoading || !loadingSession)
-        ?
-        user
-          ?
-          <TabNavigator />
-          :
-          <AuthNavigator />
-        :
-        <Spinner />
-      }
-    </NavigationContainer>
-*/
