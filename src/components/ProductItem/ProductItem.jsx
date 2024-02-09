@@ -1,4 +1,4 @@
-import { TouchableOpacity, StyleSheet, Text, Image, View, useWindowDimensions } from 'react-native'
+import { TouchableOpacity, StyleSheet, Text, Image, View } from 'react-native'
 import { colors } from '../../global/colors'
 import { useDispatch } from 'react-redux'
 import { setProductIdSelected, setProductSelected } from '../../features/shopSlice'
@@ -9,32 +9,25 @@ const ProductItem = ({ product, navigation }) => {
 
   const handlerSetProductDispatch = () => {
     dispatch(setProductIdSelected(product.id));
-    dispatch(setProductSelected(product.id));
-    navigation.navigate('DETAIL', product.id)
+    dispatch(setProductSelected(product));
+    console.log('product', product) //! Se muestra bien en consola
+    navigation.navigate('DETAIL', { productId: product.id });
   }
 
   return (
-
     <View style={styles.containerProductGlobal}>
       <View style={styles.containerProduct}>
         <View style={styles.containerImg}>
-          <TouchableOpacity style={styles.containerTouchable}
-            onPress={() => { handlerSetProductDispatch() }
-            } >
+          <TouchableOpacity style={styles.containerTouchable} onPress={handlerSetProductDispatch}>
             <Image source={{ uri: product.thumbnail }} style={styles.productThumbnail} />
           </TouchableOpacity>
         </View>
         <View style={styles.textContainer}>
-          {
-            product.price &&
-            <Text style={styles.productText}>U$D {product.price}
-            </Text>
-          }
-          <Text style={styles.productText}>{product.title}
-          </Text>
+          {product.price && <Text style={styles.productText}>U$D {product.price}</Text>}
+          <Text style={styles.productText}>{product.title}</Text>
         </View>
       </View>
-    </View >
+    </View>
   )
 }
 
