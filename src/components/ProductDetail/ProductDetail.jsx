@@ -4,7 +4,7 @@ import Carousel from '../Carousel/Carousel'
 
 
 export default function ProductDetail({ productSelected, isPortrait, onAddToCart }) {
-  console.log('productSelected en productDetail', productSelected) //! Llega como undefined
+  console.log('productSelected en productDetail', productSelected) //! Llega como undefined!!!
   return (
     <View style={isPortrait ? styles.productDetailScreenPortrait : styles.productDetailScreenLandscape}>
       <Carousel />
