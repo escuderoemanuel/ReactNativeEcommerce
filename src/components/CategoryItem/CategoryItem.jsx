@@ -33,11 +33,21 @@ export default CategoryItem
 const styles = StyleSheet.create({
   categoryItem: {
     fontSize: 18,
-    backgroundColor: colors.paleGoldenRod,
+    backgroundColor: colors.pink,
     padding: 20,
     margin: 10,
+    height: 80,
+    borderRadius: 60,
+    borderColor: colors.textLight,
+    borderWidth: 2,
+    justifyContent: 'center',
   },
   categoryItemText: {
-    textTransform: 'capitalize',
+    color: colors.textLight,
+    fontWeight: 'bold',
+    fontSize: 18,
+    textTransform: 'uppercase',
+    textAlign: 'right',
+    marginRight: 20,
   }
 })
