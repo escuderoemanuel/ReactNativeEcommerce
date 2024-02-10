@@ -7,9 +7,12 @@ import Spinner from '../components/Spinner/Spinner'
 import { addItem } from '../features/cartSlice'
 import { setProductIdSelected } from '../features/shopSlice'
 
-const ProductDetailScreen = ({ route }) => {
+const ProductDetailScreen = ({ route, navigation }) => {
   const dispatch = useDispatch()
+
+  //const productId = route.params
   const productId = useSelector(state => state.shopReducer.productIdSelected);
+  console.log('productId en ProductDetailScreen', productId)
   const productSelected = useSelector(state => state.shopReducer.productSelected)
 
   const [isLoading, setIsLoading] = useState(true)
@@ -25,12 +28,13 @@ const ProductDetailScreen = ({ route }) => {
   }, [productId])
 
   const onAddToCart = () => {
-    dispatch(addItem({ ...productSelected, quantity: 1 }))
+    dispatch(addItem({ ...productSelected, quantity: 1 }));
+    navigation.navigate('CartStack', { screen: 'Cart' });
   }
 
   useEffect(() => {
     // Al montar el componente, actualiza el productIdSelected según el parámetro de la ruta
-    const { productId } = route.params;
+    //const { productId } = route.params;
     dispatch(setProductIdSelected(productId));
   }, [dispatch, route.params]);
 

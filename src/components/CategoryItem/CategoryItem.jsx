@@ -3,7 +3,7 @@ import Card from '../Card/Card'
 import { colors } from '../../global/colors'
 import { useDispatch } from 'react-redux'
 import { setCategorySelected } from '../../features/shopSlice'
-
+import { setProducts } from '../../features/shopSlice'
 const CategoryItem = ({ category, navigation }) => {
   const dispatch = useDispatch()
 
