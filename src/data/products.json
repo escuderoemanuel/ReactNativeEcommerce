@@ -1,0 +1,336 @@
+[
+    {
+        "id": 1,
+        "title": "iPhone 9",
+        "description": "An apple mobile which is nothing like apple",
+        "price": 549,
+        "discountPercentage": 12.96,
+        "rating": 4.69,
+        "stock": 94,
+        "brand": "Apple",
+        "category": "smartphones",
+        "thumbnail": "https://i.ibb.co/C7YbfcL/iphone9-01.jpg",
+        "images": [
+            "https://i.ibb.co/C7YbfcL/iphone9-01.jpg",
+            "https://i.ibb.co/qntSrfY/iphone9-02.jpg",
+            "https://i.ibb.co/y8frZ5d/iphone9-03.jpg"
+        ]
+    },
+    {
+        "id": 2,
+        "title": "iPhone X",
+        "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+        "price": 899,
+        "discountPercentage": 17.94,
+        "rating": 4.44,
+        "stock": 34,
+        "brand": "Apple",
+        "category": "smartphones",
+        "thumbnail": "https://i.ibb.co/s3M2GBS/iphone-X-01.jpg",
+        "images": [
+            "https://i.ibb.co/s3M2GBS/iphone-X-01.jpg",
+            "https://i.ibb.co/Y8GVNHR/iphone-X-02.jpg",
+            "https://i.ibb.co/PgR9G28/iphone-X-03.jpg",
+            "https://i.ibb.co/FYbsQ2b/iphone-X-04.jpg"
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Samsung Universe 9",
+        "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
+        "price": 1249,
+        "discountPercentage": 15.46,
+        "rating": 4.09,
+        "stock": 36,
+        "brand": "Samsung",
+        "category": "smartphones",
+        "thumbnail": "https://i.ibb.co/Yp5LLBQ/samsung-Universe9-01.jpg",
+        "images": [
+            "https://i.ibb.co/Yp5LLBQ/samsung-Universe9-01.jpg"
+        ]
+    },
+    {
+        "id": 4,
+        "title": "OPPOF19",
+        "description": "OPPO F19 is officially announced on April 2021.",
+        "price": 280,
+        "discountPercentage": 17.91,
+        "rating": 4.3,
+        "stock": 123,
+        "brand": "OPPO",
+        "category": "smartphones",
+        "thumbnail": "https://i.ibb.co/s2MRCmK/oppof19-01.jpg",
+        "images": [
+            "https://i.ibb.co/s2MRCmK/oppof19-01.jpg",
+            "https://i.ibb.co/DwxLmXz/oppof19-02.jpg",
+            "https://i.ibb.co/dMm6pLj/oppof19-03.jpg",
+            "https://i.ibb.co/WPG0QRr/oppof19-04.jpg"
+        ]
+    },
+    {
+        "id": 5,
+        "title": "Huawei P30",
+        "description": "Huawei’s re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK.",
+        "price": 499,
+        "discountPercentage": 10.58,
+        "rating": 4.09,
+        "stock": 32,
+        "brand": "Huawei",
+        "category": "smartphones",
+        "thumbnail": "https://i.ibb.co/fSnZdvH/huawei-P30-01.jpg",
+        "images": [
+            "https://i.ibb.co/fSnZdvH/huawei-P30-01.jpg",
+            "https://i.ibb.co/9yDgv6p/huawei-P30-02.jpg",
+            "https://i.ibb.co/dk41mBR/huawei-P30-03.jpg"
+        ]
+    },
+    {
+        "id": 6,
+        "title": "MacBook Pro",
+        "description": "MacBook Pro 2021 with mini-LED display may launch between September, November",
+        "price": 1749,
+        "discountPercentage": 11.02,
+        "rating": 4.57,
+        "stock": 83,
+        "brand": "Apple",
+        "category": "laptops",
+        "thumbnail": "https://i.ibb.co/7NGfZJH/macbook-Pro02.jpg",
+        "images": [
+            "https://i.ibb.co/7NGfZJH/macbook-Pro02.jpg",
+            "https://i.ibb.co/1QXB8Fk/macbook-Pro03.jpg",
+            "https://i.ibb.co/Qb6r0Z2/macbook-Pro04.jpg"
+        ]
+    },
+    {
+        "id": 7,
+        "title": "Samsung Galaxy Book",
+        "description": "Samsung Galaxy Book S (2020) Laptop With Intel Lakefield Chip, 8GB of RAM Launched",
+        "price": 1499,
+        "discountPercentage": 4.15,
+        "rating": 4.25,
+        "stock": 50,
+        "brand": "Samsung",
+        "category": "laptops",
+        "thumbnail": "https://i.ibb.co/xHBnXdq/samsung-Book01.jpg",
+        "images": [
+            "https://i.ibb.co/xHBnXdq/samsung-Book01.jpg",
+            "https://i.ibb.co/1mk5HY6/samsung-Book02.jpg",
+            "https://i.ibb.co/TRJf7zw/samsung-Book03.jpg",
+            "https://i.ibb.co/xCFBK39/samsung-Book04.jpg"
+        ]
+    },
+    {
+        "id": 8,
+        "title": "Microsoft Surface Laptop 4",
+        "description": "Style and speed. Stand out on HD video calls backed by Studio Mics. Capture ideas on the vibrant touchscreen.",
+        "price": 1499,
+        "discountPercentage": 10.23,
+        "rating": 4.43,
+        "stock": 68,
+        "brand": "Microsoft Surface",
+        "category": "laptops",
+        "thumbnail": "https://i.ibb.co/BrvndgJ/infinix02.jpg",
+        "images": [
+            "https://i.ibb.co/BrvndgJ/infinix02.jpg",
+            "https://i.ibb.co/c1DVW2R/infinix03.jpg",
+            "https://i.ibb.co/8MStn5S/infinix01.jpg",
+            "https://i.ibb.co/d6vyJWy/infinix04.jpg"
+        ]
+    },
+    {
+        "id": 10,
+        "title": "HP Pavilion 15-DK1056WM",
+        "description": "HP Pavilion 15-DK1056WM Gaming Laptop 10th Gen Core i5, 8GB, 256GB SSD, GTX 1650 4GB, Windows 10",
+        "price": 1099,
+        "discountPercentage": 6.18,
+        "rating": 4.43,
+        "stock": 89,
+        "brand": "HP Pavilion",
+        "category": "laptops",
+        "thumbnail": "https://i.ibb.co/jrmR0Pg/hp-Pavilion01.jpg",
+        "images": [
+            "https://i.ibb.co/jrmR0Pg/hp-Pavilion01.jpg",
+            "https://i.ibb.co/QK9R0QQ/hp-Pavilion02.jpg",
+            "https://i.ibb.co/9qT57P7/hp-Pavilion03.jpg"
+        ]
+    },
+    {
+        "id": 11,
+        "title": "Gigabyte 27'",
+        "description": "Model: G27FC - Size: 27' - Resolution: Full HD ( 1920 X 1080)165 Hz - Ports : 2 USB 3.0, 2 HDMI 1.4, DisplayPort 1.2, Jack 3.5 mm - Panel: VA",
+        "price": 300,
+        "discountPercentage": 8.4,
+        "rating": 4.26,
+        "stock": 65,
+        "brand": "Gigabyte 27",
+        "category": "monitors",
+        "thumbnail": "https://i.ibb.co/gWcrS9r/ma01.jpg",
+        "images": [
+            "https://i.ibb.co/gWcrS9r/ma01.jpg",
+            "https://i.ibb.co/MhBqztv/ma02.jpg",
+            "https://i.ibb.co/cgkVGM4/ma03.jpg",
+            "https://i.ibb.co/VSSv8nh/ma04.jpg",
+            "https://i.ibb.co/80LkPqQ/ma05.jpg",
+            "https://i.ibb.co/Sm7Y5mv/ma07.jpg"
+        ]
+    },
+    {
+        "id": 12,
+        "title": "LG Gamer 27'",
+        "description": "Size 27' - Resolution 1920x1080 - Panel IPS - Angle 178°",
+        "price": 140,
+        "discountPercentage": 15.66,
+        "rating": 4,
+        "stock": 52,
+        "brand": "LG Gamer 27",
+        "category": "monitors",
+        "thumbnail": "https://i.ibb.co/hsBh1Hr/mb01.jpg",
+        "images": [
+            "https://i.ibb.co/hsBh1Hr/mb01.jpg",
+            "https://i.ibb.co/FsvPXDt/mb02.jpg",
+            "https://i.ibb.co/6gZ2sbM/mb03.jpg"
+        ]
+    },
+    {
+        "id": 13,
+        "title": "LG Gamer 24'",
+        "description": "Size 23.8' - Panel IPS - Gamma NTSC 72% - Aspect 16:9 - Angle 178° - Response 5ms",
+        "price": 13,
+        "discountPercentage": 8.14,
+        "rating": 4.59,
+        "stock": 61,
+        "brand": "LG Gamer 24",
+        "category": "monitors",
+        "thumbnail": "https://i.ibb.co/cX8yTyG/mc01.jpg",
+        "images": [
+            "https://i.ibb.co/cX8yTyG/mc01.jpg",
+            "https://i.ibb.co/nRvRP2G/mc02.jpg"
+        ]
+    },
+    {
+        "id": 14,
+        "title": "Hyperx Cloud Chat",
+        "description": "Controller Dinamic 40mm -  Response Frecuency 50Hz 10Hz - Longitude 130cm - Connection 3.5mm - Mic Response 50Hz - 18Hz",
+        "price": 120,
+        "discountPercentage": 15.6,
+        "rating": 4.21,
+        "stock": 114,
+        "brand": "Hyperx Cloud Chat",
+        "category": "headphones",
+        "thumbnail": "https://i.ibb.co/sJq6g2c/a01.jpg",
+        "images": [
+            "https://i.ibb.co/sJq6g2c/a01.jpg",
+            "https://i.ibb.co/CzpvSTY/a02.jpg",
+            "https://i.ibb.co/FDWjmSL/a05.jpg",
+            "https://i.ibb.co/qJcsWJB/a04.jpg"
+        ]
+    },
+    {
+        "id": 15,
+        "title": "Redragon Ares H120",
+        "description": "A robust headset, aimed at users with long sessions with its stereo sound. The Ares is the quality peripheral you are looking for. The microphone is arranged on a completely foldable boom arm and unidirectional sound pickup. Additionally, it is equipped with noise cancellation.",
+        "price": 30,
+        "discountPercentage": 10.99,
+        "rating": 4.7,
+        "stock": 105,
+        "brand": "Redragon Ares H120",
+        "category": "headphones",
+        "thumbnail": "https://i.ibb.co/rFpkFZD/b01.jpg",
+        "images": [
+            "https://i.ibb.co/rFpkFZD/b01.jpg",
+            "https://i.ibb.co/znhZksw/b02.jpg",
+            "https://i.ibb.co/JxPjYnB/b03.jpg",
+            "https://i.ibb.co/VD54nFk/b04.jpg"
+        ]
+    },
+    {
+        "id": 16,
+        "title": "T-dagger T-tgk106",
+        "description": "The Tanker Rainbow is the perfect keyboard for those looking to take that difficult first step towards real gaming, where common equipment falters. It is designed to help you enhance your gaming skills and introduce you to the world of authentic gaming keyboard. So that you are the one who carries your companions and not the other way around.",
+        "price": 19,
+        "discountPercentage": 13.31,
+        "rating": 4.83,
+        "stock": 110,
+        "brand": "T-dagger T-tgk106",
+        "category": "keyboards",
+        "thumbnail": "https://i.ibb.co/ZJtrQQh/k01.jpg",
+        "images": [
+            "https://i.ibb.co/ZJtrQQh/k01.jpg",
+            "https://i.ibb.co/8NJ4VF2/k02.jpg",
+            "https://i.ibb.co/JCF5wgH/k03.jpg",
+            "https://i.ibb.co/23rKfF4/k04.jpg"
+        ]
+    },
+    {
+        "id": 17,
+        "title": " T-dagger T-tgk315w-rd",
+        "description": "The Bora is a TKL mechanical keyboard optimized for gaming. What does TKL mean? It eliminates the number pad, saving valuable mouse space. It is clear: it is not a keyboard to fill out forms and spreadsheets, but to start playing hard. This is its RGB version, with unmatched backlighting. Indulge yourself and know it.",
+        "price": 12,
+        "discountPercentage": 4.09,
+        "rating": 4.52,
+        "stock": 78,
+        "brand": " T-dagger T-tgk315w-rd",
+        "category": "keyboards",
+        "thumbnail": "https://i.ibb.co/J7MpXwF/ka01.jpg",
+        "images": [
+            "https://i.ibb.co/J7MpXwF/ka01.jpg",
+            "https://i.ibb.co/0rNrqKm/ka02.jpg",
+            "https://i.ibb.co/mhC76Vw/ka03.jpg",
+            "https://i.ibb.co/4NhLKHb/ka04.jpg"
+        ]
+    },
+    {
+        "id": 18,
+        "title": "Redragon Diti K585",
+        "description": "The construction of the keyboard is made of reinforced ABS and aluminum, combined with double-shot laser injection molded keys and subsequently engraved, generating a durable and excellent quality product, ideal for intensive use.",
+        "price": 40,
+        "discountPercentage": 13.1,
+        "rating": 4.56,
+        "stock": 88,
+        "brand": "Redragon Diti K585",
+        "category": "keyboards",
+        "thumbnail": "https://i.ibb.co/XVhwfR6/kb01.jpg",
+        "images": [
+            "https://i.ibb.co/XVhwfR6/kb01.jpg",
+            "https://i.ibb.co/qJ0KpXy/kb02.jpg",
+            "https://i.ibb.co/dGqQkHd/kb03.jpg",
+            "https://i.ibb.co/PM2nN96/kb04.jpg"
+        ]
+    },
+    {
+        "id": 19,
+        "title": "Mouse Pad T-dagger",
+        "description": "Size: 290 x 240mm. Thickness: 3mm. Sliding type: speed, optimized for all sensors. Construction: fabric intertwined with silk fibers that guarantees maximum sliding, rubber bottom, non-slip and adaptable to any surface. Waterproof and easy to clean. The edges are sewn with double stitches, to avoid unraveling.",
+        "price": 46,
+        "discountPercentage": 10.68,
+        "rating": 4.42,
+        "stock": 54,
+        "brand": "Mouse Pad T-dagger",
+        "category": "pads",
+        "thumbnail": "https://i.ibb.co/sqgFNfg/pa01.jpg",
+        "images": [
+            "https://i.ibb.co/sqgFNfg/pa01.jpg",
+            "https://i.ibb.co/HdtWkw9/1653408263410.jpg",
+            "https://i.ibb.co/mXjnLnc/1653408264565.jpg",
+            "https://i.ibb.co/VWRwYJy/pa02.jpg"
+        ]
+    },
+    {
+        "id": 20,
+        "title": "Great Mousepad Xl",
+        "description": "The material is a combination of high-density foam rubber, a layer of non-slip rubber, and synthetic fabric on the surface, giving the pad a soft but not slippery texture. It is of very good quality and performance, it offers great performance and response, ideal for any type of gamer. Measurements: 117 x 60 cm.",
+        "price": 70,
+        "discountPercentage": 16.99,
+        "rating": 4.06,
+        "stock": 140,
+        "brand": "Great Mousepad Xl",
+        "category": "pads",
+        "thumbnail": "https://i.ibb.co/chkdjjp/pb01.jpg",
+        "images": [
+            "https://i.ibb.co/chkdjjp/pb01.jpg",
+            "https://i.ibb.co/cQqLnN6/pb03.jpg",
+            "https://i.ibb.co/1ZgMNr5/pb04.jpg",
+            "https://i.ibb.co/7GrSgwg/pb05.jpg"
+        ]
+    }
+]

@@ -1,5 +1,3 @@
-
-
 export const colors = {
   textLight: 'whitesmoke',
   darkBlue: '#002B5B',

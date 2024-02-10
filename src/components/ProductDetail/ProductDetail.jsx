@@ -13,7 +13,7 @@ export default function ProductDetail({ productSelected, isPortrait, onAddToCart
         <Text style={styles.productPrice}>U$D {productSelected.price}</Text>
         <TouchableOpacity style={styles.buyButton} onPress={onAddToCart} >
           <Text style={styles.buyButtonText}>Add to Cart
-            <Text style={styles.buyButtonSpan}>!</Text>
+            <Text style={styles.buyButtonSpan}> !</Text>
           </Text>
         </TouchableOpacity>
       </View>
@@ -63,20 +63,20 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   buyButton: {
-    backgroundColor: colors.paleGoldenRod,
+    backgroundColor: colors.dark,
     padding: 10,
     borderRadius: 20,
   },
   buyButtonText: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: colors.greyLabel2,
+    color: colors.paleGoldenRod,
     textAlign: 'center'
   },
   buyButtonSpan: {
     fontStyle: 'italic',
     fontSize: 20,
     fontWeight: 'bold',
-    color: colors.darkBlue,
+    color: colors.paleGoldenRod,
   }
 })

@@ -4,7 +4,6 @@ import { colors } from '../../global/colors'
 import trash from '../../../assets/img/trash2.png'
 import search from '../../../assets/img/search.png'
 
-
 const Search = ({ onSearchHandlerEvent }) => {
   const [searchInput, setSearchInput] = useState('')
   const [error, setError] = useState('')

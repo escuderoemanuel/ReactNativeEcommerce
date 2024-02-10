@@ -99,11 +99,7 @@ __Mobile shopping application with offline synchronization and data persistence 
 
 
 
-
 # Falta Terminar
 
 - Mejorar Imagenes
-
-- Code Optimization!!!
-
 

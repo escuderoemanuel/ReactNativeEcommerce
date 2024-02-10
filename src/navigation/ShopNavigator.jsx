@@ -32,7 +32,6 @@ const ShopNavigation = () => {
         component={ProductDetailScreen}
         options={{ title: 'Title ' }}
       />
-
     </Stack.Navigator>
   );
 }

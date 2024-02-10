@@ -9,14 +9,8 @@ const ProductItem = ({ product, navigation }) => {
 
   const handlerSetProductDispatch = () => {
     dispatch(setProductIdSelected(product.id));
-
-
-    //dispatch(setProductSelected(product));
-    dispatch(setProductSelected()); // También lo setea bien así
-
-
+    dispatch(setProductSelected());
     navigation.navigate('DETAIL', { product });
-    console.log('Navegando a Detail', product)
   }
 
   return (

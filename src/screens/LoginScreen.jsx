@@ -81,7 +81,7 @@ const LoginScreen = ({ navigation }) => {
         token: result.data.idToken,
       })
         .then(
-          result => console.log('User inserted succesfully: ', result))
+          result => (result))
         .catch(
           error => console.log('Error inserting user:', error))
     }

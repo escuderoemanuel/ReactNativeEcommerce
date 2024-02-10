@@ -29,5 +29,4 @@ const styles = StyleSheet.create({
     fontFamily: 'Outfit-Bold',
     color: colors.textLight
   }
-
 })

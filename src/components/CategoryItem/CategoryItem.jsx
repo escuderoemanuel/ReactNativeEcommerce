@@ -3,16 +3,20 @@ import Card from '../Card/Card'
 import { colors } from '../../global/colors'
 import { useDispatch } from 'react-redux'
 import { setCategorySelected } from '../../features/shopSlice'
-import { setProducts } from '../../features/shopSlice'
+
+//import { setProducts } from '../../features/shopSlice'
+
 const CategoryItem = ({ category, navigation }) => {
   const dispatch = useDispatch()
+
 
   return (
 
     <TouchableOpacity
       onPress={() => {
-        navigation.navigate('PRODUCTS', { category })
         dispatch(setCategorySelected(category))
+        navigation.navigate('PRODUCTS', { category })
+
       }}
       accessibilityRole="button"
       accessibilityLabel={`Ver productos de la categoría ${category}`}

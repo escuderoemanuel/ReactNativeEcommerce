@@ -23,7 +23,6 @@ const ProductsByCategoryScreen = ({ navigation }) => {
       const productsFilteredByName = productsValues.filter(product => product.title.toLowerCase().includes(search.toLowerCase()))
       setProductsByCategory(productsFilteredByName)
     }
-
   }, [isLoading, category, search])
 
   const renderProductItem = ({ item }) => (

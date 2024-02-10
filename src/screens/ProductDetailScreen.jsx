@@ -10,9 +10,7 @@ import { setProductIdSelected } from '../features/shopSlice'
 const ProductDetailScreen = ({ route, navigation }) => {
   const dispatch = useDispatch()
 
-  //const productId = route.params
   const productId = useSelector(state => state.shopReducer.productIdSelected);
-  console.log('productId en ProductDetailScreen', productId)
   const productSelected = useSelector(state => state.shopReducer.productSelected)
 
   const [isLoading, setIsLoading] = useState(true)
@@ -33,8 +31,6 @@ const ProductDetailScreen = ({ route, navigation }) => {
   }
 
   useEffect(() => {
-    // Al montar el componente, actualiza el productIdSelected según el parámetro de la ruta
-    //const { productId } = route.params;
     dispatch(setProductIdSelected(productId));
   }, [dispatch, route.params]);
 
@@ -54,5 +50,4 @@ const ProductDetailScreen = ({ route, navigation }) => {
 export default ProductDetailScreen
 
 const style = StyleSheet.create({
-
 })

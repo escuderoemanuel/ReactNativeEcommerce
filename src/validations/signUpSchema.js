@@ -1,6 +1,5 @@
 import { object, ref, string } from 'yup'
 
-
 export const signUpSchema = object().shape({
   email: string()
     .required('Please, enter you email')

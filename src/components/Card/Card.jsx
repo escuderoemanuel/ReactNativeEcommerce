@@ -13,7 +13,8 @@ export default Card
 
 const styles = StyleSheet.create({
   card: {
-    borderRadius: 8,
+    borderTopLeftRadius: 20,
+    borderBottomRightRadius: 20,
     margin: 5,
   }
 }

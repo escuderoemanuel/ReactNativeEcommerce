@@ -11,7 +11,12 @@ const CategoriesScreen = ({ navigation }) => {
   const dispatch = useDispatch()
 
   const { data, isLoading, error } = useGetCategoriesQuery()
+
   const { data: productsData, isLoading: isLoadingProducts, error: errorProducts } = useGetProductsQuery();
+
+  const renderCategoryItem = ({ item }) => (
+    <CategoryItem category={item} navigation={navigation} />
+  )
 
   const setLocalProducts = () => {
     if (productsData) {
@@ -23,11 +28,9 @@ const CategoriesScreen = ({ navigation }) => {
     setLocalProducts()
   }, [data, productsData, dispatch])
 
-  const renderCategoryItem = ({ item }) => (
-    <CategoryItem category={item} navigation={navigation} />
-  )
 
   return (
+
     <BackgroundGradient>
       {isLoading ? <Spinner /> :
         <View>

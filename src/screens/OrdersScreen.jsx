@@ -25,7 +25,6 @@ const OrdersScreen = () => {
   const [modalVisible, setModalVisible] = useState(false);
 
   // Convierte el {{}} en [{}] para poder recorrerlos y mostrarlos en el flatlist
-  // Si no se hace esto, no se puede mostrar el modal con la información de la orden seleccionada
   useEffect(() => {
     if (data) {
       const orderData = Object.values(data)
@@ -44,14 +43,11 @@ const OrdersScreen = () => {
     }
   }, [localOrders, user])
 
-
   // Para mostrar el modal con la información de la orden seleccionada
   useEffect(() => {
     const orderSelected = localOrders.find((order) => order.orderId === orderIdSelected)
     setOrderSelected(orderSelected)
   }, [orderIdSelected, orderData])
-
-
 
   const renderOrderItem = ({ item }) => {
     return (
@@ -104,7 +100,6 @@ const OrdersScreen = () => {
         </Modal>
       }
     </BackgroundGradient >
-
   )
 }
 

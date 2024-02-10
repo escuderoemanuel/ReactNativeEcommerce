@@ -64,8 +64,6 @@ const CartScreen = ({ navigation }) => {
               <TouchableOpacity style={styles.confirmButton} onPress={onClearCart}>
                 <Text style={styles.confirmText}>Clear! </Text>
               </TouchableOpacity>
-
-
             </View></>
         )}
       </View>
@@ -105,15 +103,12 @@ const styles = StyleSheet.create({
     borderTopEndRadius: 10,
     borderTopStartRadius: 10,
     marginHorizontal: '5%',
-
-
   },
   totalPrice: {
     fontSize: 18,
     fontWeight: 'bold',
     color: colors.textLight,
     backgroundColor: colors.darkBlue,
-
   },
   confirmButton: {
     backgroundColor: colors.darkBlue,

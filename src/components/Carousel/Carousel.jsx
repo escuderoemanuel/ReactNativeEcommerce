@@ -24,18 +24,20 @@ export default Carousel
 
 const styles = StyleSheet.create({
   wrapper: {
-    height: 300,
+    height: width,
   },
   slide: {
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: colors.royalBlue,
+    backgroundColor: colors.textLight,
     borderRadius: 12,
     overflow: 'hidden',
+    width: '100%',
+    height: width,
   },
   image: {
-    width: width,
-    height: 300,
+    width: '100%',
+    height: '100%',
     borderRadius: 12,
   }
 })
