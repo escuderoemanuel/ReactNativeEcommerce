@@ -143,12 +143,12 @@ const styles = StyleSheet.create({
   },
   loginIconContainer: {
     width: '100%',
-    height: 140,
+    height: 150,
     marginVertical: 20
   },
   loginIcon: {
     alignSelf: 'center',
     width: 150,
-    height: 125,
+    height: 150,
   }
 })

@@ -1,6 +1,5 @@
 import BackgroundGradient from '../components/BackgroundGradient/BackgroundGradient'
 import { Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native'
-import user_data from '../data/user_data.json'
 import { colors } from '../global/colors'
 import { FontAwesome } from '@expo/vector-icons';
 import { useDispatch, useSelector } from 'react-redux'
@@ -14,7 +13,6 @@ const ProfileScreen = ({ navigation }) => {
   const location = useSelector(state => state.authReducer.location)
   const email = useSelector(state => state.authReducer.user)
   const localId = useSelector(state => state.authReducer.localId)
-  
 
   // Logout
   const dispatch = useDispatch()
@@ -61,12 +59,8 @@ const ProfileScreen = ({ navigation }) => {
           }
 
           <View style={styles.userDataContainer}>
-
-            <Text style={styles.userTitle}>Name: {user_data.name}</Text>
-            <Text style={styles.userData}>Rol: {user_data.role}</Text>
-            <Text style={styles.userData}>Level: {user_data.level}</Text>
-            <Text style={styles.userData}>Address: {user_data.address}</Text>
-            <Text style={styles.userData}>City: {user_data.city}</Text>
+            <Text style={styles.userTitle}>User</Text>
+            <Text style={styles.userEmail}>{email}</Text>
           </View>
 
         </View>
@@ -136,15 +130,25 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   userDataContainer: {
-    alignItems: 'flex-start',
+    alignItems: 'flex-end',
     justifyContent: 'flex-start',
-    flexShrink: 1,
-
+    gap: 5,
   },
   userTitle: {
     fontSize: 20,
     fontWeight: 'bold',
     color: colors.textLight,
+    textTransform: 'uppercase',
+    textDecorationLine: 'underline',
+    paddingHorizontal: 5,
+
+  },
+  userEmail: {
+
+    fontSize: 18,
+    color: colors.textLight,
+    textTransform: 'lowercase',
+    fontStyle: 'italic',
   },
   userData: {
     fontWeight: 'normal',

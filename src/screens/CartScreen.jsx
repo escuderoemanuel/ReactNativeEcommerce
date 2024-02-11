@@ -6,7 +6,6 @@ import { setLocalOrders } from '../features/orderSlice'
 import { useDispatch } from 'react-redux'
 import { removeItem, clearCart } from '../features/cartSlice'
 import BackgroundGradient from '../components/BackgroundGradient/BackgroundGradient'
-import cart from '../../assets/img/cart.png'
 import CartItem from '../components/CartItem/CartItem'
 
 const CartScreen = ({ navigation }) => {
