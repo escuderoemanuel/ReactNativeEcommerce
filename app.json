@@ -8,7 +8,7 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#0081CF"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -17,13 +17,17 @@
       "supportsTablet": true
     },
     "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      }
+      "icon": "./assets/icon.png",
+      "package": "com.emanuelmdz.ecommercereactnative"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "5331c8c5-70c2-422c-8133-4d957d94249f"
+      }
+    },
+    "owner": "emanuelmdz"
   }
 }
