@@ -7,13 +7,14 @@ import { useDispatch, useSelector } from 'react-redux'
 import LocationSelector from '../components/LocationSelector/LocationSelector'
 import { logout } from '../features/authSlice'
 import { deleteSession } from '../database'
-import alert from '../../assets/img/alert.png'
 
 const ProfileScreen = ({ navigation }) => {
+
   const image = useSelector(state => state.authReducer.profilePicture)
   const location = useSelector(state => state.authReducer.location)
   const email = useSelector(state => state.authReducer.user)
   const localId = useSelector(state => state.authReducer.localId)
+  
 
   // Logout
   const dispatch = useDispatch()
@@ -60,6 +61,7 @@ const ProfileScreen = ({ navigation }) => {
           }
 
           <View style={styles.userDataContainer}>
+
             <Text style={styles.userTitle}>Name: {user_data.name}</Text>
             <Text style={styles.userData}>Rol: {user_data.role}</Text>
             <Text style={styles.userData}>Level: {user_data.level}</Text>
@@ -97,7 +99,7 @@ const ProfileScreen = ({ navigation }) => {
           style={styles.logoutButton}
         >
           <Text style={styles.logoutText}>Logout</Text>
-          <Image source={alert} style={styles.alert} />
+          <Text style={styles.alertIcon} >⚠️</Text>
         </Pressable>
       }
     </BackgroundGradient >
@@ -195,9 +197,8 @@ const styles = StyleSheet.create({
     fontSize: 20,
     paddingVertical: 12,
   },
-  alert: {
-    width: 30,
-    height: 25,
+  alertIcon: {
+    fontSize: 20,
   },
   profileIcon: {
     fontSize: 80,
