@@ -1,6 +1,6 @@
 import Input from "../components/Input/Input";
 import Spinner from "../components/Spinner/Spinner";
-import { Image, TouchableOpacity, StyleSheet, Text, View, KeyboardAvoidingView } from "react-native";
+import { Image, TouchableOpacity, StyleSheet, Text, View, ScrollView } from "react-native";
 import { colors } from '../global/colors';
 import { useLogInMutation } from '../services/authService';
 import { useEffect, useState } from 'react';
@@ -89,37 +89,39 @@ const LoginScreen = ({ navigation }) => {
 
   return (
     <BackgroundGradient>
-
       {isLoading ? <Spinner /> :
+        <ScrollView>
+          <View style={styles.loginIconContainer}>
+            <Image source={login} style={styles.loginIcon} />
+          </View>
+          <View style={styles.container}>
+            <View style={styles.loginContainer}>
+              <Input
+                label='Email:'
+                onChange={setEmail}
+                error={formErrors.email}
+              />
+              <Input
+                label='Password:'
+                onChange={setPassword}
+                error={formErrors.password}
+                isSecureEntry={true}
+              />
+              {loginError ? <Text style={styles.errorText}>{loginError}</Text> : null}
 
-        <View style={styles.loginContainer}>
-          <Image source={login} style={styles.loginIcon} />
-          <KeyboardAvoidingView style={styles.container} behavior='height'>
-            <Input
-              label='Email:'
-              onChange={setEmail}
-              error={formErrors.email}
-            />
-            <Input
-              label='Password:'
-              onChange={setPassword}
-              error={formErrors.password}
-              isSecureEntry={true}
-            />
-            {loginError ? <Text style={styles.errorText}>{loginError}</Text> : null}
-
-            <TouchableOpacity style={styles.button} onPress={onSubmit}>
-              <Text style={styles.buttonText}>LogIn</Text>
-            </TouchableOpacity>
-            <View style={styles.altContainer}>
-              <Text style={styles.subtitle}>Don't have an account? </Text>
-              <TouchableOpacity onPress={() => { navigation.navigate('Signup') }}>
-                <Text style={styles.subtitleLink}>Create One</Text>
+              <TouchableOpacity style={styles.button} onPress={onSubmit}>
+                <Text style={styles.buttonText}>LogIn</Text>
               </TouchableOpacity>
-            </View>
+              <View style={styles.altContainer}>
+                <Text style={styles.subtitle}>Don't have an account? </Text>
+                <TouchableOpacity onPress={() => { navigation.navigate('Signup') }}>
+                  <Text style={styles.subtitleLink}>Create One</Text>
+                </TouchableOpacity>
+              </View>
 
-          </KeyboardAvoidingView>
-        </View>
+            </View>
+          </View>
+        </ScrollView>
       }
     </BackgroundGradient>
   );
@@ -128,15 +130,18 @@ const LoginScreen = ({ navigation }) => {
 export default LoginScreen;
 
 const styles = StyleSheet.create({
-  loginContainer: {
-    flex: 1,
-    justifyContent: 'space-evenly',
-  },
+
   container: {
-    height: '55%',
     justifyContent: 'center',
     alignItems: 'center',
+    marginVertical: 20,
+  },
+  loginContainer: {
+    flex: 1,
+    alignItems: 'center',
+    width: '100%',
     gap: 10,
+    paddingBottom: 10,
   },
   button: {
     padding: 10,
@@ -170,9 +175,14 @@ const styles = StyleSheet.create({
     fontSize: 14,
     marginTop: 10,
   },
+  loginIconContainer: {
+    width: '100%',
+    height: 140,
+    marginVertical: 20
+  },
   loginIcon: {
     alignSelf: 'center',
-    width: '45%',
-    height: '20%',
+    width: 150,
+    height: 125,
   }
 });

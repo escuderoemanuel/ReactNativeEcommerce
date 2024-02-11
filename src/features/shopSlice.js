@@ -30,7 +30,6 @@ export const shopSlice = createSlice({
     },
     setCategoryThumbnails: (state, action) => {
       state.categoryThumbnails = action.payload
-      console.log('CATEGORYTHUMBNAIL EN SHOPSLICE:', state.categoryThumbnails) //!
     }
   }
 })

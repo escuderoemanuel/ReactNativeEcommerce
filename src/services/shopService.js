@@ -17,13 +17,6 @@ export const shopApi = createApi({
     }),
     getCategoryThumbnails: builder.query({
       query: () => `categoryThumbnails.json`,
-      /* transformResponse: (response) => {
-        console.log('response', response)
-        return response.map(item => ({
-          ...item,
-          image: BASE_URL + item.thumbnail
-        }))
-      } */
     })
   })
 })

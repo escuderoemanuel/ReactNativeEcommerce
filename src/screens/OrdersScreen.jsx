@@ -66,7 +66,10 @@ const OrdersScreen = () => {
         isLoading ?
           <Spinner />
           : localOrders.length === 0 ?
-            <Text style={styles.emptyOrdersText}>There are no order in your order list!</Text>
+            <View style={styles.emptyOrdersContainer}>
+              <Text style={styles.emptyOrdersIcon}>⚠️</Text>
+              <Text style={styles.emptyOrdersText}>There are no order in your order list!</Text>
+            </View>
             : <FlatList
               data={localOrders}
               renderItem={renderOrderItem}
@@ -150,12 +153,21 @@ const styles = StyleSheet.create({
   modalText: {
     textAlign: 'left',
   },
-  emptyOrdersText: {
+  emptyOrdersContainer: {
     flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  emptyOrdersIcon: {
+    fontSize: 50,
+    fontWeight: 'bold',
+    textAlign: 'center',
+
+  },
+  emptyOrdersText: {
     fontSize: 20,
     fontWeight: 'bold',
     textAlign: 'center',
     color: colors.textLight,
-    marginVertical: '50%',
   }
 });

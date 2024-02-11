@@ -1,5 +1,5 @@
 import Input from '../components/Input/Input'
-import { Image, StyleSheet, Text, View, TouchableOpacity, KeyboardAvoidingView } from 'react-native'
+import { Image, StyleSheet, Text, View, TouchableOpacity, ScrollView } from 'react-native'
 import { colors } from '../global/colors'
 import { useEffect, useState } from 'react'
 import { useSignUpMutation } from '../services/authService'
@@ -51,55 +51,62 @@ const SignupScreen = ({ navigation }) => {
   return (
     <BackgroundGradient>
 
-      <View style={styles.signupContainer}>
-        <Image source={login} style={styles.loginIcon} />
+      <ScrollView>
+        <View style={styles.loginIconContainer}>
+          <Image source={login} style={styles.loginIcon} />
+        </View>
+        <View style={styles.container} behavior='height'>
+          <View style={styles.signupContainer}>
 
-        <KeyboardAvoidingView style={styles.container} behavior='height'>
-
-          <Input
-            label='Email:'
-            onChange={setEmail}
-            error={formErrors.email}
-          />
-          <Input
-            label='Password:'
-            onChange={setPassword}
-            error={formErrors.password}
-            isSecureEntry={true}
-          />
-          <Input
-            label='Confirm Password:'
-            onChange={setConfirmPassword}
-            error={formErrors.confirmPassword}
-            isSecureEntry={true}
-          />
-          <TouchableOpacity style={styles.button} onPress={onSubmit}>
-            <Text style={styles.buttonText}>SignUp</Text>
-          </TouchableOpacity>
-          <View style={styles.altContainer}>
-            <Text style={styles.subtitle}>Already have an account? </Text>
-            <TouchableOpacity onPress={() => { navigation.navigate('Login') }}>
-              <Text style={styles.subtitleLink}>Login</Text>
+            <Input
+              label='Email:'
+              onChange={setEmail}
+              error={formErrors.email}
+            />
+            <Input
+              label='Password:'
+              onChange={setPassword}
+              error={formErrors.password}
+              isSecureEntry={true}
+            />
+            <Input
+              label='Confirm Password:'
+              onChange={setConfirmPassword}
+              error={formErrors.confirmPassword}
+              isSecureEntry={true}
+            />
+            <TouchableOpacity style={styles.button} onPress={onSubmit}>
+              <Text style={styles.buttonText}>SignUp</Text>
             </TouchableOpacity>
+            <View style={styles.altContainer}>
+              <Text style={styles.subtitle}>Already have an account? </Text>
+              <TouchableOpacity onPress={() => { navigation.navigate('Login') }}>
+                <Text style={styles.subtitleLink}>Login</Text>
+              </TouchableOpacity>
+            </View>
           </View>
-        </KeyboardAvoidingView>
-      </View>
+        </View>
+      </ScrollView>
 
-    </BackgroundGradient>
+    </BackgroundGradient >
   )
 }
 
 export default SignupScreen
 
 const styles = StyleSheet.create({
-  signupContainer: {
-    flex: 1,
-    justifyContent: 'space-evenly',
-  },
   container: {
     justifyContent: 'center',
     alignItems: 'center',
+    marginVertical: 20
+  },
+  signupContainer: {
+    flex: 1,
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+    width: '100%',
     gap: 10,
+    paddingBottom: 10
   },
   title: {
     fontSize: 30,
@@ -134,9 +141,14 @@ const styles = StyleSheet.create({
     textDecorationLine: 'underline',
     textTransform: 'uppercase'
   },
+  loginIconContainer: {
+    width: '100%',
+    height: 140,
+    marginVertical: 20
+  },
   loginIcon: {
     alignSelf: 'center',
-    width: '45%',
-    height: '20%',
+    width: 150,
+    height: 125,
   }
 })

@@ -45,8 +45,8 @@ const CartScreen = ({ navigation }) => {
       <View style={styles.cartContainer}>
         {cartItems.length === 0 ? (
           <View style={styles.emptyCart}>
+            <Text style={styles.emptyCartIcon}>⚠️</Text>
             <Text style={styles.emptyCartText}>There are no products in your cart!</Text>
-            <Image source={cart} style={styles.cart} resizeMode='contain' />
 
           </View>
         ) : (
@@ -79,19 +79,23 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   emptyCart: {
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
   cart: {
     width: 250,
   },
+  emptyCartIcon: {
+    fontSize: 50,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
   emptyCartText: {
-    width: '50%',
     fontSize: 20,
     fontWeight: 'bold',
     textAlign: 'center',
     color: colors.textLight,
-    marginVertical: 50,
   },
   cartConfirm: {
     flexDirection: 'row',
