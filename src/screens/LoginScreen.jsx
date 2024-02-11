@@ -35,12 +35,11 @@ const LoginScreen = ({ navigation }) => {
       });
 
       // Validar los datos con el esquema de inicio de sesión
-      //await logInSchema.validate({ email, password }, { abortEarly: false }); //? Comentar para hardcodear user y pass
+      await logInSchema.validate({ email, password }, { abortEarly: false }); //? Comentar para hardcodear user y pass
 
       // Iniciar sesión
       setIsLoading(true);
-      //const response = await triggerLogIn({ email, password }); //? Comentar para hardcodear user y pass
-      const response = await triggerLogIn({ email: 'test@coder.com', password: '123456' }); //? Descomentar para hardcodear user y pass
+      const response = await triggerLogIn({ email, password }); //? Comentar para hardcodear user y pass
 
       // Verificar si el inicio de sesión fue sin éxito
       if (response.error) {
