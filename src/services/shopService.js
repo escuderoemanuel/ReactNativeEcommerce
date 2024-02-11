@@ -15,6 +15,16 @@ export const shopApi = createApi({
     getProductsByCategory: builder.query({
       query: (category) => `products.json?orderBy="category"&equalTo="${category}"`,
     }),
+    getCategoryThumbnails: builder.query({
+      query: () => `categoryThumbnails.json`,
+      /* transformResponse: (response) => {
+        console.log('response', response)
+        return response.map(item => ({
+          ...item,
+          image: BASE_URL + item.thumbnail
+        }))
+      } */
+    })
   })
 })
 
@@ -22,4 +32,5 @@ export const {
   useGetCategoriesQuery,
   useGetProductsQuery,
   useGetProductsByCategoryQuery,
+  useGetCategoryThumbnailsQuery
 } = shopApi

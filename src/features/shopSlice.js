@@ -8,7 +8,8 @@ export const shopSlice = createSlice({
     productSelected: {},
     categories: [],
     products: [],
-    productsFilteredByCategory: []
+    productsFilteredByCategory: [],
+    categoryThumbnails: []
   },
   reducers: {
     setCategorySelected: (state, action) => {
@@ -26,10 +27,14 @@ export const shopSlice = createSlice({
     },
     setCategories: (state, action) => {
       state.category = action.payload
+    },
+    setCategoryThumbnails: (state, action) => {
+      state.categoryThumbnails = action.payload
+      console.log('CATEGORYTHUMBNAIL EN SHOPSLICE:', state.categoryThumbnails) //!
     }
   }
 })
 
-export const { setCategorySelected, setProductIdSelected, setProductSelected, setProducts, setCategories } = shopSlice.actions
+export const { setCategorySelected, setProductIdSelected, setProductSelected, setProducts, setCategories, setCategoryThumbnails } = shopSlice.actions
 
 export default shopSlice.reducer

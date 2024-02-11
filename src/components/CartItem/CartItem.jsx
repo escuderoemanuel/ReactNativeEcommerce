@@ -49,6 +49,8 @@ export default CartItem
 const styles = StyleSheet.create({
   cartItemContainer: {
     backgroundColor: colors.shadow,
+    borderRadius: 12,
+
   },
   itemContainer: {
     width: '100%',
@@ -63,10 +65,8 @@ const styles = StyleSheet.create({
     width: '50%',
   },
   imageCartItem: {
-
     height: 100,
     width: '30%',
-    borderRadius: 5,
   },
   trashCart: {
     width: 25,

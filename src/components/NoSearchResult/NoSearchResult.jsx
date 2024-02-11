@@ -4,6 +4,7 @@ import { colors } from '../../global/colors'
 export default function NoSearchResult() {
   return (
     <View style={styles.container}>
+      <Text style={styles.containerIcon}>⚠️</Text>
       <Text style={styles.containerText}>No products found!</Text>
     </View>
   )
@@ -17,6 +18,10 @@ const styles = StyleSheet.create({
   },
   containerText: {
     fontSize: 20,
-    color: colors.paleGoldenRod
+    fontWeight: 'bold',
+    color: colors.textLight
+  },
+  containerIcon: {
+    fontSize: 50,
   }
 })
