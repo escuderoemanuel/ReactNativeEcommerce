@@ -28,9 +28,11 @@ const OrdersScreen = () => {
   useEffect(() => {
     if (data) {
       const orderData = Object.values(data)
-      const localOrderData = orderData.map((order, index) => {
-        return { ...order, orderId: orderData[index].orderId }
-      })
+      const localOrderData = orderData
+        .filter(order => order.localId === localId)
+        .map((order, index) => {
+          return { ...order, orderId: orderData[index].orderId }
+        })
       setOrderData(orderData)
       setOrders(localOrderData)
       dispatch(setLocalOrders(localOrderData))
