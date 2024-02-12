@@ -86,20 +86,14 @@ __Mobile shopping application with offline synchronization and data persistence 
 - **Navigators:** _show category name or category product in the \'header\'._
 - Cart: _implement quantity substraction in firebase stock._
 - Security: _implement appropriate security tools and protocols._
-- User Profile: _edit user profile data._
-- User Profile: _change password._
-- Login Screen: _recovery password._
+- User Profile: _allow editing user data._
+- User Profile: _allow changing password._
+- Login Screen: _recovery password method._
 - Login Screen: _activate fingerprint or facial recognition unlock._
 - Pay Methods: _add real payment methods._
 - Favorite List: _add products to a favorites list or wish list._
-- LogIn / LogOut: _change these screens to another more suitable part of the application._
-- SignIn & LogIn Validation Schemes: _improve validation schemes._
+- LogIn / LogOut: _change these screens to another more suitable part of the application, maybe before paying._
+- SignUp & LogIn Validation Schemes: _improve validation schemes._
+- SignUp: _request more data to register and display some on the profile screen._
 - App Images: _add app images to the repository and to this file._
 - Search Product: _move this function to categories screen._
-
-
-
-# Falta Terminar
-
-- Mejorar Imagenes
-
