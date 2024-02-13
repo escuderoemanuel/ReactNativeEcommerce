@@ -1,7 +1,7 @@
 import BackgroundGradient from '../components/BackgroundGradient/BackgroundGradient'
 import Spinner from '../components/Spinner/Spinner'
 import { colors } from '../global/colors'
-import { Text, View, FlatList, StyleSheet, Modal, Pressable } from 'react-native'
+import { Text, View, Image, FlatList, StyleSheet, Modal, Pressable, ScrollView } from 'react-native'
 import OrderItem from '../components/OrderItem/OrderItem'
 import { useGetOrdersByUserQuery } from '../services/ordersService'
 import { useState, useEffect } from 'react'
@@ -81,28 +81,41 @@ const OrdersScreen = () => {
       {
         orderSelected &&
         <Modal visible={modalVisible} transparent={true}>
-          <View style={styles.centeredView}>
-            <View style={styles.modalView}>
-              <View>
-                <Text style={styles.modalTitle}>Order Id: {orderSelected.orderId}</Text>
-                <Text style={styles.modalText}>• Price: U$D {orderSelected.total}</Text>
-                <Text style={styles.modalText}>• Date: {orderSelected.createdAt}</Text>
-                {orderSelected.cartItems?.map((item, index) => (
-                  <View key={index}>
-                    <Text style={styles.modalText}>• Name: {item.title}</Text>
-                    <Text style={styles.modalText}>• Description: {item.description}</Text>
-                    <Text style={styles.modalText}>• Quantity: {item.quantity}</Text>
+          <ScrollView>
+            <View style={styles.centeredView}>
+              <View style={styles.modalView}>
+                <View style={styles.modalDataContainer}>
+
+                  <View style={styles.modalDataHeader}>
+                    <Text style={styles.modalTitle}>Order Id: {orderSelected.orderId}</Text>
+                    <Text style={styles.modalTitle}>Total Price: U$D {orderSelected.total}</Text>
+                    <Text style={styles.modalTitle}>Date: {orderSelected.createdAt}</Text>
                   </View>
-                ))}
+
+                  {orderSelected.cartItems?.map((item, index) => (
+                    <View key={index} style={styles.orderItem}>
+
+                      <Image style={styles.orderItemImg} source={{ uri: item.thumbnail }}
+                        resizeMode="contain"
+                      />
+
+                      <View>
+                        <Text style={styles.modalText}>• Name: {item.title}</Text>
+                        <Text style={styles.modalText}>• Quantity: {item.quantity}</Text>
+                      </View>
+
+                    </View>
+                  ))}
+                </View>
+                <Pressable
+                  style={[styles.button, styles.buttonClose]}
+                  onPress={() => setModalVisible(false)}>
+                  <Text style={styles.textStyle}>Close</Text>
+                </Pressable>
               </View>
-              <Pressable
-                style={[styles.button, styles.buttonClose]}
-                onPress={() => setModalVisible(false)}>
-                <Text style={styles.textStyle}>Cerrar</Text>
-              </Pressable>
             </View>
-          </View>
-        </Modal>
+          </ScrollView >
+        </Modal >
       }
     </BackgroundGradient >
   )
@@ -115,14 +128,15 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 22,
+    marginTop: 60,
   },
   modalView: {
+    width: '95%',
     margin: 20,
     backgroundColor: 'white',
     borderRadius: 20,
     paddingVertical: 20,
-    paddingHorizontal: 30,
+    paddingHorizontal: 20,
     alignItems: 'center',
     shadowColor: colors.dark,
     shadowOffset: {
@@ -132,6 +146,10 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
+  },
+  modalDataHeader: {
+    alignItems: 'center',
+    marginBottom: 20,
   },
   button: {
     borderRadius: 8,
@@ -148,12 +166,11 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   modalTitle: {
-    marginBottom: 15,
     fontSize: 18,
     fontWeight: 'bold',
   },
   modalText: {
-    textAlign: 'left',
+    fontSize: 16,
   },
   emptyOrdersContainer: {
     flex: 1,
@@ -171,5 +188,16 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     color: colors.textLight,
+  },
+  orderItem: {
+    flexDirection: 'row',
+    gap: 20,
+    alignItems: 'center',
+    padding: 10,
+  },
+  orderItemImg: {
+    width: 50,
+    height: 50,
+    borderRadius: 10,
   }
 });

@@ -8,7 +8,7 @@ import { useDispatch } from 'react-redux';
 import { setUser } from '../features/authSlice';
 import { logInSchema } from '../validations/logInSchema';
 import BackgroundGradient from '../components/BackgroundGradient/BackgroundGradient';
-import login from '../../assets/img/login.png';
+import login from '../../assets/img/login2.png';
 import { insertSession } from '../database';
 
 

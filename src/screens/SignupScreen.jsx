@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux'
 import { setUser } from '../features/authSlice'
 import { signUpSchema } from '../validations/signUpSchema'
 import BackgroundGradient from '../components/BackgroundGradient/BackgroundGradient';
-import login from '../../assets/img/login.png';
+import login from '../../assets/img/login2.png';
 
 const SignupScreen = ({ navigation }) => {
   const [isLoading, setIsLoading] = useState(false);

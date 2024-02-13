@@ -126,6 +126,6 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
     fontSize: 14,
     fontWeight: 'bold',
-    marginBottom: 5
+    marginVertical: 10
   }
 })

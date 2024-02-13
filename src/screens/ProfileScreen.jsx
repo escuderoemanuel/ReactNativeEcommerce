@@ -2,10 +2,8 @@ import BackgroundGradient from '../components/BackgroundGradient/BackgroundGradi
 import { Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native'
 import { colors } from '../global/colors'
 import { FontAwesome } from '@expo/vector-icons';
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import LocationSelector from '../components/LocationSelector/LocationSelector'
-import { logout } from '../features/authSlice'
-import { deleteSession } from '../database'
 
 const ProfileScreen = ({ navigation }) => {
 
@@ -14,12 +12,6 @@ const ProfileScreen = ({ navigation }) => {
   const email = useSelector(state => state.authReducer.user)
   const localId = useSelector(state => state.authReducer.localId)
 
-  // Logout
-  const dispatch = useDispatch()
-  const handleLogout = () => {
-    dispatch(logout())
-    deleteSession(localId)
-  }
 
   return (
     <BackgroundGradient>
@@ -59,7 +51,7 @@ const ProfileScreen = ({ navigation }) => {
           }
 
           <View style={styles.userDataContainer}>
-            <Text style={styles.userTitle}>User</Text>
+            <Text style={styles.userTitle}>User Data</Text>
             <Text style={styles.userEmail}>{email}</Text>
           </View>
 
@@ -86,16 +78,6 @@ const ProfileScreen = ({ navigation }) => {
 
       </ScrollView>
 
-      {
-        email &&
-        <Pressable
-          onPress={handleLogout}
-          style={styles.logoutButton}
-        >
-          <Text style={styles.logoutText}>Logout</Text>
-          <Text style={styles.alertIcon} >⚠️</Text>
-        </Pressable>
-      }
     </BackgroundGradient >
   )
 }
@@ -135,7 +117,7 @@ const styles = StyleSheet.create({
     gap: 5,
   },
   userTitle: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: 'bold',
     color: colors.textLight,
     textTransform: 'uppercase',
@@ -144,11 +126,9 @@ const styles = StyleSheet.create({
 
   },
   userEmail: {
-
     fontSize: 18,
     color: colors.textLight,
     textTransform: 'lowercase',
-    fontStyle: 'italic',
   },
   userData: {
     fontWeight: 'normal',

@@ -1,9 +1,22 @@
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native'
 import { colors } from '../../global/colors'
-import home from '../../../assets/img/home.png'
+import logoutIcon from '../../../assets/img/logout.png'
 import back from '../../../assets/img/back.png'
+import { useSelector, useDispatch } from 'react-redux'
+import { deleteSession } from '../../database'
+import { logout } from '../../features/authSlice'
+
 
 const Header = ({ title, navigation }) => {
+  const localId = useSelector(state => state.authReducer.localId)
+
+  // Logout
+  const dispatch = useDispatch()
+
+  const handleLogout = () => {
+    dispatch(logout())
+    deleteSession(localId)
+  }
 
   return (
     <View style={styles.header}>
@@ -20,12 +33,10 @@ const Header = ({ title, navigation }) => {
             <Text style={styles.headerText}>{title}</Text>
 
 
-            <TouchableOpacity onPress={navigation.popToTop} style={styles.headerIcon}>
-              {
-                navigation.canGoBack() &&
-                <Image source={home} style={styles.iconHome} onPress={() => navigation.navigate('CATEGORIES')} />
-              }
+            <TouchableOpacity onPress={handleLogout} style={styles.headerIcon}>
+              <Image source={logoutIcon} style={styles.iconLogout} />
             </TouchableOpacity>
+
           </>
           :
           <Text style={styles.headerTextCenter}>{title}</Text>
@@ -53,8 +64,9 @@ const styles = StyleSheet.create({
     color: colors.textLight,
     justifyContent: 'center',
     textAlign: 'center',
+    textTransform: 'uppercase',
   },
-  iconHome: {
+  iconLogout: {
     width: 30,
     height: 30,
   },
